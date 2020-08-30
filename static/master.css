@@ -1,0 +1,143 @@
+body{
+background-color: white;
+}
+
+    #searchwidth
+    {
+    width:430px
+    }
+
+
+    .carousel1 {
+
+
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+          background-color: rgb(22, 23, 22);
+}
+.carousel1 > * {
+  -webkit-box-flex: 0;
+          flex: 0 0 auto;
+}
+.carousel1 figure {
+  margin: 0;
+  width: 40%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.carousel1 figure img {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0px;
+}
+.carousel1 figure img:not(:first-of-type) {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.carousel1 nav {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: 20px 0 0;
+}
+.carousel1 nav button {
+  -webkit-box-flex: 0;
+          flex: 0 0 auto;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #9DB4C0;
+  background: none;
+  border: 1px solid;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+}
+
+
+.carousel-cell {
+  width: 15%;
+  height: 375px;
+
+  margin-right: 10px;
+  margin-top: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+
+/*carousel ends here*/
+
+/*titles*/
+.titles{
+  color: rgb(22, 23, 22);
+  font-size: 30px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+
+
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 16px;
+  margin: -10px;
+
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #253237;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+   background-color: #5c6b73;
+}
+
+.card:hover .button {
+  background-color: #5c6b73;
+}
+
+.desp{
+  margin: 8px;
+  font-size: 12px;
+}
+
+
+.footerhead{
+font-size: 36px;
+font-family; Serif;
+color: rgb(22, 23, 22);
+}
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{ color: #fff;  }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
