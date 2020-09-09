@@ -83,7 +83,7 @@ function carousel(root) {
    </script>
 
 
-<div class="carousel1" data-gap="20">
+<div class="carousel1" data-gap="20" style=" padding-top: 50px; padding-bottom: 20px;">
 	<figure>
     <img src="{% static 'images/10.jfif' %}" alt="" height="400">
 		<img src="{% static 'images/2.jfif' %}" alt="" height="400" >
@@ -110,113 +110,98 @@ function carousel(root) {
   </div>
 
    <div style="width: 50%; float: right;  padding-left: 620px;">
-     <button type="button" class="btn btn-info" > View all</button>
+     <a href="{% url 'dynamicnav:dyna' %}" ><button type="button" class="btn btn-info" > View all</button></a>
   </div>
 
 <hr style="background-color: white; color: white;  width: 96%">
 
 <!-- Flickity HTML init -->
 <div class="carousel" data-flickity='{ "groupCells": true }' >
-  <div class="carousel-cell">
+  <div class="carousel-cell" style="height:200px;">
   	<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
+  <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px;">
   <h5 style="margin-top: 5px;">Tailored Jeans</h5>
   <p class="price" style="margin: 2px;">$19.99</p>
   <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
+
 </div>
   </div>
 
-  <div class="carousel-cell">
+  <div class="carousel-cell"  style="height:200px;">
   		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
+  <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
   <h5 style="margin-top: 5px;">Tailored Jeans</h5>
   <p class="price" style="margin: 2px;">$19.99</p>
   <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
+
 </div>
   </div>
-  <div class="carousel-cell">
+  <div class="carousel-cell" style="height: 200px;">
   		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
+  <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
   <h5 style="margin-top: 5px;">Tailored Jeans</h5>
   <p class="price" style="margin: 2px;">$19.99</p>
   <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
+
 </div>
   </div>
-  <div class="carousel-cell">
+  <div class="carousel-cell" style="height: 200px;">
   		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
+  <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
   <h5 style="margin-top: 5px;">Tailored Jeans</h5>
   <p class="price" style="margin: 2px;">$19.99</p>
   <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
+
 </div>
   </div>
-  <div class="carousel-cell">
+  <div class="carousel-cell" style="height: 200px;">
+  		<div class="card" style="background-color: white;">
+  <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
+  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+  <p class="price" style="margin: 2px;">$19.99</p>
+  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+
+</div>
+  </div>
+  <div class="carousel-cell" style="height: 200px;">
+  		<div class="card" style="background-color: white;">
+  <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
+  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+  <p class="price" style="margin: 2px;">$19.99</p>
+  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+
+</div>
+  </div>
+  <div class="carousel-cell" style="height: 200px;">
+  		<div class="card" style="background-color: white;">
+  <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
+  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+  <p class="price" style="margin: 2px;">$19.99</p>
+  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+
+</div>
+  </div>
+
+  <div class="carousel-cell" style="height: 200px;">
+  		<div class="card" style="background-color: white;">
+  <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
+  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+  <p class="price" style="margin: 2px;">$19.99</p>
+  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+
+</div>
+  </div>
+
+  <div class="carousel-cell" style="height: 324px;">
   		<div class="card" style="background-color: white">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
+  <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" style="width:100%;  height: 230px;">
   <h5 style="margin-top: 5px;">Tailored Jeans</h5>
   <p class="price" style="margin: 2px;">$19.99</p>
   <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
 </div>
   </div>
-  <div class="carousel-cell">
-  		<div class="card" style="background-color: white">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-  <p class="price" style="margin: 2px;">$19.99</p>
-  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-  </div>
-   <div class="carousel-cell">
-  		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-  <p class="price" style="margin: 2px;">$19.99</p>
-  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-  </div>
-   <div class="carousel-cell">
-  		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-  <p class="price" style="margin: 2px;">$19.99</p>
-  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-  </div>
-   <div class="carousel-cell">
-  		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-  <p class="price" style="margin: 2px;">$19.99</p>
-  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-  </div>
-   <div class="carousel-cell">
-  		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-  <p class="price" style="margin: 2px;">$19.99</p>
-  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-  </div>
-   <div class="carousel-cell">
-  		<div class="card" style="background-color: white;">
-  <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-  <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-  <p class="price" style="margin: 2px;">$19.99</p>
-  <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-  </div>
+
+
 
 </div>
 
@@ -232,7 +217,7 @@ function carousel(root) {
   </div>
 
    <div style="width: 50%; float: right;  padding-left: 620px;">
-     <button type="button" class="btn btn-info" > View all</button>
+     <a href="{% url 'photographs:Architectural' %}"><button type="button" class="btn btn-info" > View all</button></a>
   </div>
 
   <hr style="background-color: white; width: 96%">
@@ -353,7 +338,7 @@ function carousel(root) {
   </div>
 
    <div style="width: 50%; float: right;  padding-left: 620px;">
-     <button type="button" class="btn btn-info" > View all</button>
+     <a href="{% url 'forposters:corporatePosters' %}"><button type="button" class="btn btn-info" > View all</button></a>
   </div>
 
   <hr style="background-color: white; width: 96%">
@@ -476,7 +461,7 @@ function carousel(root) {
   </div>
 
    <div style="width: 50%; float: right;  padding-left: 620px;">
-     <button type="button" class="btn btn-info" > View all</button>
+     <a href="{% url 'frames:DeepSet1' %}"><button type="button" class="btn btn-info" > View all</button></a>
   </div>
 
   <hr style="background-color: white; width: 96%">

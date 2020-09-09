@@ -16,6 +16,7 @@ def pastelpaintings(request):
     pastelpainting = PastelPainting.objects.all()
     return render(request, "pastel.html", {"pastelpainting": pastelpainting})
 
+
 def inkpaintings(request):
     inkpainting = InkPainting.objects.all()
     return render(request, "ink.html", {"inkpainting": inkpainting})

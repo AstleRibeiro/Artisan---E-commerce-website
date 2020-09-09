@@ -17,12 +17,19 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from . import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('firsthello.urls')),
-    path('users/', include('accounts.urls')),
     path('dyna/', include('dynamicnav.urls')),
+    path('corporate/', include('forposters.urls')),
+    path('architectural/', include('photographs.urls')),
+    path('deepset/', include('frames.urls')),
+    path('accounts/', include('accounts.urls'), name='accounts'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('thanks/', views.Thankspage.as_view(), name='thanks'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

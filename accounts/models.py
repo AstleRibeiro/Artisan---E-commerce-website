@@ -1,12 +1,8 @@
 from django.db import models
+from django.contrib import auth
 
 
-# Create your models here.
-class User(models.Model):
-
-    first_name = models.CharField(max_length=264)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50, unique=True)
+class User(auth.models.User, auth.models.PermissionsMixin):
 
     def __str__(self):
-        return self.email
+        return "@{}".format(self.username)
