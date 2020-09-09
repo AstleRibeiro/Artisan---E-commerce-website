@@ -1,0 +1,44 @@
+{% extends "architectural.html" %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="" style="padding-top:20px; ">
+    <p style="font-size:60px; font-family: serif; text-align: center; ">Fashion photographs</p>
+    <hr style="width: 90%">
+    <div class="row">
+        {% for i in fashion %}
+
+        <div class="col-md-4">
+
+                <div class="card"
+                     style=" background-color: #e3e3e3; width:316px; height:420px; padding-bottom: 20px; margin-bottom: 30px;">
+
+                    <img src="/media/{{i.image}}" width="316" height="316" alt="">
+                    <div class="container">
+                        <div></div>
+                        <h4><b>{{i.name}}</b></h4>
+                        <p>{{i.artist}} </p>
+
+
+                        <a href="#">
+                            <button>Add to Cart</button>
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

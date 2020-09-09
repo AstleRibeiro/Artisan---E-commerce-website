@@ -1,0 +1,119 @@
+{% extends "formative.html" %}
+{% load static %}
+
+
+
+   {% block head %}
+   <head>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+    padding: 10px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+    </style>
+
+
+
+</head>
+
+{% endblock %}
+
+
+
+{% block body_block %}
+
+
+<div class="sidenav" style="margin-top:50px;">
+    <a href="{% url 'frames:DeepSet1' %}">Deep-Set</a>
+    <a href="{% url 'frames:Gallery1' %}">Gallery</a>
+    <a href="{% url 'frames:Modern1' %}">Modern</a>
+    <a href="{% url 'frames:TableTop1' %}">Table-Top</a>
+    <a href="{% url 'frames:Floating1' %}">Floating</a>
+</div>
+
+<div class="" style="padding-top:50px;  padding-left: 220px; ">
+    {% block content %}
+     <p style="font-size:60px; font-family: serif; text-align: center; ">Deep-Set Frames</p>
+    <hr style="width: 90%">
+    {% endblock %}
+    <div class="row">
+        {% for i in deepset %}
+        <div class="col-md-4">
+
+
+                <div class="card"
+                     style=" background-color: #e3e3e3; width:316px; height:420px; padding-bottom: 20px; margin-bottom: 30px;">
+
+                    <img src="/media/{{i.image}}" width="316" height="316" alt="">
+                    <div class="container">
+                        <div></div>
+                        <h4><b>{{i.name}}</b></h4>
+                        <p>{{i.artist}} </p>
+
+
+                        <a href="#">
+                            <button>Add to Cart</button>
+                        </a>
+                    </div>
+
+                </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+
