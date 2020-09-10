@@ -2,7 +2,7 @@ from django.db import models
 
 
 class AbstractPainting(models.Model):
-    painting_id = models.AutoField(primary_key=True)
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -13,6 +13,7 @@ class AbstractPainting(models.Model):
 
 
 class AcrylicPainting(models.Model):
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -23,6 +24,7 @@ class AcrylicPainting(models.Model):
 
 
 class PastelPainting(models.Model):
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -33,6 +35,7 @@ class PastelPainting(models.Model):
 
 
 class InkPainting(models.Model):
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)

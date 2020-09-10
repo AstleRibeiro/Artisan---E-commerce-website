@@ -23,7 +23,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('firsthello.urls')),
-    path('dyna/', include('dynamicnav.urls')),
+    path('dyna/', include('dynamicnav.urls'), name='dyna'),
     path('corporate/', include('forposters.urls')),
     path('architectural/', include('photographs.urls')),
     path('deepset/', include('frames.urls')),

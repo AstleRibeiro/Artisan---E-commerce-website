@@ -20,3 +20,8 @@ def pastelpaintings(request):
 def inkpaintings(request):
     inkpainting = InkPainting.objects.all()
     return render(request, "ink.html", {"inkpainting": inkpainting})
+
+
+def abstract_description(request, id):
+    painting = AbstractPainting.objects.filter(painting_id=id).first()
+    return render(request, "main_description.html", {"painting": painting})
