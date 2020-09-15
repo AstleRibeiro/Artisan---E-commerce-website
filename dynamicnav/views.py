@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import AbstractPainting, AcrylicPainting, PastelPainting, InkPainting
+from .models import AbstractPainting, WildlifePainting, PastelPainting, InkPainting
 
 
 def dyna(request):
@@ -7,9 +7,9 @@ def dyna(request):
     return render(request, "base.html", {"painting": painting})
 
 
-def acrylicpaintings(request):
-    acrylicpainting = AcrylicPainting.objects.all()
-    return render(request, "acrylic.html", {"acrylicpainting": acrylicpainting})
+def wildlifepaintings(request):
+    wildlifepainting = WildlifePainting.objects.all()
+    return render(request, "acrylic.html", {"wildlifepainting": wildlifepainting})
 
 
 def pastelpaintings(request):
@@ -25,3 +25,8 @@ def inkpaintings(request):
 def abstract_description(request, id):
     painting = AbstractPainting.objects.filter(painting_id=id).first()
     return render(request, "main_description.html", {"painting": painting})
+
+def wildlife_description(request, id):
+    wildlifepainting = WildlifePainting.objects.filter(painting_id=id).first()
+    return render(request, "wildlife_description.html", {"wildlifepainting": wildlifepainting})
+
