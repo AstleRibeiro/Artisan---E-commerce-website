@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'forposters',
     'photographs',
     'frames',
+    'add_to_cart',
 ]
 
 MIDDLEWARE = [

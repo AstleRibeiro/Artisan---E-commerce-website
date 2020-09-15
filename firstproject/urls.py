@@ -23,11 +23,12 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('firsthello.urls')),
-    path('dyna/', include('dynamicnav.urls'), name='dyna'),
+    path('dyna/', include('dynamicnav.urls', namespace='dyna')),
     path('corporate/', include('forposters.urls')),
     path('architectural/', include('photographs.urls')),
     path('deepset/', include('frames.urls')),
-    path('accounts/', include('accounts.urls'), name='accounts'),
+    path('add_to_cart/', include('add_to_cart.urls', namespace='add_to_cart')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('thanks/', views.Thankspage.as_view(), name='thanks'),
 

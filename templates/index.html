@@ -88,7 +88,9 @@ function myFunction() {
   icon: "success",
   button: "Aww yiss!",
   timer: 4000,
-});
+}).then( () => {
+    location.reload();
+     });
 
 }
    </script>
@@ -604,12 +606,9 @@ function myFunction() {
 
         <p style="font-size: 20px; font-family; Serif; color: rgb(22, 23, 22);">Drop in your query and we'll get back to you</p>
 
-    <form class="form-horizontal"  style="width: 50%;" method="post" onsubmit="myFunction()">
-        {{form.as_p}}
-      {% csrf_token %}
 
-        <button type="submit" class="btn btn-danger">Submit</button>
-    </form>
+        <button type="submit" class="btn btn-danger" onclick="myFunction()">Submit</button>
+
 
     </div>
   </div>

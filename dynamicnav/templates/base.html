@@ -164,7 +164,19 @@ body {
 
 
 
+
+
     </style>
+    {% if message %}
+    <script>
+        swal({
+  title: "{{message}}",
+  timer: 2000,
+  });
+
+
+    </script>
+    {% endif %}
 
 
 </head>
@@ -209,16 +221,17 @@ body {
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="items cart">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <a href="/dyna/abstract_description/{{i.painting_id}}">
-                                            <button class="btn btn-danger btn-sm">Add to Cart</button>
-                                        </a>
+                                        <form action="/add_to_cart/add_to_cart/" method="POST">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="i_id" value="{{painting.painting_id}}">
+                                            <button class="btn btn-danger btn-sm" type="submit">Add to Cart</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="items cart">
                                         <i class="fa fa-shopping-cart"></i>
-                                        <a href="/dyna/abstract_description/{{i.painting_id}}">
+                                        <a href="/add_to_cart/add_to_cart/">
                                             <button class="btn btn-danger btn-sm">Buy Now</button>
                                         </a>
                                     </div>

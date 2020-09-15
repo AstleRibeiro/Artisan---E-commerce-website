@@ -53,12 +53,3 @@ class InkPainting(models.Model):
         return self.name
 
 
-class Cart(models.Model):
-    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    name = models.CharField(max_length=2000)
-    price = models.IntegerField(blank=True, null=True)
-    cancelled_price = models.IntegerField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
