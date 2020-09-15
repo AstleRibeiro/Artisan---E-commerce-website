@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_block %}
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <img src="/media/{{wildlifepainting.image}}" alt="" width="650px" height="540px" class="img-fluid"
+             style="padding-left: 20px;">
+        <br>
+        <br>
+        <button type="button" class="btn btn-default btn-lg btn-block" style="width:96%; margin-left:20px;"><span class="glyphicon glyphicon-info-sign"></span> For more information on this product and our services please click here</button>
+
+    </div>
+    <div class="col-md-6">
+        <p style="font-size: 60px;">{{wildlifepainting.name}}</p>
+        <h4> ARTIST: {{wildlifepainting.artist}}</h4>
+        <hr>
+        <p style="font-size: 18px;">MRP: &#8377;{{wildlifepainting.cancelled_price}} </p>
+        <p style="font-size: 20px;">Our price:<span
+                style="color:tomato; font-size: 20px;"> &#8377;{{wildlifepainting.price}}</span></p>
+        <br>
+        <button type="button" class="btn btn-danger btn-lg btn-block">Buy Now</button>
+        <button type="button" class="btn btn-default btn-lg btn-block">Add to cart</button>
+
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="border-radius: 10px 30px 10px 5px; background: DodgerBlue;">
+                    <p style="font-size: 25px; color: white; padding-left: 20px">Description</p>
+                </div>
+                <br>
+                <p style="font-size: 16px;">{{wildlifepainting.description}}</p>
+            </div>
+            <div class="col-md-6">
+                <div style="border-radius: 30px 10px 5px 10px; background: DodgerBlue;">
+                    <p style="font-size: 25px; color: white; padding-left: 30px">Specifications</p>
+                </div>
+                <br>
+                <p style="font-size: 16px;">{{wildlifepainting.specifications}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
