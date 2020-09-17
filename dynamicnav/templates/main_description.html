@@ -21,8 +21,14 @@
         <p style="font-size: 20px;">Our price:<span
                 style="color:tomato; font-size: 20px;"> &#8377;{{painting.price}}</span></p>
         <br>
-        <button type="button" class="btn btn-danger btn-lg btn-block">Buy Now</button>
-        <button type="button" class="btn btn-default btn-lg btn-block">Add to cart</button>
+        <div>
+             <form action="/add_to_cart/add_to_cart/" method="POST">
+                 {% csrf_token %}
+                 <input type="hidden" name="i_id" value="{{i.painting_id}}">
+                 <button  type="button" class="btn btn-danger btn-lg btn-block" type="submit">Add to Cart</button>
+             </form>
+        </div>
+        <button type="button" class="btn btn-default btn-lg btn-block">Buy Now</button>
 
         <br>
         <div class="row">

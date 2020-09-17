@@ -46,20 +46,8 @@ INSTALLED_APPS = [
     'photographs',
     'frames',
     'add_to_cart',
-
-    'django.contrib.sites',
-    # 'social_app',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.google'
-
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -32,7 +32,7 @@
 
 </head>
 {% endblock %}
-<body style="background-color:white;">
+<body style="background-color:#fffae8;">
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -48,7 +48,7 @@
         </div>
 
 
-        <li class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'firsthello:home' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -153,6 +153,7 @@
             </ul>
             {% endif %}
         </div><!-- /.navbar-collapse -->
+    </div>
 </nav>
 
 

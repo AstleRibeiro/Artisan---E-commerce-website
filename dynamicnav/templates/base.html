@@ -162,22 +162,16 @@ body {
 }
 
 
-
-
-
-
     </style>
     {% if message %}
 <script>
+ function submitClick( )
 
+  {
 
-        swal({
-  title: "{{message}}",
+  alert("Thank you for your time! Your details have been submitted!");
 
-
-
-  });
-
+  }
 
 </script>
     {% endif %}
@@ -224,15 +218,11 @@ body {
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="items cart">
-
                                             <form action="/add_to_cart/add_to_cart/" method="POST">
                                             {% csrf_token %}
-                                            <input type="hidden" name="i_id" value="{{i.painting_id}}">
-                                            <button  class="btn btn-danger btn-sm" type="submit">Add to Cart</button>
+                                            <input type="hidden" name="i_id" value="{{i.painting_id}}" >
+                                            <button onclick="swal({ title: 'Item added to your cart!', timer: 1000, showConfirmButton: false,});return false"><button  class="btn btn-danger btn-sm" type="submit">Add to Cart</button></button>
                                         </form>
-
-
-
                                     </div>
                                 </div>
                                 <div class="col-md-7">
