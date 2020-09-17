@@ -26,7 +26,7 @@ def abstract_description(request, id):
     painting = AbstractPainting.objects.filter(painting_id=id).first()
     return render(request, "main_description.html", {"painting": painting})
 
+
 def wildlife_description(request, id):
     wildlifepainting = WildlifePainting.objects.filter(painting_id=id).first()
     return render(request, "wildlife_description.html", {"wildlifepainting": wildlifepainting})
-

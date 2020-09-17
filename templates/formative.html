@@ -47,7 +47,7 @@
             <a class="navbar-brand" href="{% url 'firsthello:home' %}" style="padding-right: 20px;">The Painter</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+
         <li class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'firsthello:home' %}">Home <span class="sr-only">(current)</span></a>
@@ -125,7 +125,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li><a href="#"><span class="glyphicon glyphicon-bookmark"></span> WishList</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="{% url 'add_to_cart:add_to_cart' %}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 
 
                 <li class="nav-item dropdown">

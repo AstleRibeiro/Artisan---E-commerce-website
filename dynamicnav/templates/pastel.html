@@ -4,7 +4,17 @@
 {% load static %}
 
 
-{% block content %}
+{% block body_block %}
+
+
+
+
+<div class="sidenav" style="margin-top:50px;">
+    <a href="{% url 'dynamicnav:dyna' %}">Abstract</a>
+    <a href="{% url 'dynamicnav:wildlifepaintings' %}">Wildlife</a>
+    <a href="{% url 'dynamicnav:pastelpaintings' %}">Pastel</a>
+    <a href="{% url 'dynamicnav:inkpaintings' %}">Ink</a>
+</div>
 
 <div class="" style="padding-top:20px; ">
     <p style="font-size:60px; font-family: serif; text-align: center; ">Pastel Paintings</p>

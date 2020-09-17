@@ -168,14 +168,18 @@ body {
 
     </style>
     {% if message %}
-    <script>
+<script>
+
+
         swal({
   title: "{{message}}",
-  timer: 2000,
+
+
+
   });
 
 
-    </script>
+</script>
     {% endif %}
 
 
@@ -195,10 +199,9 @@ body {
 </div>
 
 <div class="" style="padding-top:50px;  padding-left: 200px;  padding-right: 20px; ">
-    {% block content %}
     <p style="font-size:60px; font-family: serif; text-align: center; ">Abstract Paintings</p>
     <hr style="width: 90%">
-    {% endblock %}
+
     <div class="row">
         {% for i in painting %}
         <div class="col-md-3">
@@ -221,19 +224,23 @@ body {
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="items cart">
-                                        <form action="/add_to_cart/add_to_cart/" method="POST">
+
+                                            <form action="/add_to_cart/add_to_cart/" method="POST">
                                             {% csrf_token %}
-                                            <input type="hidden" name="i_id" value="{{painting.painting_id}}">
-                                            <button class="btn btn-danger btn-sm" type="submit">Add to Cart</button>
+                                            <input type="hidden" name="i_id" value="{{i.painting_id}}">
+                                            <button  class="btn btn-danger btn-sm" type="submit">Add to Cart</button>
                                         </form>
+
+
+
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="items cart">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <a href="/add_to_cart/add_to_cart/">
+
+
                                             <button class="btn btn-danger btn-sm">Buy Now</button>
-                                        </a>
+
                                     </div>
                                 </div>
                             </div>
