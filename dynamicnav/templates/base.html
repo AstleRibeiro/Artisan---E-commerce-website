@@ -163,18 +163,21 @@ body {
 
 
     </style>
-    {% if message %}
 <script>
- function submitClick( )
+ function submitClick() {
+ swal({
+  title: 'Item added to your cart!',
+  timer: 1000,
+  showConfirmButton: false,
 
-  {
-
-  alert("Thank you for your time! Your details have been submitted!");
-
-  }
+}).then(function(isConfirm){
+                if(isConfirm){
+                        form.submit();
+                }
+  });
+}
 
 </script>
-    {% endif %}
 
 
 </head>
@@ -218,10 +221,10 @@ body {
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="items cart">
-                                            <form action="/add_to_cart/add_to_cart/" method="POST">
+                                            <form action="/add_to_cart/add_to_cart/" method="POST" >
                                             {% csrf_token %}
                                             <input type="hidden" name="i_id" value="{{i.painting_id}}" >
-                                            <button onclick="swal({ title: 'Item added to your cart!', timer: 1000, showConfirmButton: false,});return false"><button  class="btn btn-danger btn-sm" type="submit">Add to Cart</button></button>
+                                            <button onclick="submitClick()" class="btn btn-danger btn-sm">Add to Cart</button>
                                         </form>
                                     </div>
                                 </div>
