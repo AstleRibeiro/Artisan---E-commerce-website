@@ -83,28 +83,61 @@ function carousel(root) {
 
 </script>
 <style>
-   .left{
-  width:50%;
-  padding: 2em;
-  height:20em;
-  float:left;
-  background-image: url("/static/images/aboutus.jpg");
-  background-repeat: no-repeat;
-  background-color: #333333;
-  background-size: 42%;
+
+
+.imgsty{
+width:200px;
+height: 200px;
+padding-top:1px;
 }
-.right{
-  width:50%;
-  height:20em;
-  padding: 2em;
-  float:left;
-  background-image: url("/static/images/contactus.jpg");
-  background-repeat: no-repeat;
-  background-color: #333333;
-  background-size: 45%;
+
+.namesty{
+margin-top: 5px;
+font-family: 'Poppins', sans-serif;
+color: #fffae8;
 }
-.clear{
-  clear:both;
+
+.price {
+  color: grey;
+  font-size: 16px;
+  margin: -5px;
+  margin: 2px;
+}
+
+.desp{
+  margin: 8px;
+  font-family: Poppins, sans-serif;
+  color: #fffae8;
+  font-size: 10px;
+  margin: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  text-align: center;
+  background-color: rgb(22, 23, 22)
+}
+
+.btn-grad2 {
+background: linear-gradient(90deg,#232526 0%, #414345 100%);
+display: block;
+  height: 45px;
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  border: 0px
+
+
+body {
+  background: #e7e8e9;
+  padding: 40px;
 }
 
 </style>
@@ -127,18 +160,22 @@ function carousel(root) {
     </nav>
 </div>
 <br>
+
+<br>
 <br>
 
+
 <div class="paddingpage">
+
     <!-- Flickity HTML init -->
 
     <div style="width: 50%; float: left; padding-left: 50px;">
-        <p class="titles">Paintings</p>
+        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Paintings</p>
     </div>
 
-    <div style="width: 50%; float: right;  padding-left: 560px;">
+    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
         <a href="{% url 'dynamicnav:dyna' %}">
-            <button type="button" class="btn btn-info"> View all</button>
+            <button class="btn-grad2">Click here</button>
         </a>
     </div>
 
@@ -146,87 +183,87 @@ function carousel(root) {
 
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "groupCells": true }'>
-        <div class="carousel-cell" style="height:200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px;">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
+
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Kazimir Malevich</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Dynamic Suprematism</p>
+            </div>
+        </div>
+
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Tailored Jeans</h5>
+                <p class="price">$19.99</p>
                 <p class="desp">Some text about the jeans. Super slim jeansum.</p>
 
             </div>
         </div>
-
-        <div class="carousel-cell" style="height:200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell" style="height: 200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Alpha Phi</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
 
             </div>
         </div>
-        <div class="carousel-cell" style="height: 200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Yellow Islands</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+                <p class="desp">Artist: Jackson Pollock</p>
 
             </div>
         </div>
-        <div class="carousel-cell" style="height: 200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+        <div class="carousel-cell">
+            <div class="card" >
+                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Color Strokes</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+                <p class="desp">Artist: Rachana Sansadh</p>
 
             </div>
         </div>
-        <div class="carousel-cell" style="height: 200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+        <div class="carousel-cell">
+            <div class="card" >
+                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">The Times Of Abstract</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+                <p class="desp">Artist: Cassian Ribeiro</p>
 
             </div>
         </div>
-        <div class="carousel-cell" style="height: 200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+        <div class="carousel-cell" >
+            <div class="card">
+                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Counter-Composition</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+                <p class="desp">Artist: Community Artists Group</p>
 
             </div>
         </div>
 
-        <div class="carousel-cell" style="height: 200px;">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" style="width:100%; height: 230px; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Banya</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Victor Vasarely</p>
 
             </div>
         </div>
 
-        <div class="carousel-cell" style="height: 324px;">
-            <div class="card" style="background-color: white">
-                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" style="width:100%;  height: 230px;">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Hyena Stomp</h5>
+                <p class="price" >$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
             </div>
         </div>
 
@@ -239,12 +276,12 @@ function carousel(root) {
 
 
     <div style="width: 50%; float: left; padding-left: 50px; ">
-        <p class="titles">Photographs</p>
+        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Photographs</p>
     </div>
 
-    <div style="width: 50%; float: right;  padding-left: 560px;">
+    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
         <a href="{% url 'photographs:Architectural' %}">
-            <button type="button" class="btn btn-info"> View all</button>
+            <button class="btn-grad2">Click here</button>
         </a>
     </div>
 
@@ -252,127 +289,90 @@ function carousel(root) {
 
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "groupCells": true }'>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color:white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
+            <div class="card">
+                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Kazimir Malevich</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Dynamic Suprematism</p>
+            </div>
+        </div>
+
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Tailored Jeans</h5>
+                <p class="price">$19.99</p>
                 <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Alpha Phi</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card">
+                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Yellow Islands</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Jackson Pollock</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card" >
+                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Color Strokes</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Rachana Sansadh</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card" >
+                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">The Times Of Abstract</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Cassian Ribeiro</p>
+
             </div>
         </div>
+        <div class="carousel-cell" >
+            <div class="card">
+                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Counter-Composition</h5>
+                <p class="price" style="margin: 2px;">$19.99</p>
+                <p class="desp">Artist: Community Artists Group</p>
+
+            </div>
+        </div>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Banya</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Victor Vasarely</p>
+
             </div>
         </div>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Hyena Stomp</h5>
+                <p class="price" >$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
             </div>
         </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
+
 
     </div>
 
@@ -382,12 +382,12 @@ function carousel(root) {
 
 
     <div style="width: 50%; float: left; padding-left: 50px;">
-        <p class="titles">Posters</p>
+        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Posters</p>
     </div>
 
-    <div style="width: 50%; float: right;  padding-left: 560px;">
+    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
         <a href="{% url 'forposters:corporatePosters' %}">
-            <button type="button" class="btn btn-info"> View all</button>
+             <button class="btn-grad2">Click here</button>
         </a>
     </div>
 
@@ -395,127 +395,90 @@ function carousel(root) {
 
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "groupCells": true }'>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
+            <div class="card">
+                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Kazimir Malevich</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Dynamic Suprematism</p>
+            </div>
+        </div>
+
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Tailored Jeans</h5>
+                <p class="price">$19.99</p>
                 <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Alpha Phi</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card">
+                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Yellow Islands</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Jackson Pollock</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color:white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card" >
+                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Color Strokes</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Rachana Sansadh</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card" >
+                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">The Times Of Abstract</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Cassian Ribeiro</p>
+
             </div>
         </div>
+        <div class="carousel-cell" >
+            <div class="card">
+                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Counter-Composition</h5>
+                <p class="price" style="margin: 2px;">$19.99</p>
+                <p class="desp">Artist: Community Artists Group</p>
+
+            </div>
+        </div>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Banya</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Victor Vasarely</p>
+
             </div>
         </div>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Hyena Stomp</h5>
+                <p class="price" >$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
             </div>
         </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
+
 
     </div>
 
@@ -526,12 +489,12 @@ function carousel(root) {
 
 
     <div style="width: 50%; float: left; padding-left: 50px;">
-        <p class="titles">Frames</p>
+        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Frames</p>
     </div>
 
-    <div style="width: 50%; float: right;  padding-left: 560px;">
+    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
         <a href="{% url 'frames:DeepSet1' %}">
-            <button type="button" class="btn btn-info"> View all</button>
+             <button class="btn-grad2">Click here</button>
         </a>
     </div>
 
@@ -539,164 +502,96 @@ function carousel(root) {
 
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "groupCells": true }'>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
+            <div class="card">
+                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Kazimir Malevich</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Dynamic Suprematism</p>
+            </div>
+        </div>
+
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Tailored Jeans</h5>
+                <p class="price">$19.99</p>
                 <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Alpha Phi</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color:white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card">
+                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Yellow Islands</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Jackson Pollock</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color:white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card" >
+                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Color Strokes</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Rachana Sansadh</p>
+
             </div>
         </div>
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
+            <div class="card" >
+                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">The Times Of Abstract</h5>
                 <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+                <p class="desp">Artist: Cassian Ribeiro</p>
+
             </div>
         </div>
+        <div class="carousel-cell" >
+            <div class="card">
+                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Counter-Composition</h5>
+                <p class="price" style="margin: 2px;">$19.99</p>
+                <p class="desp">Artist: Community Artists Group</p>
+
+            </div>
+        </div>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Banya</h5>
+                <p class="price">$19.99</p>
+                <p class="desp">Artist: Victor Vasarely</p>
+
             </div>
         </div>
+
         <div class="carousel-cell">
-            <div class="card" style="background-color:white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
+            <div class="card">
+                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
+                <h5 class="namesty">Hyena Stomp</h5>
+                <p class="price" >$19.99</p>
+                <p class="desp">Artist: Jackson Pollock</p>
             </div>
         </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color: white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color:white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" style="background-color:white;">
-                <img src="{% static 'images/two.jpg' %}" alt="Denim Jeans" style="width:100%; ">
-                <h5 style="margin-top: 5px;">Tailored Jeans</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-                <p>
-                    <button>Add to Cart</button>
-                </p>
-            </div>
-        </div>
+
 
     </div>
     <br>
     <br>
     <br>
-    <div>
-        <div class="left">
-            <div style="margin-left: 21em; color: #faece1">
-                At THE ART WORLD we, Astle, Shania & Yvonne, aim to be inclusive places—both onsite and online—where
-                diverse cultural, artistic, social, and political positions are welcome. We’re committed to sharing the
-                most thought-provoking modern and contemporary art, and hope you will join us in exploring the art,
-                ideas, and issues of our time. Our Purpose & Beliefs are the foundations of our shared culture. It
-                unites us and inspires Us.
-            </div>
-            <div class="clear"></div>
-        </div>
 
-
-        <div class="right">
-            <div style="margin-left: 20.5em; color: #faece1">
-                <p style="font-size: 17px; font-family:Serif; margin-left: 20px;">Write to us:</p>
-                <p style="font-size: 14px; font-family:Serif; margin-left: 20px; color: #e0e0de"><span
-                        class="glyphicon glyphicon-envelope" aria-hidden="true" style="padding-right: 20px;"></span>frieshania@gmail.com
-                </p>
-                <p style="font-size: 17px; font-family:Serif; margin-left: 20px;">Customer Support Number:</p>
-                <p style="font-size: 14px; font-family:Serif; margin-left: 20px; color: #e0e0de"><span
-                        class="glyphicon glyphicon-phone" aria-hidden="true" style="padding-right: 20px;"></span>91+
-                    7738973289</p>
-                <p style="font-size: 17px; font-family:Serif; margin-left: 20px;">Postal Address:</p>
-                <p style="font-size: 14px; font-family:Serif; margin-left: 20px; color: #e0e0de"><span
-                        class="glyphicon glyphicon-globe" aria-hidden="true" style="padding-right: 20px;"></span>Kohinoor
-                    Corner, Kohinoor Corner, Svs Road, Prabhadevi, Mumbai</p>
-
-
-            </div>
-        </div>
-    </div>
 
     <footer class="page-footer font-small special-color-dark pt-4" style="background: black">
 

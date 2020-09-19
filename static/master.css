@@ -82,26 +82,10 @@ background-color: white;
 /*carousel ends here*/
 
 /*titles*/
-.titles{
-  color: rgb(22, 23, 22);
-  font-size: 30px;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
 
 
-  text-align: center;
-  font-family: arial;
-}
 
-.price {
-  color: grey;
-  font-size: 16px;
-  margin: -10px;
 
-}
 
 .card button {
   border: none;
@@ -123,10 +107,6 @@ background-color: white;
   background-color: #5c6b73;
 }
 
-.desp{
-  margin: 8px;
-  font-size: 12px;
-}
 
 
 .footerhead{
