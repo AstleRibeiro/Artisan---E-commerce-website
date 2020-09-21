@@ -21,7 +21,7 @@ background-color: white;
           flex-direction: column;
   -webkit-box-align: center;
           align-items: center;
-          background-color: rgb(22, 23, 22);
+          background-color: rgb(255, 255, 255);
 }
 .carousel1 > * {
   -webkit-box-flex: 0;
@@ -67,16 +67,7 @@ background-color: white;
 }
 
 
-.carousel-cell {
-  width: 15%;
-  height: 275px;
 
-  margin-right: 10px;
-  margin-top: 10px;
-  background: #8C8;
-  border-radius: 5px;
-  counter-increment: carousel-cell;
-}
 
 
 /*carousel ends here*/
@@ -107,19 +98,10 @@ background-color: white;
   background-color: #5c6b73;
 }
 
-
-
-.footerhead{
-font-size: 36px;
-font-family; Serif;
-color: rgb(22, 23, 22);
-}
-
-@media all and (min-width: 992px) {
+@media all and (min-width: 700px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }
-	.navbar .nav-item:hover .nav-link{ color: #fff;  }
 	.navbar .nav-item:hover .dropdown-menu{ display: block; }
-	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0 }
 }
 
 .dropdown-menu {

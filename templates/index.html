@@ -81,69 +81,396 @@ function carousel(root) {
 
 }
 
+
+
+
 </script>
 <style>
 
 
-.imgsty{
-width:200px;
-height: 200px;
-padding-top:1px;
+body {
+  background: white;
 }
 
-.namesty{
-margin-top: 5px;
-font-family: 'Poppins', sans-serif;
-color: #fffae8;
+.forget_pwd{
+  display:inline-block;
+  width:100%;
+  white-space:nowrap;
+  text-align:center;
+  margin-top:120px;
+  opacity:1;
 }
 
-.price {
-  color: grey;
-  font-size: 16px;
-  margin: -5px;
-  margin: 2px;
+#bar{
+  opacity:1;
+  width:65%;
+  height:43px;
+  border:0;
+  box-shadow:inset 0 0 2px 1px blackr;
+  font-size:$form-font-size;
+  padding-left:20px;
 }
 
-.desp{
-  margin: 8px;
-  font-family: Poppins, sans-serif;
-  color: #fffae8;
-  font-size: 10px;
-  margin: 10px;
+.submit{
+  background-color:#0246ad;
+  opacity:1;
+  width:20%;
+  min-width:65px;
+  border:0;
+  margin:0;
+  height:43px;
+  color:white;
+}
+
+.bg{
+
+    background: linear-gradient(rgba(5,5,5, .5),rgba(5,5,5, .5)), url(/static/images/blue.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 260px;
+}
+
+html,
+body {
+  font-family: "Kanit", sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #fcfcfc;
+}
+
+.header {
+  z-index: 99999;
+  width: 100%;
+  height: 70px;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 2px 40px 0px rgba(0, 0, 0, 0.091);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  color: #cacaca;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.body {
+  height: 100vh;
+  width: 100%;
+  padding-top: 120px;
+}
+
+.container {
+  padding-top: 20px;
+  min-height: 100vh;
+  display: grid;
+  grid-auto-rows: 400px;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, minmax(200px, 300px));
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+          align-items: stretch;
+}
+
+.carousel-cell {
+  width: 20%;
+  height: 415px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background: #0769e0;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+@media screen and (max-width: 720px) {
+  .container {
+    grid-template-columns: 1fr;
+    margin: 50px 30px;
+  }
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  text-align: center;
-  background-color: rgb(22, 23, 22)
-}
-
-.btn-grad2 {
-background: linear-gradient(90deg,#232526 0%, #414345 100%);
-display: block;
-  height: 45px;
-  width: 150px;
   position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: white;
-  font-size: 14px;
-  text-align: center;
-  border: 0px
-
-
-body {
-  background: #e7e8e9;
-  padding: 40px;
+  padding: 10px;
+  background: white;
+  display: grid;
+  grid-template-rows: 8fr 1fr 1fr;
+  box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.057);
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
 }
+.card .card-content {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  width: 100%;
+}
+.card .card-content .top-bar {
+  width: calc(100% - 40px);
+  position: absolute;
+  top: 0;
+ text-align: center;
+  padding: 20px;
+}
+
+.card .card-content .img {
+  width: 100%;
+  -webkit-box-pack: bottom;
+          justify-content: bottom;
+  align-content: bottom;
+  text-align: center;
+  padding-top: 50px;
+}
+.card .card-content .img img {
+  max-width: 100%;
+  max-height: 220px;
+}
+.card .card-description {
+  padding-top: 18px;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  width: calc(100%-20px);
+}
+.card .card-description .title {
+  text-transform: uppercase;
+  text-align: left;
+}
+.card .card-description .cart {
+  float: right;
+  cursor: pointer;
+}
+.card:hover {
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  box-shadow: 0px 45px 60px 0px rgba(0, 0, 0, 0.087);
+}
+
+
+.gradbt {
+	background-image: linear-gradient(to right,#0575E6 0%, #021B79 100%);
+	border-radius: 5px;
+  box-sizing: border-box;
+	color: #005acf;
+	display: block;
+	font: 1vw 'Oswald', Arial, sans-serif; /*18*/
+	height: 40px;
+	letter-spacing: 1px;
+	margin: 0 auto;
+	padding: 2px;
+	position: relative;
+  text-decoration: none;
+	text-transform: uppercase;
+	width: 100px;
+	z-index: 2;
+}
+
+.gradbt:hover {
+	color: #fff;
+}
+
+.gradbt span {
+	align-items: center;
+	background: white;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	transition: background .5s ease;
+	width: 100%;
+}
+
+.gradbt:hover span {
+	background: transparent;
+}
+
+
+
+
+
+.site-footer
+{
+   background: linear-gradient(180deg, #4B48ED 0%,#1A2980 100%);
+  padding:20px;
+  font-size:15px;
+  line-height:24px;
+  color:#f2f2f2;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#f2f2f2;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#f2f2f2;
+}
+.site-footer a:hover
+{
+  color:#f2f2f2;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#f2f2f2
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:3px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+
 
 </style>
 
 
-<div class="carousel1" data-gap="20" style=" padding-top: 50px; padding-bottom: 20px;">
+<div class="carousel1" data-gap="20" style=" padding-top: 80px; padding-bottom: 20px; background-color: white;">
     <figure>
         <img src="{% static 'images/10.jfif' %}" alt="" height="400">
         <img src="{% static 'images/2.jfif' %}" alt="" height="400">
@@ -161,9 +488,6 @@ body {
 </div>
 <br>
 
-<br>
-<br>
-
 
 <div class="paddingpage">
 
@@ -174,312 +498,95 @@ body {
     </div>
 
     <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
-        <a href="{% url 'dynamicnav:dyna' %}">
-            <button class="btn-grad2">Click here</button>
+        <a href="{% url 'dynamicnav:dyna' %}" class="gradbt">
+            <span>View All</span>
         </a>
     </div>
 
     <hr style="background-color: grey; width: 96%; height:1px;">
-
     <!-- Flickity HTML init -->
+<div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px;">
     <div class="carousel" data-flickity='{ "groupCells": true }'>
+        {% for i in abs_painting %}
+        <a href="/dyna/abstract_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+            <div class="carousel-cell">
+                <div class='card'>
+                    <div class='card-content'>
+                        <div class='top-bar'><span>{{i.name}}</span></div>
+                        <div class='img'>
+                            <img src="/media/{{i.image}}">
+                        </div>
+                    </div>
+                    <div class='card-description'>
+                        <div class='title'>
+                            $ {{i.price}}
+                        </div>
+                        <div class='cart'>
+                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                            <a href=""><span class='lnr lnr-heart'></span></a>
+                        </div>
 
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Kazimir Malevich</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Dynamic Suprematism</p>
+                    </div>
+                     <div class='title'>
+                             Artist: {{i.artist}}
+                     </div>
+                     <div class='title'>
+                             {{i.small_description}}
+                     </div>
+                </div>
             </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Tailored Jeans</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Alpha Phi</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Yellow Islands</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Color Strokes</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Rachana Sansadh</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">The Times Of Abstract</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Cassian Ribeiro</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell" >
-            <div class="card">
-                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Counter-Composition</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Community Artists Group</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Banya</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Victor Vasarely</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Hyena Stomp</h5>
-                <p class="price" >$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-            </div>
-        </div>
-
-
+        </a>
+        {% endfor %}
     </div>
-
+    </div>
     <br>
     <br>
+      <br>
     <br>
 
-
-    <div style="width: 50%; float: left; padding-left: 50px; ">
+    <div style="width: 50%; float: left; padding-left: 50px;">
         <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Photographs</p>
     </div>
 
     <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
-        <a href="{% url 'photographs:Architectural' %}">
-            <button class="btn-grad2">Click here</button>
+        <a href="{% url 'dynamicnav:dyna' %}" class="gradbt">
+            <span>View All</span>
         </a>
     </div>
 
     <hr style="background-color: grey; width: 96%; height:1px;">
-
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "groupCells": true }'>
+        {% for i in wild_painting %}
+        <a href="/dyna/abstract_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+            <div class="carousel-cell">
+                <div class='card'>
+                    <div class='card-content'>
+                        <div class='top-bar'><span>{{i.name}}</span></div>
+                        <div class='img'>
+                            <img src="/media/{{i.image}}">
+                        </div>
+                    </div>
+                    <div class='card-description'>
+                        <div class='title'>
+                            $ {{i.price}}
+                        </div>
+                        <div class='cart'>
+                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                            <a href=""><span class='lnr lnr-heart'></span></a>
 
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Kazimir Malevich</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Dynamic Suprematism</p>
+                        </div>
+                    </div>
+                        <div class='title'>
+                             Artist: {{i.artist}}
+                     </div>
+                     <div class='title'>
+                             {{i.small_description}}
+                     </div>
+                </div>
             </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Tailored Jeans</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Alpha Phi</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Yellow Islands</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Color Strokes</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Rachana Sansadh</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">The Times Of Abstract</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Cassian Ribeiro</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell" >
-            <div class="card">
-                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Counter-Composition</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Community Artists Group</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Banya</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Victor Vasarely</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Hyena Stomp</h5>
-                <p class="price" >$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-            </div>
-        </div>
-
-
-    </div>
-
-    <br>
-    <br>
-    <br>
-
-
-    <div style="width: 50%; float: left; padding-left: 50px;">
-        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Posters</p>
-    </div>
-
-    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
-        <a href="{% url 'forposters:corporatePosters' %}">
-             <button class="btn-grad2">Click here</button>
         </a>
-    </div>
-
-    <hr style="background-color: grey; width: 96%; height:1px;">
-
-    <!-- Flickity HTML init -->
-    <div class="carousel" data-flickity='{ "groupCells": true }'>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Kazimir Malevich</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Dynamic Suprematism</p>
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Tailored Jeans</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Alpha Phi</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Yellow Islands</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Color Strokes</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Rachana Sansadh</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">The Times Of Abstract</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Cassian Ribeiro</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell" >
-            <div class="card">
-                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Counter-Composition</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Community Artists Group</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Banya</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Victor Vasarely</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Hyena Stomp</h5>
-                <p class="price" >$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-            </div>
-        </div>
-
-
+        {% endfor %}
     </div>
 
 
@@ -487,120 +594,74 @@ body {
     <br>
     <br>
 
-
-    <div style="width: 50%; float: left; padding-left: 50px;">
-        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Frames</p>
+    <div style=" position: relative; text-align: center; color: white;" class="bg">
+        <p style="font-family: 'Merriweather Sans', sans-serif;  position: absolute; top: 10%; left: 23%; font-size: 2.3vw;">
+            THE BEST OF ARTISAN DELIVERED TO YOUR INBOX</p>
+        <p style="font-family: 'Merriweather Sans', sans-serif; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); font-size: 1vw;">
+            Sign up for more inspiring photos, stories, and special offers from The Artisan.</p>
+        <form class="forget_pwd">
+            <input type="search" id="bar" placeholder="Enter your email address">
+            <button class="submit">Subscribe</button>
+        </form>
+        <p style="font-family: 'Merriweather Sans', sans-serif; position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8vw;">
+            By signing up for this email, you are agreeing to receive news, offers, and information from National
+            Geographic Partners, LLC and our partners. Click here to visit our Privacy Policy. Easy unsubscribe links
+            are provided in every email.</p>
     </div>
 
-    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
-        <a href="{% url 'frames:DeepSet1' %}">
-             <button class="btn-grad2">Click here</button>
-        </a>
-    </div>
 
-    <hr style="background-color: grey; width: 96%; height:1px;">
-
-    <!-- Flickity HTML init -->
-    <div class="carousel" data-flickity='{ "groupCells": true }'>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint1.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Kazimir Malevich</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Dynamic Suprematism</p>
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint2.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Tailored Jeans</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Some text about the jeans. Super slim jeansum.</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint4.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Alpha Phi</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint5.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Yellow Islands</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint6.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Color Strokes</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Rachana Sansadh</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell">
-            <div class="card" >
-                <img src="{% static 'images/paint7.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">The Times Of Abstract</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Cassian Ribeiro</p>
-
-            </div>
-        </div>
-        <div class="carousel-cell" >
-            <div class="card">
-                <img src="{% static 'images/paint9.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Counter-Composition</h5>
-                <p class="price" style="margin: 2px;">$19.99</p>
-                <p class="desp">Artist: Community Artists Group</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint10.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Banya</h5>
-                <p class="price">$19.99</p>
-                <p class="desp">Artist: Victor Vasarely</p>
-
-            </div>
-        </div>
-
-        <div class="carousel-cell">
-            <div class="card">
-                <img src="{% static 'images/paint11.jpg' %}" alt="Denim Jeans" class="imgsty">
-                <h5 class="namesty">Hyena Stomp</h5>
-                <p class="price" >$19.99</p>
-                <p class="desp">Artist: Jackson Pollock</p>
-            </div>
-        </div>
-
-
-    </div>
-    <br>
-    <br>
-    <br>
-
-
-    <footer class="page-footer font-small special-color-dark pt-4" style="background: black">
-
-
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 TheArtisan.com</div>
-        <!-- Copyright -->
-
-    </footer>
 </div>
+
+<footer class="site-footer">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>About us</h6>
+                <p class="text-justify">At THE ART WORLD we, Astle, Shania & Yvonne, aim to be inclusive at both onsite
+                    and online- where diverse cultural, artistic, social, and political positions are welcome. We’re
+                    committed to sharing the most thought-provoking modern and contemporary art, and hope you will join
+                    us in exploring the art, ideas, and issues of our time. Our Purpose & Beliefs are the foundations of
+                    our shared culture. It unites us and inspires Us.</p>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Categories</h6>
+                <ul class="footer-links">
+                    <li><a href="">Abstract</a></li>
+                    <li><a href="">Wildlife</a></li>
+                    <li><a href="">Nature</a></li>
+                    <li><a href="">Movies</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Quick Links</h6>
+                <ul class="footer-links">
+                    <li><a href="{% url 'firsthello:contactus' %}">Contact Us</a></li>
+                    <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute/Feedback</a></li>
+                    <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+                    <a href="#">Artisian</a>.
+                </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="https://www.facebook.com/beartofficial"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a class="twitter" href="https://twitter.com/MuseumModernArt/status/1307072923744731138"><i
+                            class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="https://in.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+</footer>
 {% endblock %}

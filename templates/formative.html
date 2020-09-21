@@ -5,6 +5,10 @@
     {% block head %}
     <meta charset="UTF-8">
     <title>Main</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -18,23 +22,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Index</title>
+
     <link rel="stylesheet" href="{% static 'master.css' %}">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@2/dist/flickity.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
 
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .navbar{
+         box-shadow: 0 0 1px #333;
+  border-style: none;
+  background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%);
+  color: white;
+  opacity: 0.9;
+        }
+
+    </style>
 
 </head>
 {% endblock %}
-<body style="background-color:#fffae8;">
+<body style="background-color:white">
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -46,19 +62,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{% url 'firsthello:home' %}" style="padding-right: 20px;">The Artisan</a>
+            <a class="navbar-brand" href="{% url 'firsthello:home' %}"><p style="padding-right: 20px; font-family: 'Pacifico', cursive; color: white;">The Artisan</p></a>
         </div>
 
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="{% url 'firsthello:home' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
+                <li><a href="{% url 'firsthello:home' %}"><p style="color: white;">Home <span class="sr-only">(current)</span></p></a></li>
 
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">Paintings <span class="caret"></span></a>
+                    <p style="color: white; padding-top:15px; padding-right: 15px;">Paintings <span class="caret"></span></p>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'dynamicnav:dyna' %}">Abstract</a></li>
+                        <li style="text-color: white;"><a href="{% url 'dynamicnav:dyna' %}">Abstract</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{% url 'dynamicnav:wildlifepaintings' %}">Wildlife</a></li>
                         <li role="separator" class="divider"></li>
@@ -70,8 +85,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Photographs <span
-                            class="caret"></span></a>
+                    <p style="color: white; padding-top:15px; padding-right: 15px;">Photographs <span class="caret"></span></p>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'photographs:Architectural' %}">Architectural</a></li>
                         <li role="separator" class="divider"></li>
@@ -88,7 +102,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posters<span class="caret"></span></a>
+                    <p style="color: white; padding-top:15px; padding-right: 15px;">Posters<span class="caret"></span></p>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'forposters:corporatePosters' %}">Corporate</a></li>
                         <li role="separator" class="divider"></li>
@@ -101,7 +115,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Frames<span class="caret"></span></a>
+                    <p style="color: white; padding-top:15px; padding-right: 15px;">Frames<span class="caret"></span></p>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'frames:DeepSet1' %}">Deep Set</a></li>
                         <li role="separator" class="divider"></li>
@@ -126,12 +140,12 @@
             {% if user.is_authenticated %}
             <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="#"><span class="glyphicon glyphicon-bookmark"></span> WishList</a></li>
-                <li><a href="{% url 'add_to_cart:add_to_cart' %}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="#"><p style="color: white;"><span class="glyphicon glyphicon-bookmark"></span> WishList</p></a></li>
+                <li><a href="{% url 'add_to_cart:add_to_cart' %}"><p style="color: white;"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</p></a></li>
 
 
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Profile<span class="caret"></span></a>
+                    <p style="color: white; padding-top:15px; padding-right: 15px;"><span class="glyphicon glyphicon-user"></span> Profile<span class="caret"></span></p>
                     <ul class="dropdown-menu">
                         <li><a href="#">Hello,  {{ request.user }}</a></li>
                         <li role="separator" class="divider"></li>
