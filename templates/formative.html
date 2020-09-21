@@ -46,6 +46,17 @@
   opacity: 0.9;
         }
 
+        #popcart{
+            margin-top: 9px;
+            background: transparent;
+            color: white; 
+            border-style: none;
+            text-decoration: none;
+            box-shadow: none;
+            margin-right: 10px;
+            text-shadow: none;
+        }
+
     </style>
 
 </head>
@@ -141,7 +152,10 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li><a href="#"><p style="color: white;"><span class="glyphicon glyphicon-bookmark"></span> WishList</p></a></li>
-                <li><a href="{% url 'add_to_cart:add_to_cart' %}"><p style="color: white;"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</p></a></li>
+
+                <li><button id="popcart" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="">
+  <span class="glyphicon glyphicon-shopping-cart"></span> Cart (<span id="demn">0</span>) 
+</button></li>
 
 
                 <li class="nav-item dropdown">
@@ -151,7 +165,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Edit Profile</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Your Orders</a></li>
+                        <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span>  Saved Cards</a></li>
                         <li role="separator" class="divider"></li>
@@ -177,6 +191,8 @@
 
 
 {% block body_block %}
+{% endblock %}
+{% block js %}
 
 {% endblock %}
 

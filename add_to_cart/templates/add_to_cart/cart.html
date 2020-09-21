@@ -2,9 +2,11 @@
 {% load static %}
 
 {% block head %}
-<head>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,158 +19,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <meta charset="UTF-8">
-    <title></title>
+
+    <link rel="stylesheet" href="{% static 'master.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@2/dist/flickity.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        .navbar{
+         box-shadow: 0 0 1px #333;
+  border-style: none;
+  background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%);
+  color: white;
+  opacity: 0.9;
+        }
 
-.sidenav {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-    padding: 10px;
-}
-
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-body {
-   background-color: #fef5df;
-}
- .container {
-   width: 200px;
-   height: 300px;
-   top: 0;
-   right: 0;
-   left: 0;
-   bottom: 0;
-   margin-bottom: 20px;
-   margin-right: 20px
-   background-color: black;
-   background-size: cover;
-   cursor: pointer;
-   -webkit-box-shadow: 0 0 5px #000;
-   box-shadow: 0 0 5px #000;
-}
- .overlay {
-   width: 115%;
-   height: 100%;
-   margin-left: -15px;
-   padding: 0px;
-   display: grid;
-   background: rgba(13, 13, 13, .7);
-   color:  #f2f2f2;
-   opacity: 0;
-   transition: all 0.4s;
-   font-family: 'Playfair Display', serif;
-}
- .items {
-   padding-left: 20px;
-   letter-spacing: 3px;
-}
- .head {
-   margin-top: 10px;
-   font-size: 20px;
-   line-height: 20px;
-   transform: translateY(40px);
-   transition: all 0.4s;
-}
- .head hr {
-   display: block;
-   width: 0;
-   border: none;
-   border-bottom: solid 2px #fef5df;
-   bottom: 0;
-   margin: 0;
-   padding: 0;
-   left: 20px;
-   transition: all 0.4s;
-}
- .price {
-   font-size: 14px;
-   line-height: 10px;
-   font-weight: bold;
-   opacity: 0;
-   transform: translateY(40px);
-   transition: all 0.4s;
-}
- .price .old {
-   text-decoration: line-through;
-   color: #b3b3b3;
-}
- .cart {
-   font-size: 12px;
-   opacity: 0;
-   letter-spacing: 1px;
-   font-family: 'Lato', sans-serif;
-   transform: translateY(40px);
-   transition: all 0.4s;
-}
- .cart i {
-   font-size: 16px;
-}
- .cart span {
-   margin-left: 10px;
-}
- .container:hover .overlay {
-   opacity: 1;
-}
- .container:hover .overlay .head {
-   transform: translateY(0px);
-}
- .container:hover .overlay hr {
-   width: 90%;
-   transition-delay: 0.4s;
-}
- .container:hover .overlay .price {
-   transform: translateY(0px);
-   transition-delay: 0.3s;
-   opacity: 1;
-}
- .container:hover .overlay .cart {
-   transform: translateY(0px);
-   transition-delay: 0.3s;
-   opacity: 1;
-}
-
-
-
-
-
+        #popcart{
+            margin-top: 9px;
+            background: transparent;
+            color: white; 
+            border-style: none;
+            text-decoration: none;
+            box-shadow: none;
+            margin-right: 10px;
+            text-shadow: none;
+        }
 
     </style>
-
-
-</head>
 
 {% endblock %}
 
@@ -180,16 +66,114 @@ body {
 
 
 
-<div >
+<!-- <div >
 {% if painting|length < 1 %}
-    <h4 class="jumbotron" style="margin-top:50px; text-align: center; ">  ○ You have not added any product into your cart</h4>
+    <h4 class="jumbotron" style="margin-top:50px; text-align: center; " > ○ You have not added any product into your cart</h4>
+{% else %}
+
+        <h4 class="jumbotron" style="margin-top:50px; text-align: center; "> ○ Items that you have added to your cart</h4>
+
 {% endif %}
 </div>
+ -->
 
 
 
+<div class="container">
+<div class="col" style="margin-top: 100px;">
+  <h2>Step -1 </h2>
+  <div >    <ul class="list-group" id="items">
+    
+  </ul>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+  <li >Your total cart value is <b> Rs. <span id="totalPrice"> </span></b> </li>
+ 
+</ol>
+</nav>
 
-<h4 class="jumbotron" style="margin-top:50px; text-align: center; ">  ○ Items that you have added to your cart</h4>
+</div>
+
+</div>
+
+  <div class="col">
+    <h2>Step-2</h2>
+
+    <form method="post" action="/add_to_cart/add_to_cart/">
+      {% csrf_token %}
+      <input type="hidden" name="itemsJson" id="itemsJson">
+      <input type="hidden" name="amount" id="amount">
+ 
+  <div class="form-row"> 
+   <div class="form-group col-md-6">
+    <label for="inputFirstName">First Name</label>
+      <input type="text" class="form-control" id="FirstName" name="first_name" placeholder="First Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputLastName">Last Name</label>
+      <input type="text" class="form-control" id="LastName" name="last_name" placeholder="Last Name">
+    </div>
+  </div>
+
+
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+    </div>
+    
+  </div>
+  <div class="container">
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
+  </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="city" name="city">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="state" name="state" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="zip" name="zip_code">
+    </div>
+  </div>
+<div class="container">
+<div class="form-group">
+    
+     
+      <label class="inputZip">Phone Number</label>
+       <input class="form-control" type="tel" id="phone" name="phone">
+   
+  </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+  </div>
+</div>
+
+  
+
+<!-- 
 {% for i in painting %}
 <div class="row">
     <div class="col-md-2">
@@ -207,8 +191,101 @@ body {
         <h4 class="new" style="margin-top:20px;">Rs. {{i.price}}</h4>
     </div>
 </div>
-   <hr>
-{% endfor %}
+   <hr> -->
+<!-- {% endfor %}
+ -->
+
+
+
+{% endblock %}
+
+
+
+
+{% block js %}
+
+
+<script type="text/javascript">
+
+
+if(localStorage.getItem('demn') == null) {
+  var demn = {};
+
+}
+else {
+  demn = JSON.parse(localStorage.getItem('demn'));
+
+
+
+}
+
+
+console.log(demn);
+sum = 0;
+totalPrice = 0;
+if ($.isEmptyObject(demn)) {
+  mystr = `<h4> Your cart is empty </h4>`
+  $('#items').append(mystr);
+
+}
+else {
+
+
+for (item in demn) {
+
+  let name = demn[item][1];
+  let qty = demn[item][0];
+  let itemPrice = demn[item][2];
+  sum = sum + qty;
+  totalPrice = totalPrice + qty * itemPrice;
+  mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
+      ${name}
+      <span class="badge badge-primary badge-pill">${qty}</span>
+
+  </li>`
+  $('#items').append(mystr);
+
+}
+
+}  
+
+
+ document.getElementById('demn').innerHTML = sum;
+ document.getElementById('totalPrice').innerHTML = totalPrice;
+ $('#itemsJson').val(JSON.stringify(demn));
+ {% if thank %}
+ alert('Wohooo! Your order has been placed. Your order is {{id}}. Use it to track your order')
+ localStorage.clear();
+
+ document.location = "/dyna/dyna";
+
+ {% endif %}
+
+ $('#amount').val($('#totalPrice').html())
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {% endblock %}
