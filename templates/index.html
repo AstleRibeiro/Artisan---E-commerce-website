@@ -558,7 +558,57 @@ body {
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "groupCells": true }'>
         {% for i in wild_painting %}
-        <a href="/dyna/abstract_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+        <a href="/dyna/wildlife_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+            <div class="carousel-cell">
+                <div class='card'>
+                    <div class='card-content'>
+                        <div class='top-bar'><span>{{i.name}}</span></div>
+                        <div class='img'>
+                            <img src="/media/{{i.image}}">
+                        </div>
+                    </div>
+                    <div class='card-description'>
+                        <div class='title'>
+                            $ {{i.price}}
+                        </div>
+                        <div class='cart'>
+                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                            <a href=""><span class='lnr lnr-heart'></span></a>
+
+                        </div>
+                    </div>
+                        <div class='title'>
+                             Artist: {{i.artist}}
+                     </div>
+                     <div class='title'>
+                             {{i.small_description}}
+                     </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+    <div style="width: 50%; float: left; padding-left: 50px;">
+        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Posters</p>
+    </div>
+
+    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
+        <a href="{% url 'dynamicnav:dyna' %}" class="gradbt">
+            <span>View All</span>
+        </a>
+    </div>
+
+    <hr style="background-color: grey; width: 96%; height:1px;">
+    <!-- Flickity HTML init -->
+    <div class="carousel" data-flickity='{ "groupCells": true }'>
+        {% for i in show_poster %}
+        <a href="/corporate/show_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
             <div class="carousel-cell">
                 <div class='card'>
                     <div class='card-content'>

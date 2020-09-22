@@ -185,7 +185,8 @@ body {
   border-style: none;
   background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%);
   color: white;
-  opacity: 0.9;
+ opacity: 0.95;
+  height: 40px;
         }
 
 
@@ -198,7 +199,56 @@ body {
             box-shadow: none;
             margin-right: 10px;
             text-shadow: none;
+            outline:none;
         }
+
+        #styling{
+          text-align: center; 
+          padding:2px; 
+          font-family: 'Merriweather Sans', sans-serif; 
+          font-size: 20px;'
+        }
+
+
+.gradbt {
+  background-image: linear-gradient(to right,#0575E6 0%, #021B79 100%);
+  border-radius: 25px;
+  box-sizing: border-box;
+  color: #005acf;
+  font: 1vw 'Oswald', Arial, sans-serif; /*18*/
+  height: 35px;
+  letter-spacing: 1px;
+  padding: 2px;
+  margin-right: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100px;
+  z-index: 2;
+  outline:none;
+}
+
+.gradbt:hover {
+  color: #fff;
+}
+
+.gradbt span {
+  align-items: center;
+  background: white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  text-decoration: none;
+  transition: background .5s ease;
+  width: 100%;
+}
+
+.gradbt:hover span {
+  background: transparent;
+}
+
+
+
 
     </style>
 
@@ -211,7 +261,7 @@ body {
 {% block body_block %}
 
 
-<div class="sidenav" style="margin-top:59px;">
+<div class="sidenav" style="margin-top:50px;">
     <a href="{% url 'dynamicnav:dyna' %}">Abstract</a>
     <a href="{% url 'dynamicnav:wildlifepaintings' %}">Wildlife</a>
     <a href="{% url 'dynamicnav:pastelpaintings' %}">Pastel</a>
@@ -243,15 +293,15 @@ body {
                             <hr>
                         </div>
 
-               
+
                             <div class="row">
                                 <div class="col-md-5 col-sm-5 col-xs-5" >
                                       <div class="items cart">
-                                           
+
                                            <span id="divpainting{{i.painting_id}}" class="divpainting">
                         <button  id="painting{{i.painting_id}}" class="btn btn-danger btn-sm demn">Add to Cart</button>
                         </span>
-                                     
+
                                     </div>
                                 </div>
                                 <div class="col-md-7 col-sm-7 col-xs-7" >
@@ -260,11 +310,11 @@ body {
                                     </div>
                                 </div>
                             </div>
-                     
+
 
 
                     </div>
-               
+
             </div>
         </div>
         {% endfor %}
@@ -340,22 +390,22 @@ function updatePopover(demn) {
 
   var popstr = "";
 
-  popstr = popstr + "<h5> Your Products </h5><div class=''>";
+  popstr = popstr + "<div><h5 id='styling'> Your Products </h5></div><hr><div class=''>";
 
   var i = 1;
 
   for (var item in demn) {
     popstr = popstr + "<strong>" + i + "</strong>. " ;
-    popstr = popstr + document.getElementById('name' + item ).innerHTML.slice(0, 12) + "... Qty: " + demn[item][0] + "<br>";
+    popstr = popstr + document.getElementById('name' + item ).innerHTML + "Qty: " + demn[item][0] + "<br><hr>";
     i = i + 1;
   }
 
    
 
-   popstr = popstr + "</div> <a href='/add_to_cart/add_to_cart'> <button class='btn btn-primary' id='checkout'>Checkout</button></a>  <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  " 
+   popstr = popstr + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  " 
   
   document.getElementById('popcart').setAttribute('data-content', popstr);
-   $('#popcart').popover('show');
+   $('#popcart').popover('toggle');
   
 }
 
