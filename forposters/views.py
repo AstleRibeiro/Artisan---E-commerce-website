@@ -20,3 +20,9 @@ def politicalPosters(request):
 def showPosters(request):
     show = ShowPosters.objects.all()
     return render(request, "show.html", {"show": show})
+
+
+def show_description(request, id):
+    showposter = ShowPosters.objects.filter(painting_id=id).first()
+    return render(request, "show_description.html", {"showposter": showposter})
+

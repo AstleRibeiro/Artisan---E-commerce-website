@@ -7,6 +7,11 @@ class DeepSet(models.Model):
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
     image = models.ImageField()
+    price = models.IntegerField(blank=True, null=True)
+    cancelled_price = models.IntegerField(blank=True, null=True)
+    description = models.TextField(max_length=2000)
+    small_description = models.TextField(max_length=2000)
+    specifications = models.TextField(max_length=2000)
 
     def __str__(self):
         return self.name
@@ -17,6 +22,11 @@ class Floating(models.Model):
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
     image = models.ImageField()
+    price = models.IntegerField(blank=True, null=True)
+    cancelled_price = models.IntegerField(blank=True, null=True)
+    description = models.TextField(max_length=2000)
+    small_description = models.TextField(max_length=2000)
+    specifications = models.TextField(max_length=2000)
 
     def __str__(self):
         return self.name
@@ -27,6 +37,11 @@ class Gallery(models.Model):
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
     image = models.ImageField()
+    price = models.IntegerField(blank=True, null=True)
+    cancelled_price = models.IntegerField(blank=True, null=True)
+    description = models.TextField(max_length=2000)
+    small_description = models.TextField(max_length=2000)
+    specifications = models.TextField(max_length=2000)
 
     def __str__(self):
         return self.name
@@ -37,6 +52,11 @@ class Modern(models.Model):
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
     image = models.ImageField()
+    price = models.IntegerField(blank=True, null=True)
+    cancelled_price = models.IntegerField(blank=True, null=True)
+    description = models.TextField(max_length=2000)
+    small_description = models.TextField(max_length=2000)
+    specifications = models.TextField(max_length=2000)
 
     def __str__(self):
         return self.name
@@ -47,6 +67,11 @@ class TableTop(models.Model):
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
     image = models.ImageField()
+    price = models.IntegerField(blank=True, null=True)
+    cancelled_price = models.IntegerField(blank=True, null=True)
+    description = models.TextField(max_length=2000)
+    small_description = models.TextField(max_length=2000)
+    specifications = models.TextField(max_length=2000)
 
     def __str__(self):
         return self.name
