@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Splash</title>
+    <style>
+        body{
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+.splash{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/static/images/bg.jpg');
+    background-size: contain, cover;
+    background-repeat: no-repeat;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: open;
+    animation-duration: 2s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.splash::after, .splash::before{
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    height: 100vh;
+    width: 30vw;
+    z-index: 99;
+    animation-name: open;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+}
+.splash::after{
+    left: 30vw;
+    animation-delay: 200ms;
+    background-color: #052d37;
+    background-image: url('/static/images/s2.jpg');
+    background-position: center;
+    background-size: contain;
+    animation-delay: s;
+}
+.splash::before{
+    left: 0;
+    animation-delay: 0.5s;
+    background-color: #181818;
+}
+@keyframes open{
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(100%, 0);
+    }
+}
+
+.content{
+    height: 100vh;
+    width: 100vw;
+    background-color: #181818;
+    background-repeat: no-repeat;
+    background-size: contain;
+    outline-offset: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content h1{
+    font-size: 62px;
+    color: transparent;
+    margin: 0;
+    padding: 0;
+    margin-left: 15em;
+    animation-name: fadeIn;
+    animation-duration: 1.2s;
+    animation-delay: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+@keyframes fadeIn{
+    0%{
+        padding-top: 20px;
+        color: transparent;
+    }
+    100%{
+        padding-top: 0;
+        color: white;
+    }
+}
+    </style>
+     <script>
+         setTimeout(function(){
+            window.location.href = 'http://127.0.0.1:8000/home/';
+         }, 2900);
+      </script>
+</head>
+<body>
+<div class="splash">
+		<div class="img"></div>
+	</div>
+	<div class="content">
+	</div>
+</body>
+</html>

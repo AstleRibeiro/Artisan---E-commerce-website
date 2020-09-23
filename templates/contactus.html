@@ -1,0 +1,262 @@
+{% extends "formative.html" %}
+{% load static %}
+
+{% block body_block %}
+<style>
+
+    #feedback-form {
+
+  width: 380px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: #fcfcfc;
+  padding: 20px 50px 40px;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  font-family: sans-serif;
+}
+
+
+
+#feedback-form * {
+    box-sizing: border-box;
+}
+
+#feedback-form h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#feedback-form input {
+  margin-bottom: 15px;
+}
+
+#feedback-form input[type=text] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+#feedback-form textarea {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+  font-family: sans-serif;
+}
+}
+
+#feedback-form label {
+  color: #777;
+  font-size: 0.8em;
+}
+
+
+#feedback-form button[type=submit] {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  color: #eee;
+  font-weight: 700;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  background: linear-gradient(to right, #1D2671 0%,#348F50 100%);
+ }
+
+ #one{
+  background-image: linear-gradient(to right, #348F50 0%, #1D2671 100%);
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+  .panel-group .panel {
+    border-radius: 6px;
+    box-shadow: none;
+    border-color: #EEEEEE;
+    width: 75%;
+    margin-left: 80px;
+  }
+
+  .panel-default > .panel-heading {
+    padding: 0;
+    border-radius: 0;
+    color: #212121;
+    background-color: #FAFAFA;
+    border-color: #EEEEEE;
+  }
+
+  .panel-title {
+    font-size: 14px;
+  }
+
+  .panel-title > a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+  }
+
+  .more-less {
+    float: right;
+    color: #212121;
+  }
+
+  .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #EEEEEE;
+  }
+
+  #sizing{
+
+    padding-top: 10px;
+    padding-bottom: 100px;
+  }
+
+  .sizeit{
+    padding-left: 100px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    color: white;
+  }
+</style>
+<div class="row">
+    <div class="col-md-6">
+      <div id="one">
+        <div id="sizing">
+          <h1 class="sizeit">Frequently asked questions</h1>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="more-less glyphicon glyphicon-plus"></i>
+             Will this color fade?
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <i class="more-less glyphicon glyphicon-plus"></i>
+            Whether can I contact this seller or brand?
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingthree">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#three" aria-expanded="false" aria-controls="three">
+            <i class="more-less glyphicon glyphicon-plus"></i>
+            Do you accept credit card/debit card payments?
+          </a>
+        </h4>
+      </div>
+      <div id="three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="hfour">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#cfour" aria-expanded="false" aria-controls="cfour">
+            <i class="more-less glyphicon glyphicon-plus"></i>
+            How long will it take to deliver my order?
+          </a>
+        </h4>
+      </div>
+      <div id="cfour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="hfour">
+        <div class="panel-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="hfive">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#cfive" aria-expanded="false" aria-controls="cfive">
+            <i class="more-less glyphicon glyphicon-plus"></i>
+            Is it possible to change the delivery address after ordering?
+          </a>
+        </h4>
+      </div>
+      <div id="cfive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="hfive">
+        <div class="panel-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="hsix">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#csix" aria-expanded="false" aria-controls="csix">
+            <i class="more-less glyphicon glyphicon-plus"></i>
+            Whether you do customization?
+          </a>
+        </h4>
+      </div>
+      <div id="csix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="hsix">
+        <div class="panel-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- panel-group -->
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div id="right">
+
+        <div id="feedback-form">
+        <h2 class="header">Tell us about your experience</h2>
+        <div>
+          <form>
+            <input type="text" name="email" placeholder="Email"></input>
+            <input type="text" name="name" placeholder="Name"></input>
+            <textarea name="name" placeholder="Type in your query here..."></textarea>
+
+            <button type="submit">Submit</button>
+           </form>
+        </div>
+      </div>
+
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}
