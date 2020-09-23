@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@2/dist/flickity.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap" rel="stylesheet">
 
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -45,6 +46,8 @@
   color: white;
   opacity: 0.95;
   height: 40px;
+  margin: 0;
+  padding: 0;
         }
 
         #popcart{
@@ -65,7 +68,7 @@
 
 </head>
 {% endblock %}
-<body style="background-color:white">
+<body style="background-color:#fafafa">
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -146,7 +149,7 @@
 
             </ul>
 
-            <form class="navbar-form navbar-left" style="padding-left: 20px;">
+            <form class="navbar-form navbar-left" style="padding-left: 230px;">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
@@ -181,13 +184,15 @@
 
             {% else %}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'accounts:login' %}"> Login</a></li>
-                <li><a href="{% url 'accounts:signup' %}"> Sign Up</a></li>
+                <li><a href="{% url 'accounts:login' %}" style="text-decoration: none; color: white;"> Login</a></li>
+                <li><a href="{% url 'accounts:signup' %}" style="text-decoration: none; color: white;"> Sign Up</a></li>
             </ul>
             {% endif %}
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
+
+
 
 
 

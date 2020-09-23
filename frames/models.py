@@ -2,7 +2,7 @@ from django.db import models
 
 
 class DeepSet(models.Model):
-    painting_id = models.AutoField(primary_key=True)
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -18,6 +18,7 @@ class DeepSet(models.Model):
 
 
 class Floating(models.Model):
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -33,6 +34,7 @@ class Floating(models.Model):
 
 
 class Gallery(models.Model):
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -48,6 +50,7 @@ class Gallery(models.Model):
 
 
 class Modern(models.Model):
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -63,6 +66,7 @@ class Modern(models.Model):
 
 
 class TableTop(models.Model):
+    painting_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)

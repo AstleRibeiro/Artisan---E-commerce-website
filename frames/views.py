@@ -26,3 +26,9 @@ def TableTop1(request):
     tabletop = TableTop.objects.all()
     return render(request, "tabletop.html", {"tabletop": tabletop})
 
+
+
+def table_description(request, id):
+    tableframe = TableTop.objects.filter(painting_id=id).first()
+    return render(request, "table_description.html", {"tableframe": tableframe})
+

@@ -89,7 +89,7 @@ function carousel(root) {
 
 
 body {
-  background: white;
+  background: red;
 }
 
 .forget_pwd{
@@ -112,7 +112,7 @@ body {
 }
 
 .submit{
-  background-color:#0246ad;
+  background-color:#0271ad;
   opacity:1;
   width:20%;
   min-width:65px;
@@ -305,11 +305,12 @@ body {
 
 .site-footer
 {
-   background: linear-gradient(180deg, #4B48ED 0%,#1A2980 100%);
+   background-color:#0271ad;
   padding:20px;
   font-size:15px;
   line-height:24px;
   color:#f2f2f2;
+  font-family: 'Merriweather Sans', sans-serif;
 }
 .site-footer hr
 {
@@ -352,17 +353,14 @@ body {
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
-  color:#3366cc;
+  color:#fcd112;
   text-decoration:none;
 }
 .footer-links.inline li
 {
   display:inline-block
 }
-.site-footer .social-icons
-{
-  text-align:right
-}
+
 .site-footer .social-icons a
 {
   width:40px;
@@ -497,7 +495,7 @@ body {
         <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Paintings</p>
     </div>
 
-    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
+    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom:10px; maring: 0;">
         <a href="{% url 'dynamicnav:dyna' %}" class="gradbt">
             <span>View All</span>
         </a>
@@ -505,7 +503,7 @@ body {
 
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
-<div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px;">
+<div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
     <div class="carousel" data-flickity='{ "groupCells": true }'>
         {% for i in abs_painting %}
         <a href="/dyna/abstract_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
@@ -519,11 +517,11 @@ body {
                     </div>
                     <div class='card-description'>
                         <div class='title'>
-                            $ {{i.price}}
+                            &#8377; {{i.price}}
                         </div>
                         <div class='cart'>
-                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                            <a href=""><span class='lnr lnr-heart'></span></a>
+                            <a href="#"><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                            <a href="#"><span class='lnr lnr-heart'></span></a>
                         </div>
 
                     </div>
@@ -556,6 +554,7 @@ body {
 
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
+    <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
     <div class="carousel" data-flickity='{ "groupCells": true }'>
         {% for i in wild_painting %}
         <a href="/dyna/wildlife_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
@@ -569,7 +568,7 @@ body {
                     </div>
                     <div class='card-description'>
                         <div class='title'>
-                            $ {{i.price}}
+                            &#8377; {{i.price}}
                         </div>
                         <div class='cart'>
                             <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
@@ -588,7 +587,7 @@ body {
         </a>
         {% endfor %}
     </div>
-
+    </div>
 
     <br>
     <br>
@@ -606,6 +605,7 @@ body {
 
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
+    <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
     <div class="carousel" data-flickity='{ "groupCells": true }'>
         {% for i in show_poster %}
         <a href="/corporate/show_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
@@ -619,7 +619,7 @@ body {
                     </div>
                     <div class='card-description'>
                         <div class='title'>
-                            $ {{i.price}}
+                            &#8377; {{i.price}}
                         </div>
                         <div class='cart'>
                             <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
@@ -638,7 +638,59 @@ body {
         </a>
         {% endfor %}
     </div>
+    </div>
 
+    <br>
+    <br>
+    <br>
+
+
+    <div style="width: 50%; float: left; padding-left: 50px;">
+        <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Frames</p>
+    </div>
+
+    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
+        <a href="{% url 'dynamicnav:dyna' %}" class="gradbt">
+            <span>View All</span>
+        </a>
+    </div>
+
+    <hr style="background-color: grey; width: 96%; height:1px;">
+    <!-- Flickity HTML init -->
+    <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
+    <div class="carousel" data-flickity='{ "groupCells": true }'>
+        {% for i in tableframe %}
+        <a href="/deepset/table_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+            <div class="carousel-cell">
+                <div class='card'>
+                    <div class='card-content'>
+                        <div class='top-bar'><span>{{i.name}}</span></div>
+                        <div class='img'>
+                            <img src="/media/{{i.image}}">
+                        </div>
+                    </div>
+                    <div class='card-description'>
+                        <div class='title'>
+                            &#8377; {{i.price}}
+                        </div>
+                        <div class='cart'>
+                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                            <a href=""><span class='lnr lnr-heart'></span></a>
+
+                        </div>
+                    </div>
+                        <div class='title'>
+                             Artist: {{i.artist}}
+                     </div>
+                     <div class='title'>
+                             {{i.small_description}}
+                     </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    </div>
 
     <br>
     <br>
@@ -654,8 +706,7 @@ body {
             <button class="submit">Subscribe</button>
         </form>
         <p style="font-family: 'Merriweather Sans', sans-serif; position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8vw;">
-            By signing up for this email, you are agreeing to receive news, offers, and information from National
-            Geographic Partners, LLC and our partners. Click here to visit our Privacy Policy. Easy unsubscribe links
+            By signing up for this email, you are agreeing to receive news, offers, and information from Artisan Partners, LLC and our partners. Click here to visit our Privacy Policy. Easy unsubscribe links
             are provided in every email.</p>
     </div>
 
@@ -666,16 +717,19 @@ body {
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <h6>About us</h6>
-                <p class="text-justify">At THE ART WORLD we, Astle, Shania & Yvonne, aim to be inclusive at both onsite
+                <p class="text-justify" style="font-family: 'Signika', sans-serif;">At ARTISAN we, Astle, Shania & Yvonne, aim to be inclusive at both onsite
                     and online- where diverse cultural, artistic, social, and political positions are welcome. We’re
                     committed to sharing the most thought-provoking modern and contemporary art, and hope you will join
                     us in exploring the art, ideas, and issues of our time. Our Purpose & Beliefs are the foundations of
                     our shared culture. It unites us and inspires Us.</p>
             </div>
+            <div class="col-md-1">
 
-            <div class="col-xs-6 col-md-3">
+            </div>
+
+            <div class="col-xs-6 col-md-2">
                 <h6>Categories</h6>
-                <ul class="footer-links">
+                <ul class="footer-links" style="font-family: 'Signika', sans-serif;">
                     <li><a href="">Abstract</a></li>
                     <li><a href="">Wildlife</a></li>
                     <li><a href="">Nature</a></li>
@@ -685,7 +739,7 @@ body {
 
             <div class="col-xs-6 col-md-3">
                 <h6>Quick Links</h6>
-                <ul class="footer-links">
+                <ul class="footer-links" style="font-family: 'Signika', sans-serif;">
                     <li><a href="{% url 'firsthello:contactus' %}">Contact Us</a></li>
                     <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute/Feedback</a></li>
                     <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
@@ -695,13 +749,13 @@ body {
         <hr>
 
         <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+            <div class="col-md-9 col-sm-6 col-xs-12">
+                <p class="copyright-text" style="font-family: 'Quicksand', sans-serif;">Copyright &copy; 2020 All Rights Reserved by
                     <a href="#">Artisian</a>.
                 </p>
             </div>
 
-            <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <ul class="social-icons">
                     <li><a class="facebook" href="https://www.facebook.com/beartofficial"><i class="fa fa-facebook"></i></a>
                     </li>
@@ -712,6 +766,9 @@ body {
                 </ul>
             </div>
         </div>
+
+
+
 
 </footer>
 {% endblock %}

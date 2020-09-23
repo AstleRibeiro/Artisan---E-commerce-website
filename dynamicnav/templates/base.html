@@ -112,7 +112,7 @@ body {
    font-family: 'Playfair Display', serif;
 }
  .items {
-   padding-left: 20px;
+    padding-left:15px;
    letter-spacing: 3px;
 }
  .head {
@@ -295,7 +295,7 @@ body {
 
 
                             <div class="row">
-                                <div class="col-md-5 col-sm-5 col-xs-5" >
+                                <div class="col-md-6 col-sm-5 col-xs-5" >
                                       <div class="items cart">
 
                                            <span id="divpainting{{i.painting_id}}" class="divpainting">
@@ -304,7 +304,7 @@ body {
 
                                     </div>
                                 </div>
-                                <div class="col-md-7 col-sm-7 col-xs-7" >
+                                <div class="col-md-6 col-sm-7 col-xs-7" >
                                     <div class="items cart">
                                            <button class="btn btn-danger btn-sm">Buy Now</button>
                                     </div>
@@ -319,8 +319,6 @@ body {
         </div>
         {% endfor %}
 
-    </div>
-</div>
 
 
 {% endblock %}
@@ -427,10 +425,10 @@ function updatePopover(demn) {
 //     i = i + 1;
 //   }
 
-   
 
-//    popstr = popstr + "</div> <a href='/add_to_cart/add_to_cart'> <button class='btn btn-primary' id='checkout'>Checkout</button></a>  <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  " 
-  
+
+//    popstr = popstr + "</div> <a href='/add_to_cart/add_to_cart'> <button class='btn btn-primary' id='checkout'>Checkout</button></a>  <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  "
+
 //   document.getElementById('popcart').setAttribute('data-content', popstr);
 
 
@@ -445,7 +443,7 @@ function updateCart(demn) {
   
   for (var item in demn) {
     sum = sum + demn[item][0];
-    document.getElementById('div' + item).innerHTML = " <div class='row'> <div class='col-md-4'>   <button id='minus" + item + "' class='btn btn-danger minus'> - </button> </div> <div class='col-md-4'><span id='val" + item + "''>" + demn[item][0] + "</span> </div>  <div class='col-md-4'> <button id='plus" + item + "' class='btn btn-danger  plus'> + </button></div> </div>";
+    document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-danger btn-sm minus' > - </button>  <span id='val" + item + "''>" + demn[item][0] + " </span> <button id='plus" + item + "' class='btn btn-danger btn-sm  plus'> + </button>";
   }
 
 

@@ -10,5 +10,6 @@ urlpatterns = [
     path('fashion/', views.Fashion, name='Fashion'),
     path('sports/', views.Sports, name='Sports'),
     path('portraits/', views.Portraits, name='Portraits'),
+    path('aerial_description/<int:id>', views.aerial_description, name='wildlife_description'),
 
 ]

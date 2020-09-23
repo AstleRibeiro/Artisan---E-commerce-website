@@ -9,6 +9,6 @@ urlpatterns = [
     path('gallery/', views.Gallery1, name='Gallery1'),
     path('modern/', views.Modern1, name='Modern1'),
     path('tabletop/', views.TableTop1, name='TableTop1'),
-
+    path('table_description/<int:id>', views.table_description, name='table_description'),
 
 ]
