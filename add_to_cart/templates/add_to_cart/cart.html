@@ -3,6 +3,7 @@
 
 {% block head %}
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
@@ -46,7 +47,7 @@
         #popcart{
             margin-top: 9px;
             background: transparent;
-            color: white; 
+            color: white;
             border-style: none;
             text-decoration: none;
             box-shadow: none;
@@ -54,146 +55,339 @@
             text-shadow: none;
         }
 
+    #feedback-form {
+
+  width: 780px;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-left: 50px;
+  background-color: #fcfcfc;
+  
+  box-shadow: 1px 4px 10px 1px #aaa;
+  font-family: sans-serif;
+}
+
+
+
+#feedback-form * {
+    box-sizing: border-box;
+}
+
+#feedback-form h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#feedback-form input {
+  margin-bottom: 15px;
+}
+
+#feedback-form input[type=text] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+
+#feedback-form input[type=email] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+
+#feedback-form input[type=tel] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+
+#feedback-form textarea {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+  font-family: sans-serif;
+}
+}
+
+#feedback-form label {
+  color: #777;
+  font-size: 1vw;
+}
+
+
+#feedback-form button[type=submit] {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  color: #eee;
+  font-weight: 700;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  background: linear-gradient(to right, #1D2671 0%,#348F50 100%);
+ }
+
+   #feedback-form1 {
+
+  width: 480px;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding-bottom: 20px;
+  margin-left: 140px;
+  background-color: #fcfcfc;
+ 
+  box-shadow: 1px 4px 10px 1px #aaa;
+  font-family: sans-serif;
+}
+
+
+
+#feedback-form1 * {
+    box-sizing: border-box;
+}
+
+#feedback-form1 h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#feedback-form1 input {
+  margin-bottom: 15px;
+}
+
+#feedback-form1 input[type=text] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+#feedback-form1 textarea {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+  font-family: sans-serif;
+}
+}
+
+#feedback-form1 label {
+  color: #777;
+  font-size: 0.8em;
+}
+
+
+#feedback-form1 button[type=submit] {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  color: #eee;
+  font-weight: 700;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  background: linear-gradient(to right, #1D2671 0%,#348F50 100%);
+ }
+
+
+.sectionHead{
+ width: 100%;
+  padding: 1em 1.5em;
+  background: #f2f2f2;
+  border-bottom: 1px solid #D0D0D0;
+  font-weight: bold;
+  font-size: 1em;
+}
+  
+
+form ul li {
+  float: left;
+  width: 50%;
+  position: relative;
+  padding: 0 5% 0 0;
+  margin: .5em 0;
+}
+form ul label {
+  font-size: .5em;
+  color: #676767;
+  margin-bottom: .25em;
+  display: block;
+}
+
+form ul input[type="text"] {
+  width: 100%;
+  padding: .5em;
+  font-size: .85em;
+  color: #2e2e2e;
+  border: 1px solid #D0D0D0;
+  border-radius: 5px;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+form ul input[type="text"]:focus {
+  outline: 0;
+  box-shadow: 0px 0px 10px -2px #2979ff;
+}
+form ul input[type="submit"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #00b4e0;
+  border: 0;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: .65em;
+  text-align: center;
+  padding: .75em 2.5em;
+  border-radius: 5px;
+  letter-spacing: .025em;
+  font-weight: bold;
+      text-transform: uppercase;*/
+}
+
+
+
     </style>
+}
 
 {% endblock %}
 
 
 
-
-
 {% block body_block %}
 
+<div class="row">
+  <div class="col-md-6">
+      <div id="right">
 
-
-<!-- <div >
-{% if painting|length < 1 %}
-    <h4 class="jumbotron" style="margin-top:50px; text-align: center; " > ○ You have not added any product into your cart</h4>
-{% else %}
-
-        <h4 class="jumbotron" style="margin-top:50px; text-align: center; "> ○ Items that you have added to your cart</h4>
-
-{% endif %}
-</div>
- -->
-
-
-
-<div class="container">
-<div class="col" style="margin-top: 100px;">
-  <h2>Step -1 </h2>
-  <div >    <ul class="list-group" id="items">
-    
-  </ul>
-<nav aria-label="breadcrumb">
-<ol class="breadcrumb">
-  <li >Your total cart value is <b> Rs. <span id="totalPrice"> </span></b> </li>
- 
-</ol>
-</nav>
-
-</div>
-
-</div>
-
-  <div class="col">
-    <h2>Step-2</h2>
-
-    <form method="post" action="/add_to_cart/add_to_cart/">
-      {% csrf_token %}
+        <div id="feedback-form">
+        <h3 class="sectionHead">Shipping Information</h3>
+        <div>
+          <form  method="post" action="/add_to_cart/add_to_cart/">
+            {% csrf_token %}
       <input type="hidden" name="itemsJson" id="itemsJson">
       <input type="hidden" name="amount" id="amount">
- 
-  <div class="form-row"> 
-   <div class="form-group col-md-6">
-    <label for="inputFirstName">First Name</label>
-      <input type="text" class="form-control" id="FirstName" name="first_name" placeholder="First Name">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputLastName">Last Name</label>
-      <input type="text" class="form-control" id="LastName" name="last_name" placeholder="Last Name">
-    </div>
-  </div>
-
-
-
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-    </div>
-    
-  </div>
-  <div class="container">
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
-  </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="city" name="city">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="state" name="state" class="form-control">
+           <ul id="shippingInfo" style="padding-left: 15px; ">
+      <li><label style="font-size: 12px;" for="inputFirstName">First Name</label>
+        <input type="text" class="form-control" id="FirstName" name="first_name" placeholder="First Name"/></li>
+      <li><label style="font-size: 12px;" for="inputLastName">Last Name</label>
+        <input type="text" class="form-control" id="LastName" name="last_name" placeholder="Last Name"/>
+      </li>
+      <li><label style="font-size: 12px;" for="inputEmail4">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+      </li>
+      <li><label style="font-size: 12px;" for="inputAddress">Address Line 1</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" />
+      </li>
+      <li><label style="font-size: 12px;">Address Line 2</label>
+        <input type="text" />
+      </li>
+      <li><label style="font-size: 12px;" for="inputCity"> City</label>
+        <input  type="text" class="form-control" id="city" name="city" />
+      </li>
+      <li><label style="font-size: 12px;" for="inputState">State</label>
+        <select id="state" name="state" class="form-control">
         <option selected>Choose...</option>
         <option>...</option>
       </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="zip" name="zip_code">
-    </div>
-  </div>
-<div class="container">
-<div class="form-group">
-    
-     
-      <label class="inputZip">Phone Number</label>
-       <input class="form-control" type="tel" id="phone" name="phone">
-   
-  </div>
-  </div>
+      </li>
+       <li><label style="font-size: 12px;" for="inputZip">Zip Code</label>
+         <input  type="text" class="form-control" id="zip" name="zip_code" />
+      </li>
+       <li><label style="font-size: 12px;" class="inputZip">Phone Number</label>
+         <input class="form-control" type="tel" id="phone" name="phone" />
+      </li>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+           </form>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Place Order</button>
-</form>
-  </div>
-</div>
+      </div>
 
-  
-
-<!-- 
-{% for i in painting %}
-<div class="row">
-    <div class="col-md-2">
 
     </div>
-    <div class="col-md-2">
-        <img src="/media/{{i.image}}" alt="The image cannot be displayed" width="150px" style="margin-left: 20px;">
-    </div>
+
+
+
     <div class="col-md-6">
-        <h1><b>{{i.name}}</b></h1>
-        <h5><b>{{i.artist}}</b> </h5>
-        <button  class="btn btn-danger btn-sm" type="submit" >Remove</button>
-    </div>
-    <div class="col-md-2">
-        <h4 class="new" style="margin-top:20px;">Rs. {{i.price}}</h4>
-    </div>
+
+
+        <div id="feedback-form1">
+        <h2 class="sectionHead">Receipt</h2>
+        <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+          <p>Item Name <span style="float: right;">35.00</span></p>      
+          <hr>
+        </div>    
+      </div>
+       <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+          <p>Item Name <span style="float: right;">35.00</span></p>      
+          <hr>
+        </div>    
+      </div>
+       <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+          <p>Item Name <span style="float: right;">35.00</span></p>      
+          <hr>
+        </div>    
+      </div>
+       <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+          <p>Item Name <span style="float: right;">35.00</span></p>      
+          <hr>
+        </div>    
+      </div>
+
+
+      <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+
+          <li style="padding-left: 20px; font-size: 16px;">Subtotal <span style="float: right;" id="totalPrice"></span></li>
+        </div>      
+      </div>
+
+      <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+          <p style="padding-left: 20px; font-size: 16px;">Delivery Charges <span style="float: right;">55.00</span></p>
+        </div>      
+      </div>
+
+      <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+          <p style="padding-left: 20px; font-size: 16px;">Total <span style="float: right;">55.00</span></p>
+        </div>      
+      </div>      
+    
+      </div>
+  
 </div>
-   <hr> -->
-<!-- {% endfor %}
- -->
+</div>
+
 
 
 
@@ -241,7 +435,6 @@ for (item in demn) {
   mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
       ${name}
       <span class="badge badge-primary badge-pill">${qty}</span>
-
   </li>`
   $('#items').append(mystr);
 
@@ -264,28 +457,6 @@ for (item in demn) {
  $('#amount').val($('#totalPrice').html())
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {% endblock %}

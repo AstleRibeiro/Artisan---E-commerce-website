@@ -199,6 +199,56 @@
 {% endblock %}
 {% block js %}
 
+    
+<script type="text/javascript">
+
+
+if(localStorage.getItem('demn') == null) {
+  var demn = {};
+
+}
+else {
+  demn = JSON.parse(localStorage.getItem('demn'));
+
+
+
+}
+
+
+console.log(demn);
+sum = 0;
+totalPrice = 0;
+if ($.isEmptyObject(demn)) {
+  mystr = `<h4> Your cart is empty </h4>`
+  $('#items').append(mystr);
+
+}
+else {
+
+
+for (item in demn) {
+
+  let name = demn[item][1];
+  let qty = demn[item][0];
+  let itemPrice = demn[item][2];
+  sum = sum + qty;
+  totalPrice = totalPrice + qty * itemPrice;
+  mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
+      ${name}
+      <span class="badge badge-primary badge-pill">${qty}</span>
+
+  </li>`
+  $('#items').append(mystr);
+
+}
+
+}  
+
+
+ document.getElementById('demn').innerHTML = sum;
+
+</script>
+
 {% endblock %}
 
 </body>
