@@ -92,7 +92,7 @@ body {
    left: 0;
    bottom: 0;
    margin-bottom: 20px;
-   margin-right: 20px
+   margin-right: 20px`
    background-color: black;
    background-size: cover;
    cursor: pointer;
@@ -193,7 +193,7 @@ body {
          #popcart{
             margin-top: 9px;
             background: transparent;
-            color: white; 
+            color: white;
             border-style: none;
             text-decoration: none;
             box-shadow: none;
@@ -203,9 +203,9 @@ body {
         }
 
         #styling{
-          text-align: center; 
-          padding:2px; 
-          font-family: 'Merriweather Sans', sans-serif; 
+          text-align: center;
+          padding:2px;
+          font-family: 'Merriweather Sans', sans-serif;
           font-size: 20px;'
         }
 
@@ -275,18 +275,19 @@ body {
 
     <div class="row">
         {% for i in painting %}
+
         <div class="col-md-3 col-sm-4 col-xs-12">
             <div class="container" style="background-image:url(/media/{{i.image}}); width: 250px; ">
                 <a href="/dyna/abstract_description/{{i.painting_id}}" style="text-decoration:none; color: white;">
                     <div class="overlay">
                         <div class="items"></div>
                         <div class="items head">
-                            <p id="namepainting{{i.painting_id}}"><b>{{i.name}}</b></p>
+                            <p id="nameabstract{{i.painting_id}}"><b>{{i.name}}</b></p>
                             <h5>{{i.artist}} </h5>
                             <h6 style="padding: 5px;">{{i.small_description}}</h6>
                             <div class="items price">
                                 <p class="old">Rs. {{i.cancelled_price}}</p>
-                                <p class="new">Rs.<span id="pricepainting{{i.painting_id}}">{{i.price}}</span></p>
+                                <p class="new">Rs.<span id="priceabstract{{i.painting_id}}">{{i.price}}</span></p>
                             </div>
                              </a>
                             <br>
@@ -298,8 +299,8 @@ body {
                                 <div class="col-md-6 col-sm-5 col-xs-5" >
                                       <div class="items cart">
 
-                                           <span id="divpainting{{i.painting_id}}" class="divpainting">
-                        <button  id="painting{{i.painting_id}}" class="btn btn-danger btn-sm demn">Add to Cart</button>
+                                           <span id="divabstract{{i.painting_id}}" class="divabstract">
+                        <button  id="abstract{{i.painting_id}}" class="btn btn-danger btn-sm demn">Add to Cart</button>
                         </span>
 
                                     </div>
@@ -310,6 +311,7 @@ body {
                                     </div>
                                 </div>
                             </div>
+
 
 
 
@@ -328,13 +330,15 @@ body {
 {% block js %}
 
 <script>
-  
+
 
 if(localStorage.getItem('demn') == null) {
   var demn = {};
 
 }
 else {
+
+
   demn = JSON.parse(localStorage.getItem('demn'));
   updateCart(demn);
 
@@ -343,7 +347,7 @@ else {
 
 // $('.demn').click(function(){
 
-$('.divpainting').on('click', 'button.demn', function(){
+$('.divabstract').on('click', 'button.demn', function(){
 
 
 
@@ -352,8 +356,8 @@ var idstr = this.id.toString();
 
 if (demn[idstr] != undefined) {
     qty = demn[idstr][0] + 1;
-    
-} 
+
+}
 else {
   qty = 1;
     name = document.getElementById('name' + idstr).innerHTML;
@@ -361,8 +365,11 @@ else {
 
     demn[idstr] = [qty, name, parseInt(price)];
 
+    // localStorage.setItem( 'demn',  demn[idstr] );
+
 
 }
+console.log(demn[idstr])
 updateCart(demn);
 
 
@@ -371,6 +378,8 @@ updateCart(demn);
 
 
 function clearCart(){
+
+
   demn = JSON.parse(localStorage.getItem('demn'));
   for (var item in demn) {
     document.getElementById('div' + item).innerHTML = '<button  id="'+ item +'" class="btn btn-danger btn-sm demn">Add to Cart</button>'
@@ -379,32 +388,50 @@ function clearCart(){
   demn = {};
   updateCart(demn);
 
+
 }
 
 updatePopover(demn);
 function updatePopover(demn) {
 
-  
 
-  var popstr = "";
+
+
 
   popstr = popstr + "<div><h5 id='styling'> Your Products </h5></div><hr><div class=''>";
-
+  var popstr = "";
+  var popstrs = "";
   var i = 1;
 
-  for (var item in demn) {
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+
+
     popstr = popstr + "<strong>" + i + "</strong>. " ;
-    popstr = popstr + document.getElementById('name' + item ).innerHTML + "Qty: " + demn[item][0] + "<br><hr>";
+    popstr = popstr + JSON.parse(localStorage.getItem("shit"))[item][1] + "Qty: " + JSON.parse(localStorage.getItem("shit"))[item][0] + "<br><hr>";
     i = i + 1;
+
+
   }
 
-   
+  for (var item in demn) {
 
-   popstr = popstr + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  " 
-  
-  document.getElementById('popcart').setAttribute('data-content', popstr);
+
+
+    popstrs = popstrs + "<strong>" + i + "</strong>. " ;
+    popstrs = popstrs + document.getElementById('name' + item ).innerHTML + "Qty: " + demn[item][0] + "<br><hr>";
+    i = i + 1;
+
+
+
+  }
+
+
+
+   hello =  popstr + popstrs + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
+
+  document.getElementById('popcart').setAttribute('data-content', hello);
    $('#popcart').popover('toggle');
-  
+
 }
 
 // updateAddToCart(demn);
@@ -440,14 +467,25 @@ function updatePopover(demn) {
 function updateCart(demn) {
 
   var sum = 0;
-  
+
   for (var item in demn) {
+
     sum = sum + demn[item][0];
     document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-danger btn-sm minus' > - </button>  <span id='val" + item + "''>" + demn[item][0] + " </span> <button id='plus" + item + "' class='btn btn-danger btn-sm  plus'> + </button>";
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("shit"))[item][0];
+
   }
 
 
   localStorage.setItem('demn', JSON.stringify(demn));
+
+
+
 
   document.getElementById('demn').innerHTML = sum;
 
@@ -457,22 +495,22 @@ function updateCart(demn) {
 }
 
 
-$(".divpainting").on("click" ,"button.minus", function(){
+$(".divabstract").on("click" ,"button.minus", function(){
 
-  
+
 a = this.id.slice(13, );
 console.log(a);
-demn["painting" + a][0] = demn["painting" + a][0] - 1;
-demn["painting" + a][0] = Math.max(0, demn["painting" + a][0]);
+demn["abstract" + a][0] = demn["abstract" + a][0] - 1;
+demn["abstract" + a][0] = Math.max(0, demn["abstract" + a][0]);
 
-document.getElementById('valpainting' + a).innerHTML = demn['painting' + a][0];
+document.getElementById('valabstract' + a).innerHTML = demn['abstract' + a][0];
 
 // if (demn["painting" + a][0] == 0) {
-  
-//     document.getElementById('divpainting' + a).innerHTML = '<button id="painting' + '{{i.painting_id}}' + '" class="btn btn-danger btn-sm">Add to Cart</button>' 
-//     delete  demn['painting' + a]; 
 
-//   } 
+//     document.getElementById('divabstract' + a).innerHTML = '<button id="painting' + '{{i.painting_id}}' + '" class="btn btn-danger btn-sm">Add to Cart</button>'
+//     delete  demn['painting' + a];
+
+//   }
 // else {
 //     document.getElementById('valpainting' + a).innerHTML = demn['painting' + a][0];
 
@@ -485,14 +523,14 @@ document.getElementById('valpainting' + a).innerHTML = demn['painting' + a][0];
 
 
 
-$('.divpainting').on("click", "button.plus", function(){
+$('.divabstract').on("click", "button.plus", function(){
 
-  
+
   a = this.id.slice(12, );
-  
-  demn["painting" + a][0] = demn["painting" + a][0] + 1;
-  demn["painting" + a][0] = Math.max(0, demn["painting" + a][0]);
-  document.getElementById('valpainting' + a).innerHTML = demn['painting' + a][0];
+
+  demn["abstract" + a][0] = demn["abstract" + a][0] + 1;
+  demn["abstract" + a][0] = Math.max(0, demn["abstract" + a][0]);
+  document.getElementById('valabstract' + a).innerHTML = demn['abstract' + a][0];
   updateCart(demn);
 
 });
