@@ -3,6 +3,261 @@
 
 {% load static %}
 
+{% block head %}
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'master.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@2/dist/flickity.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Corporate Paintings</title>
+
+    <style>
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  color: #fff;
+  background-color: #111;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Merriweather Sans', sans-serif;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  color: white;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+    padding: 10px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 20px;}
+  .sidenav a {font-size: 18px;}
+}
+
+body {
+   background-color: #fef5df;
+}
+ .container {
+   width: 200px;
+   height: 300px;
+   top: 0;
+   right: 0;
+   left: 0;
+   bottom: 0;
+   margin-bottom: 20px;
+   margin-right: 20px
+   background-color: black;
+   background-size: cover;
+   cursor: pointer;
+   -webkit-box-shadow: 0 0 5px #000;
+   box-shadow: 0 0 5px #000;
+}
+ .overlay {
+   width: 115%;
+   height: 100%;
+   margin-left: -15px;
+   padding: 0px;
+   display: grid;
+   background: rgba(13, 13, 13, .7);
+   color:  #f2f2f2;
+   opacity: 0;
+   transition: all 0.2s;
+   font-family: 'Playfair Display', serif;
+}
+ .items {
+    padding-left:15px;
+   letter-spacing: 3px;
+}
+ .head {
+   margin-top: 10px;
+   font-size: 20px;
+   line-height: 20px;
+   transform: translateY(40px);
+   transition: all 0.2s;
+}
+ .head hr {
+   display: block;
+   width: 0;
+   border: none;
+   border-bottom: solid 2px #fef5df;
+   bottom: 0;
+   margin: 0;
+   padding: 0;
+   left: 20px;
+   transition: all 0.2s;
+}
+ .price {
+   font-size: 14px;
+   line-height: 10px;
+   font-weight: bold;
+   opacity: 0;
+   transform: translateY(40px);
+   transition: all 0.2s;
+}
+ .price .old {
+   text-decoration: line-through;
+   color: #b3b3b3;
+}
+ .cart {
+   font-size: 12px;
+   opacity: 0;
+   letter-spacing: 1px;
+   font-family: 'Lato', sans-serif;
+   transform: translateY(40px);
+   transition: all 0.2s;
+}
+ .cart i {
+   font-size: 16px;
+}
+ .cart span {
+   margin-left: 10px;
+}
+ .container:hover .overlay {
+   opacity: 1;
+}
+ .container:hover .overlay .head {
+   transform: translateY(0px);
+}
+ .container:hover .overlay hr {
+   width: 90%;
+   transition-delay: 0.2s;
+}
+ .container:hover .overlay .price {
+   transform: translateY(0px);
+   transition-delay: 0.2s;
+   opacity: 1;
+}
+ .container:hover .overlay .cart {
+   transform: translateY(0px);
+   transition-delay: 0.2s;
+   opacity: 1;
+}
+
+   .navbar{
+         box-shadow: 0 0 1px #333;
+  border-style: none;
+  background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%);
+  color: white;
+ opacity: 0.95;
+  height: 40px;
+        }
+
+
+         #popcart{
+            margin-top: 9px;
+            background: transparent;
+            color: white;
+            border-style: none;
+            text-decoration: none;
+            box-shadow: none;
+            margin-right: 10px;
+            text-shadow: none;
+            outline:none;
+        }
+
+        #styling{
+          text-align: center;
+          padding:2px;
+          font-family: 'Merriweather Sans', sans-serif;
+          font-size: 20px;'
+        }
+
+
+.gradbt {
+  background-image: linear-gradient(to right,#0575E6 0%, #021B79 100%);
+  border-radius: 25px;
+  box-sizing: border-box;
+  color: #005acf;
+  font: 1vw 'Oswald', Arial, sans-serif; /*18*/
+  height: 35px;
+  letter-spacing: 1px;
+  padding: 2px;
+  margin-right: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100px;
+  z-index: 2;
+  outline:none;
+}
+
+.gradbt:hover {
+  color: #fff;
+}
+
+.gradbt span {
+  align-items: center;
+  background: white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  text-decoration: none;
+  transition: background .5s ease;
+  width: 100%;
+}
+
+.gradbt:hover span {
+  background: transparent;
+}
+
+
+
+
+    </style>
+
+
+</head>
+
+{% endblock %}
+
 
 {% block body_block %}
 
@@ -15,23 +270,23 @@
 </div>
 <div class="" style="padding-top:50px;  padding-left: 200px;  padding-right: 20px; ">
     {% block content %}
-    <p style="font-family: 'Noto Serif', serif; font-size: 3vw; text-align: center;  ">Gallery</p>
+    <p style="font-family: 'Noto Serif', serif; font-size: 3vw; text-align: center;  ">Show Posters</p>
     <hr style="width: 90%">
     {% endblock %}
     <div class="row">
         {% for i in show %}
         <div class="col-md-3">
             <div class="container" style="background-image:url(/media/{{i.image}}); width: 250px; ">
-                <a href="/frames/table_description/{{i.painting_id}}" style="text-decoration:none; color: white;">
+                <a href="/frames/table_description/{{i.poster_id}}" style="text-decoration:none; color: white;">
                     <div class="overlay">
                         <div class="items"></div>
                         <div class="items head">
-                            <p><b>{{i.name}}</b></p>
+                            <p id="nameshow{{i.poster_id}}"><b>{{i.name}}</b></p>
                             <h5>{{i.artist}} </h5>
                             <h6 style="padding: 5px;">{{i.small_description}}</h6>
                             <div class="items price">
                                 <p class="old">Rs. {{i.cancelled_price}}</p>
-                                <p class="new">Rs. {{i.price}}</p>
+                                <p class="new">Rs. <span  id="priceshow{{i.poster_id}}"> {{i.price}}</span></p>
                             </div>
                             </a>
                             <hr>
@@ -39,14 +294,17 @@
 
                         <div>
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="items cart">
+                                        <span id="divshow{{i.poster_id}}" class="divshow">
+                                             <button id="show{{i.poster_id}}" class="btn btn-danger btn-sm showstr">Add to Cart</button>
+                                        </span>
 
-                                            <button class="btn btn-danger btn-sm">Add to Cart</button>
+                                           
 
                                     </div>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-6">
                                     <div class="items cart">
 
                                             <button class="btn btn-danger btn-sm">Buy Now</button>
@@ -67,3 +325,268 @@
 </div>
 
 {% endblock %}
+
+
+
+
+{% block js %}
+
+<script>
+
+
+if(localStorage.getItem('showstr') == null) {
+  var showstr = {};
+
+}
+else {
+
+
+  showstr = JSON.parse(localStorage.getItem('showstr'));
+  updateCart(showstr);
+
+
+}
+
+// $('.showstr').click(function(){
+
+$('.divshow').on('click', 'button.showstr', function(){
+
+
+
+var idstr = this.id.toString();
+
+
+if (showstr[idstr] != undefined) {
+    qty = showstr[idstr][0] + 1;
+
+}
+else {
+  qty = 1;
+    name = document.getElementById('name' + idstr).innerHTML;
+    price = document.getElementById('price' + idstr).innerHTML;
+
+    showstr[idstr] = [qty, name, parseInt(price)];
+
+    // localStorage.setItem( 'showstr',  showstr[idstr] );
+
+
+}
+console.log(showstr[idstr])
+updateCart(showstr);
+
+
+});
+
+
+
+function clearCart(){
+
+
+  showstr = JSON.parse(localStorage.getItem('showstr'));
+  for (var item in showstr) {
+    document.getElementById('div' + item).innerHTML = '<button  id="'+ item +'" class="btn btn-danger btn-sm showstr">Add to Cart</button>'
+  }
+  localStorage.clear();
+  showstr = {};
+  updateCart(showstr);
+
+
+}
+
+updatePopover(showstr);
+function updatePopover(showstr) {
+
+
+
+
+
+  popstrs1 = popstrs1 + "<div><h5 id='styling'> Your Products </h5></div><hr><div class=''>";
+  var popstr = "";
+  var popstrs = "";
+  var popstrs1 = "";
+  var popstrs2 = "";
+  var popstrs3 = "";
+  var i = 1;
+
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+
+
+    popstrs = popstrs + "<strong>" + i + "</strong>. " ;
+    popstrs = popstrs + JSON.parse(localStorage.getItem("shit"))[item][1] +  "<span style='float: right;'>Rs. " + JSON.parse(localStorage.getItem("shit"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("shit"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("demn"))) {
+    popstr = popstr + "<strong>" + i + "</strong>. " ;
+    popstr = popstr + JSON.parse(localStorage.getItem("demn"))[item][1] + "<span style='float: right;'>Rs.  " + JSON.parse(localStorage.getItem("demn"))[item][2] + "</span><br>" + "Qty: " + JSON.parse(localStorage.getItem("demn"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+    for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+    popstrs3 = popstrs3 + "<strong>" + i + "</strong>. " ;
+    popstrs3 = popstrs3 + JSON.parse(localStorage.getItem("floatingstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("floatingstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("floatingstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+    popstrs2 = popstrs2 + "<strong>" + i + "</strong>. " ;
+    popstrs2 = popstrs2 +JSON.parse(localStorage.getItem("deepstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("deepstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("deepstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in showstr) {
+
+
+
+    popstrs1 = popstrs1 + "<strong>" + i + "</strong>. " ;
+    popstrs1 = popstrs1 + document.getElementById('name' + item ).innerHTML + "<span style='float: right;'>Rs. " + showstr[item][2] + "</span><br>" + "Qty: "+ showstr[item][0]+ "<hr>";
+    i = i + 1;
+
+
+
+  }
+
+
+
+   yello = popstr + popstrs + popstrs1 + popstrs2 + popstrs3 +  "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
+
+  document.getElementById('popcart').setAttribute('data-content', yello);
+   $('#popcart').popover('toggle');
+
+}
+
+// updateAddToCart(showstr);
+// function updateAddToCart(showstr) {
+
+
+//   console.log("we are inside updateAddToCart");
+
+//   var popstr = "";
+
+//   // popstr = popstr + "<h5> Your Products </h5><div class=''>";
+
+//   var i = 1;
+
+//   for (var item in showstr) {
+//     popstr = "<strong>" + i + "</strong>. " ;
+//     popstr = popstr + document.getElementById('name' + item ).innerHTML.slice(0, 12) + "... Qty: " + showstr[item][0] + "<br>";
+//     i = i + 1;
+//   }
+
+
+
+//    popstr = popstr + "</div> <a href='/add_to_cart/add_to_cart'> <button class='btn btn-primary' id='checkout'>Checkout</button></a>  <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  "
+
+//   document.getElementById('popcart').setAttribute('data-content', popstr);
+
+
+
+
+
+// }
+
+function updateCart(showstr) {
+
+  var sum = 0;
+
+  for (var item in showstr) {
+
+    sum = sum + showstr[item][0];
+    document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-danger btn-sm minus' > - </button>  <span id='val" + item + "''>" + showstr[item][0] + " </span> <button id='plus" + item + "' class='btn btn-danger btn-sm  plus'> + </button>";
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("shit"))[item][0];
+
+  }
+
+
+    for (var item in JSON.parse(localStorage.getItem("demn"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("demn"))[item][0];
+
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("floatingstr"))[item][0];
+
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("deepstr"))[item][0];
+
+  }
+
+
+
+  for (var item in JSON.parse(localStorage.getItem("wild"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("wild"))[item][0];
+
+  }
+
+
+  localStorage.setItem('showstr', JSON.stringify(showstr));
+  document.getElementById('demn').innerHTML = sum;
+
+
+
+  console.log(showstr);
+  updatePopover(showstr);
+
+}
+
+
+$(".divshow").on("click" ,"button.minus", function(){
+
+
+a = this.id.slice(9, );
+console.log(a);
+showstr["show" + a][0] = showstr["show" + a][0] - 1;
+showstr["show" + a][0] = Math.max(0, showstr["show" + a][0]);
+
+document.getElementById('valshow' + a).innerHTML = showstr['show' + a][0];
+
+// if (showstr["painting" + a][0] == 0) {
+
+//     document.getElementById('divshow' + a).innerHTML = '<button id="painting' + '{{i.poster_id}}' + '" class="btn btn-danger btn-sm">Add to Cart</button>'
+//     delete  showstr['painting' + a];
+
+//   }
+// else {
+//     document.getElementById('valpainting' + a).innerHTML = showstr['painting' + a][0];
+
+//   }
+  updateCart(showstr);
+
+
+
+});
+
+
+
+$('.divshow').on("click", "button.plus", function(){
+
+
+  a = this.id.slice(8, );
+
+  showstr["show" + a][0] = showstr["show" + a][0] + 1;
+  showstr["show" + a][0] = Math.max(0, showstr["show" + a][0]);
+  document.getElementById('valshow' + a).innerHTML = showstr['show' + a][0];
+  updateCart(showstr);
+
+});
+
+
+</script>
+{% endblock %}
+

@@ -1,9 +1,8 @@
 from django import forms
 
 
-class FormName(forms.Form):
+class Subscribe(forms.Form):
     email = forms.EmailField()
-    fname = forms.CharField()
-    lname = forms.CharField()
-    subject = forms.CharField()
-    text = forms.CharField(widget=forms.Textarea)
+
+    def __str__(self):
+        return self.Email

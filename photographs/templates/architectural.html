@@ -396,23 +396,48 @@ function updatePopover(shit) {
   popstrs = popstrs + "<div><h5 id='styling'> Your Products </h5></div><hr><div class=''>";
   var popstr = "";
   var popstrs = "";
+  var popstrs1 = "";
+  var popstrs2 = "";
+  var popstrs3 = "";
   
 
   var i = 1;
 
   for (var item in JSON.parse(localStorage.getItem("demn"))) {
     popstr = popstr + "<strong>" + i + "</strong>. " ;
-    popstr = popstr + JSON.parse(localStorage.getItem("demn"))[item][1] + "Qty: " + JSON.parse(localStorage.getItem("demn"))[item][0] + "<br><hr>";
+    popstr = popstr + JSON.parse(localStorage.getItem("demn"))[item][1] + "<span style='float: right;'>Rs.  " + JSON.parse(localStorage.getItem("demn"))[item][2] + "</span><br>" + "Qty: " + JSON.parse(localStorage.getItem("demn"))[item][0] + "<hr>";
     i = i + 1;
   }
+
 
   for (var item in shit ) {
 
     popstrs = popstrs + "<strong>" + i + "</strong>. " ;
-    popstrs = popstrs + document.getElementById('name' + item ).innerHTML + "Qty: " + shit[item][0] + "<br><hr>";
+    popstrs = popstrs + document.getElementById('name' + item ).innerHTML + "<span style='float: right;'>Rs. " + shit[item][2] + "</span><br>" + "Qty: "+ shit[item][0]+ "<hr>";
     i = i + 1;
 
   }
+
+
+ for (var item in JSON.parse(localStorage.getItem("showstr"))) {
+    popstrs1 = popstrs1 + "<strong>" + i + "</strong>. " ;
+    popstrs1 = popstrs1 + JSON.parse(localStorage.getItem("showstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("showstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("showstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+   for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+    popstrs3 = popstrs3 + "<strong>" + i + "</strong>. " ;
+    popstrs3 = popstrs3 + JSON.parse(localStorage.getItem("floatingstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("floatingstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("floatingstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+    popstrs2 = popstrs2 + "<strong>" + i + "</strong>. " ;
+    popstrs2 = popstrs2 +JSON.parse(localStorage.getItem("deepstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("deepstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("deepstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
 
 
 
@@ -423,7 +448,7 @@ function updatePopover(shit) {
 
 
 
-   mellow = popstr + popstrs + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
+   mellow =popstr + popstrs + popstrs1 + popstrs2 + popstrs3 +  "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
 
   document.getElementById('popcart').setAttribute('data-content', mellow);
 
@@ -431,35 +456,7 @@ function updatePopover(shit) {
 
 }
 
-// updateAddToCart(shit);
-// function updateAddToCart(shit) {
 
-
-//   console.log("we are inside updateAddToCart");
-
-//   var popstr = "";
-
-//   // popstr = popstr + "<h5> Your Products </h5><div class=''>";
-
-//   var i = 1;
-
-//   for (var item in shit) {
-//     popstr = "<strong>" + i + "</strong>. " ;
-//     popstr = popstr + document.getElementById('name' + item ).innerHTML.slice(0, 12) + "... Qty: " + shit[item][0] + "<br>";
-//     i = i + 1;
-//   }
-
-
-
-//    popstr = popstr + "</div> <a href='/add_to_cart/add_to_cart'> <button class='btn btn-primary' id='checkout'>Checkout</button></a>  <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  "
-
-//   document.getElementById('popcart').setAttribute('data-content', popstr);
-
-
-
-
-
-// }
 
 function updateCart(shit) {
 

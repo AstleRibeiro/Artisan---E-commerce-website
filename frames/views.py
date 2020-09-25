@@ -32,3 +32,8 @@ def table_description(request, id):
     tableframe = TableTop.objects.filter(painting_id=id).first()
     return render(request, "table_description.html", {"tableframe": tableframe})
 
+
+def deepset_description(request, id):
+    deepsetFrame = DeepSet.objects.filter(painting_id=id).first()
+    return render(request, "deepset_description.html", {"deepsetFrame": deepsetFrame})
+

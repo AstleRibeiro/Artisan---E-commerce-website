@@ -10,5 +10,6 @@ urlpatterns = [
     path('modern/', views.Modern1, name='Modern1'),
     path('tabletop/', views.TableTop1, name='TableTop1'),
     path('table_description/<int:id>', views.table_description, name='table_description'),
+    path('deepset_description/<int:id>', views.deepset_description, name='deepset_description'),
 
 ]

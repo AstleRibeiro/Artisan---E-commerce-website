@@ -2,7 +2,7 @@ from django.db import models
 
 
 class CampaignPosters(models.Model):
-    painting_id = models.AutoField(primary_key=True)
+    poster_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -18,6 +18,7 @@ class CampaignPosters(models.Model):
 
 
 class CorporatePosters(models.Model):
+    poster_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -33,6 +34,7 @@ class CorporatePosters(models.Model):
 
 
 class ShowPosters(models.Model):
+    poster_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)
@@ -48,6 +50,7 @@ class ShowPosters(models.Model):
 
 
 class PoliticalPosters(models.Model):
+    poster_id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=2000)
     integer = models.IntegerField(blank=True, null=True)
     artist = models.CharField(max_length=100)

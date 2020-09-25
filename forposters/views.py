@@ -23,6 +23,6 @@ def showPosters(request):
 
 
 def show_description(request, id):
-    showposter = ShowPosters.objects.filter(painting_id=id).first()
+    showposter = ShowPosters.objects.filter(poster_id=id).first()
     return render(request, "show_description.html", {"showposter": showposter})
 

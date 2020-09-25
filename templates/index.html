@@ -701,9 +701,10 @@ body {
             THE BEST OF ARTISAN DELIVERED TO YOUR INBOX</p>
         <p style="font-family: 'Merriweather Sans', sans-serif; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); font-size: 1vw;">
             Sign up for more inspiring photos, stories, and special offers from The Artisan.</p>
-        <form class="forget_pwd">
-            <input type="search" id="bar" placeholder="Enter your email address">
-            <button class="submit">Subscribe</button>
+        <form class="forget_pwd" method="POST">
+          {% csrf_token %}
+            <input type="email" id="bar" placeholder="Enter your email address" style="color: black;">
+            <input class="submit" type="submit" name="Subscribe">
         </form>
         <p style="font-family: 'Merriweather Sans', sans-serif; position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8vw;">
             By signing up for this email, you are agreeing to receive news, offers, and information from Artisan Partners, LLC and our partners. Click here to visit our Privacy Policy. Easy unsubscribe links
@@ -764,6 +765,7 @@ body {
                                 <li><a class="dribbble" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a></li>
                                 <li><a class="linkedin" href="https://in.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
+              </div>
 
                       </center>
 
