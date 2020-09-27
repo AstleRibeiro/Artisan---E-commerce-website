@@ -30,3 +30,11 @@ def abstract_description(request, id):
 def wildlife_description(request, id):
     wildlifepainting = WildlifePainting.objects.filter(painting_id=id).first()
     return render(request, "wildlife_description.html", {"wildlifepainting": wildlifepainting})
+
+def ink_description(request, id):
+    inkpainting = InkPainting.objects.filter(painting_id=id).first()
+    return render(request, "ink_description.html", {"inkpainting": inkpainting})
+
+def pastel_description(request, id):
+    pastelpainting = PastelPainting.objects.filter(painting_id=id).first()
+    return render(request, "pastel_description.html", {"pastelpainting": pastelpainting})

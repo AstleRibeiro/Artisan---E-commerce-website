@@ -4,41 +4,68 @@
 {% load static %}
 
 
-{% block content %}
+{% block body_block %}
 
-<div class="" style="padding-top:20px; ">
-    <p style="font-size:60px; font-family: serif; text-align: center; ">Fine Arts</p>
+<div class="sidenav" style="margin-top:50px;">
+    <a href="{% url 'photographs:Aerial' %}">Aerial</a>
+    <a href="{% url 'photographs:Architectural' %}">Architectural</a>
+    <a href="{% url 'photographs:Fashion' %}">Fashion</a>
+    <a href="{% url 'photographs:Fineart' %}">Fine Arts</a>
+    <a href="{% url 'photographs:Portraits' %}">Portraits</a>
+</div>
+
+
+<div class="" style="padding-top:50px;  padding-left: 200px;  padding-right: 20px; ">
+    {% block content %}
+    <p style="font-family: 'Noto Serif', serif; font-size: 3vw; text-align: center;  ">Fine Art</p>
     <hr style="width: 90%">
+    {% endblock %}
     <div class="row">
         {% for i in fineart %}
+        <div class="col-md-3">
+            <div class="container" style="background-image:url(/media/{{i.image}}); width: 250px; ">
+                <a href="/architectural/aerial_description/{{i.painting_id}}" style="text-decoration:none; color: white;">
+                    <div class="overlay">
+                        <div class="items"></div>
+                        <div class="items head">
+                            <p><b>{{i.name}}</b></p>
+                            <h5>{{i.artist}} </h5>
+                            <h6 style="padding: 5px;">{{i.small_description}}</h6>
+                            <div class="items price">
+                                <p class="old">Rs. {{i.cancelled_price}}</p>
+                                <p class="new">Rs. {{i.price}}</p>
+                            </div>
+                            </a>
+                            <hr>
+                        </div>
 
-        <div class="col-md-4">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="items cart">
 
-                <div class="card"
-                     style=" background-color: #e3e3e3; width:316px; height:420px; padding-bottom: 20px; margin-bottom: 30px;">
+                                            <button class="btn btn-danger btn-sm">Add to Cart</button>
 
-                    <img src="/media/{{i.image}}" width="316" height="316" alt="">
-                    <div class="container">
-                        <div></div>
-                        <h4><b>{{i.name}}</b></h4>
-                        <p>{{i.artist}} </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="items cart">
 
+                                            <button class="btn btn-danger btn-sm">Buy Now</button>
 
-                        <a href="#">
-                            <button>Add to Cart</button>
-                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
                     </div>
-
-
-                </div>
-
+                </a>
+            </div>
         </div>
-
         {% endfor %}
+
     </div>
 </div>
-
 
 {% endblock %}

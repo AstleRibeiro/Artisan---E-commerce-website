@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+
+
 {% block body_block %}
-
-
 
 <div class="sidenav" style="margin-top:50px;">
     <a href="{% url 'dynamicnav:dyna' %}">Abstract</a>
@@ -11,39 +11,330 @@
     <a href="{% url 'dynamicnav:inkpaintings' %}">Ink</a>
 </div>
 
-<div class="" style="padding-top:20px;">
-     <p style="font-size:60px; font-family: serif; text-align: center; ">Ink Paintings</p>
+<div class="" style="padding-top:50px;  padding-left: 200px;  padding-right: 20px; ">
+    {% block content %}
+    <p style="font-family: 'Noto Serif', serif; font-size: 3vw; text-align: center;">Ink Paintings</p>
     <hr style="width: 90%">
+    {% endblock %}
     <div class="row">
         {% for i in inkpainting %}
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <div class="container" style="background-image:url(/media/{{i.image}}); width: 250px; ">
+                <a href="/dyna/ink_description/{{i.painting_id}}" style="text-decoration:none; color: white;">
+                    <div class="overlay">
+                        <div class="items"></div>
+                        <div class="items head">
+                            <p id="nameinkpaint{{i.painting_id}}"><b>{{i.name}}</b></p>
+                            <h5>{{i.artist}} </h5>
+                            <h6 style="padding: 5px;">{{i.small_description}}</h6>
+                            <div class="items price">
+                                <p class="old">Rs. {{i.cancelled_price}}</p>
+                                <p  class="new">Rs. <span id="priceinkpaint{{i.painting_id}}">  {{i.price}}</span></p>
+                            </div>
+                            </a>
+                            <hr>
+                        </div>
 
-                <div class="card"
-                     style=" background-color: #e3e3e3; width:316px; height:420px; padding-bottom: 20px; margin-bottom: 30px;">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="items cart">
+<span id="divinkpaint{{i.painting_id}}" class="divinkpaint">
+                        <button  id="inkpaint{{i.painting_id}}" class="btn btn-danger btn-sm ink">Add to Cart</button>
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="items cart">
 
-                    <img src="/media/{{i.image}}" width="316" height="316" alt="">
-                    <div class="container">
-                        <div></div>
-                        <h4><b>{{i.name}}</b></h4>
-                        <p>{{i.artist}}</p>
+                                            <button class="btn btn-danger btn-sm">Buy Now</button>
 
-
-                        <a href="#">
-                            <button>Add to Cart</button>
-                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
                     </div>
-
-
-                </div>
-
+                </a>
+            </div>
         </div>
-
         {% endfor %}
+
     </div>
 </div>
 
-
 {% endblock %}
-<br>
+
+
+
+{% block js %}
+
+<script>
+
+
+if(localStorage.getItem('ink') == null) {
+  var ink = {};
+
+}
+else {
+
+
+  ink = JSON.parse(localStorage.getItem('ink'));
+  updateCart(ink);
+
+
+}
+
+// $('.ink').click(function(){
+
+$('.divinkpaint').on('click', 'button.ink', function(){
+
+
+
+var idstr = this.id.toString();
+
+
+if (ink[idstr] != undefined) {
+    qty = ink[idstr][0] + 1;
+
+}
+else {
+  qty = 1;
+    name = document.getElementById('name' + idstr).innerHTML;
+    price = document.getElementById('price' + idstr).innerHTML;
+
+    ink[idstr] = [qty, name, parseInt(price)];
+
+    // localStorage.setItem( 'ink',  ink[idstr] );
+
+
+}
+console.log(ink[idstr])
+updateCart(ink);
+
+
+});
+
+
+
+function clearCart(){
+
+
+  ink = JSON.parse(localStorage.getItem('ink'));
+  for (var item in ink) {
+    document.getElementById('div' + item).innerHTML = '<button  id="'+ item +'" class="btn btn-danger btn-sm ink">Add to Cart</button>'
+  }
+  localStorage.clear();
+  ink = {};
+  updateCart(ink);
+
+
+}
+
+updatePopover(ink);
+function updatePopover(ink) {
+
+
+
+
+
+  popstrink = popstrink + "<div><h5 id='styling'> Your Products </h5></div><hr><div class=''>";
+  var popstr = "";
+  var popstrs = "";
+  var popstrs1 = "";
+  var popstrs2 = "";
+  var popstrs3 = "";
+  var popstrs4 = "";
+  var popstrs5 = "";
+  var popstrink = "";
+  var popstrpastel = "";
+
+  var i = 1;
+
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+
+
+    popstr = popstr + "<strong>" + i + "</strong>. " ;
+    popstr = popstr + JSON.parse(localStorage.getItem("shit"))[item][1] + "<span style='float: right;'>Rs. " + JSON.parse(localStorage.getItem("shit"))[item][2] +"</span><br>" + "Qty: " + JSON.parse(localStorage.getItem("shit"))[item][0] + "<hr>";
+    i = i + 1;
+
+
+  }
+
+   for (var item in JSON.parse(localStorage.getItem("showstr"))) {
+    popstrs1 = popstrs1 + "<strong>" + i + "</strong>. " ;
+    popstrs1 = popstrs1 + JSON.parse(localStorage.getItem("showstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("showstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("showstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+    popstrs2 = popstrs2 + "<strong>" + i + "</strong>. " ;
+    popstrs2 = popstrs2 +JSON.parse(localStorage.getItem("deepstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("deepstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("deepstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+    popstrs3 = popstrs3 + "<strong>" + i + "</strong>. " ;
+    popstrs3 = popstrs3 + JSON.parse(localStorage.getItem("floatingstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("floatingstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("floatingstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("demn"))) {
+    popstrs4 = popstrs4 + "<strong>" + i + "</strong>. " ;
+    popstrs4 = popstrs4 + JSON.parse(localStorage.getItem("demn"))[item][1] + "<span style='float: right;'>Rs.  " + JSON.parse(localStorage.getItem("demn"))[item][2] + "</span><br>" + "Qty: " + JSON.parse(localStorage.getItem("demn"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("wild"))) {
+    popstrs5 = popstrs5 + "<strong>" + i + "</strong>. " ;
+    popstrs5 = popstrs5 + JSON.parse(localStorage.getItem("wild"))[item][1] + "<span style='float: right;'>Rs.  " + JSON.parse(localStorage.getItem("wild"))[item][2] + "</span><br>" + "Qty: " + JSON.parse(localStorage.getItem("wild"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("pastel"))) {
+    popstrpastel = popstrpastel + "<strong>" + i + "</strong>. " ;
+    popstrpastel = popstrpastel + JSON.parse(localStorage.getItem("pastel"))[item][1] + "<span style='float: right;'>Rs.  " + JSON.parse(localStorage.getItem("pastel"))[item][2] + "</span><br>" + "Qty: " + JSON.parse(localStorage.getItem("pastel"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+
+
+
+  for (var item in ink) {
+
+
+
+    popstrink = popstrink + "<strong>" + i + "</strong>. " ;
+    popstrink = popstrink + document.getElementById('name' + item ).innerHTML + "<span style='float: right;'>Rs. " + ink[item][2] + "</span><br>" + "Qty: "+ ink[item][0]+ "<hr>";
+    i = i + 1;
+
+
+
+  }
+
+
+
+   dello =  popstr + popstrs + popstrs1 + popstrs2 + popstrs3 + popstrs4 + popstrs5 + popstrink + popstrpastel + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
+
+  document.getElementById('popcart').setAttribute('data-content', dello);
+   $('#popcart').popover('toggle');
+
+}
+
+
+function updateCart(ink) {
+
+  var sum = 0;
+
+  for (var item in ink) {
+
+    sum = sum + ink[item][0];
+    document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-danger btn-sm minus' > - </button>  <span id='val" + item + "''>" + ink[item][0] + " </span> <button id='plus" + item + "' class='btn btn-danger btn-sm  plus'> + </button>";
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("shit"))[item][0];
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("showstr"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("showstr"))[item][0];
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("deepstr"))[item][0];
+
+  }
+
+   for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("floatingstr"))[item][0];
+
+  }
+
+ for (var item in JSON.parse(localStorage.getItem("demn"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("demn"))[item][0];
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("wild"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("wild"))[item][0];
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("pastel"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("pastel"))[item][0];
+
+  }
+
+
+
+  localStorage.setItem('ink', JSON.stringify(ink));
+
+
+
+
+  document.getElementById('demn').innerHTML = sum;
+
+  console.log(ink);
+  updatePopover(ink);
+
+}
+
+
+$(".divinkpaint").on("click" ,"button.minus", function(){
+
+
+a = this.id.slice(13, );
+console.log(a);
+ink["inkpaint" + a][0] = ink["inkpaint" + a][0] - 1;
+ink["inkpaint" + a][0] = Math.max(0, ink["inkpaint" + a][0]);
+
+document.getElementById('valinkpaint' + a).innerHTML = ink['inkpaint' + a][0];
+
+// if (ink["painting" + a][0] == 0) {
+
+//     document.getElementById('divinkpaint' + a).innerHTML = '<button id="painting' + '{{i.painting_id}}' + '" class="btn btn-danger btn-sm">Add to Cart</button>'
+//     delete  ink['painting' + a];
+
+//   }
+// else {
+//     document.getElementById('valpainting' + a).innerHTML = ink['painting' + a][0];
+
+//   }
+  updateCart(ink);
+
+
+
+});
+
+
+
+$('.divinkpaint').on("click", "button.plus", function(){
+
+
+  a = this.id.slice(12, );
+
+  ink["inkpaint" + a][0] = ink["inkpaint" + a][0] + 1;
+  ink["inkpaint" + a][0] = Math.max(0, ink["inkpaint" + a][0]);
+  document.getElementById('valinkpaint' + a).innerHTML = ink['inkpaint' + a][0];
+  updateCart(ink);
+
+});
+
+
+</script>
+{% endblock %}
