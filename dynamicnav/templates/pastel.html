@@ -296,7 +296,7 @@ function updateCart(pastel) {
 $(".divpastelpaint").on("click" ,"button.minus", function(){
 
 
-a = this.id.slice(13, );
+a = this.id.slice(16, );
 console.log(a);
 pastel["pastelpaint" + a][0] = pastel["pastelpaint" + a][0] - 1;
 pastel["pastelpaint" + a][0] = Math.max(0, pastel["pastelpaint" + a][0]);
@@ -324,7 +324,7 @@ document.getElementById('valpastelpaint' + a).innerHTML = pastel['pastelpaint' +
 $('.divpastelpaint').on("click", "button.plus", function(){
 
 
-  a = this.id.slice(12, );
+  a = this.id.slice(15, );
 
   pastel["pastelpaint" + a][0] = pastel["pastelpaint" + a][0] + 1;
   pastel["pastelpaint" + a][0] = Math.max(0, pastel["pastelpaint" + a][0]);

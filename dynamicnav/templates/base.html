@@ -407,6 +407,7 @@ function updatePopover(demn) {
   var popstrink = "";
   var popstrpastel = "";
   var popstrwild = "";
+  var popstrabs_desc = "";
   var i = 1;
 
   for (var item in JSON.parse(localStorage.getItem("shit"))) {
@@ -458,6 +459,15 @@ function updatePopover(demn) {
   }
 
 
+  for (var item in JSON.parse(localStorage.getItem("abs_desc"))) {
+    popstrabs_desc = popstrabs_desc + "<strong>" + i + "</strong>. " ;
+    popstrabs_desc = popstrabs_desc + JSON.parse(localStorage.getItem("abs_desc"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("abs_desc"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("abs_desc"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+
+
 
   for (var item in demn) {
 
@@ -473,7 +483,7 @@ function updatePopover(demn) {
 
 
 
-   hello =  popstr + popstrs + popstrs1 + popstrs2 + popstrs3 + popstrink + popstrpastel + popstrwild +  "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
+   hello =  popstr + popstrs + popstrs1 + popstrs2 + popstrs3 + popstrink + popstrpastel + popstrwild + popstrabs_desc + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
 
   document.getElementById('popcart').setAttribute('data-content', hello);
    $('#popcart').popover('toggle');
@@ -562,6 +572,12 @@ function updateCart(demn) {
  for (var item in JSON.parse(localStorage.getItem("pastel"))) {
 
     sum = sum + JSON.parse(localStorage.getItem("pastel"))[item][0];
+
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("abs_desc"))) {
+
+    sum = sum + JSON.parse(localStorage.getItem("abs_desc"))[item][0];
 
   }
 

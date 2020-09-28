@@ -812,7 +812,7 @@ function updateCart(abs_desc) {
 
 
 
-  document.getElementById('abs_desc').innerHTML = sum;
+  document.getElementById('demn').innerHTML = sum;
 
   console.log(abs_desc);
   updatePopover(abs_desc);
@@ -823,7 +823,7 @@ function updateCart(abs_desc) {
 $(".divabsdescription").on("click" ,"button.minus", function(){
 
 
-a = this.id.slice(13, );
+a = this.id.slice(19, );
 console.log(a);
 abs_desc["absdescription" + a][0] = abs_desc["absdescription" + a][0] - 1;
 abs_desc["absdescription" + a][0] = Math.max(0, abs_desc["absdescription" + a][0]);
@@ -851,7 +851,7 @@ document.getElementById('valabsdescription' + a).innerHTML = abs_desc['absdescri
 $('.divabsdescription').on("click", "button.plus", function(){
 
 
-  a = this.id.slice(12, );
+  a = this.id.slice(18, );
 
   abs_desc["absdescription" + a][0] = abs_desc["absdescription" + a][0] + 1;
   abs_desc["absdescription" + a][0] = Math.max(0, abs_desc["absdescription" + a][0]);

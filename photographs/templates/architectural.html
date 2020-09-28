@@ -398,6 +398,9 @@ function updatePopover(shit) {
   var popstrs1 = "";
   var popstrs2 = "";
   var popstrs3 = "";
+  var popstrwild = "";
+  var popstrink = "";
+  var popstrpastel = "";
   
 
   var i = 1;
@@ -438,16 +441,28 @@ function updatePopover(shit) {
   }
 
 
+   for (var item in JSON.parse(localStorage.getItem("wild"))) {
+    popstrwild = popstrwild + "<strong>" + i + "</strong>. " ;
+    popstrwild = popstrwild +JSON.parse(localStorage.getItem("wild"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("wild"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("wild"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("ink"))) {
+    popstrink = popstrink + "<strong>" + i + "</strong>. " ;
+    popstrink = popstrink +JSON.parse(localStorage.getItem("ink"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("ink"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("ink"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("pastel"))) {
+    popstrpastel = popstrpastel + "<strong>" + i + "</strong>. " ;
+    popstrpastel = popstrpastel +JSON.parse(localStorage.getItem("pastel"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("pastel"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("pastel"))[item][0] + "<hr>";
+    i = i + 1;
+  }
 
 
 
-
- 
-
-
-
-
-   mellow =popstr + popstrs + popstrs1 + popstrs2 + popstrs3 +  "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
+   mellow =popstr + popstrs + popstrs1 + popstrs2 + popstrs3 + popstrpastel  + popstrink + popstrwild + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
 
   document.getElementById('popcart').setAttribute('data-content', mellow);
 
@@ -470,6 +485,42 @@ function updateCart(shit) {
     sum = sum + JSON.parse(localStorage.getItem("demn"))[item][0];
     
   }
+
+   for (var item in JSON.parse(localStorage.getItem("wild"))) {
+    sum = sum + JSON.parse(localStorage.getItem("wild"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("ink"))) {
+    sum = sum + JSON.parse(localStorage.getItem("ink"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("pastel"))) {
+    sum = sum + JSON.parse(localStorage.getItem("pastel"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+    sum = sum + JSON.parse(localStorage.getItem("floatingstr"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+    sum = sum + JSON.parse(localStorage.getItem("deepstr"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("showstr"))) {
+    sum = sum + JSON.parse(localStorage.getItem("showstr"))[item][0];
+    
+  }
+
 
 
   localStorage.setItem('shit', JSON.stringify(shit));

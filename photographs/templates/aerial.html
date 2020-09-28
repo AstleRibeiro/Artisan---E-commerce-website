@@ -28,12 +28,12 @@
                     <div class="overlay">
                         <div class="items"></div>
                         <div class="items head">
-                            <p><b>{{i.name}}</b></p>
+                            <p  id="nameaerialphoto{{i.painting_id}}"><b>{{i.name}}</b></p>
                             <h5>{{i.artist}} </h5>
                             <h6 style="padding: 5px;">{{i.small_description}}</h6>
                             <div class="items price">
                                 <p class="old">Rs. {{i.cancelled_price}}</p>
-                                <p class="new">Rs. {{i.price}}</p>
+                                <p class="new"><span id="priceaerialphoto{{i.painting_id}}">Rs. {{i.price}}</span></p>
                             </div>
                             </a>
                             <hr>
@@ -44,7 +44,9 @@
                                 <div class="col-md-5">
                                     <div class="items cart">
 
-                                            <button class="btn btn-danger btn-sm">Add to Cart</button>
+                                           <span id="divaerialphoto{{i.painting_id}}" class="divaerialphoto">
+                        <button  id="aerialphoto{{i.painting_id}}" class="btn btn-danger btn-sm shit">Add to Cart</button>
+                        </span>
 
                                     </div>
                                 </div>
@@ -69,3 +71,265 @@
 </div>
 
 {% endblock %}
+
+
+
+{% block js %}
+
+<script>
+
+
+if(localStorage.getItem('aerial') == null) {
+  var aerial = {};
+
+}
+else {
+  aerial = JSON.parse(localStorage.getItem('aerial'));
+  updateCart(aerial);
+
+
+}
+
+// $('.aerial').click(function(){
+
+$('.divaerialphoto').on('click', 'button.aerial', function(){
+
+
+
+var idstr = this.id.toString();
+
+
+if (aerial[idstr] != undefined) {
+    qty = aerial[idstr][0] + 1;
+
+}
+else {
+  qty = 1;
+    name = document.getElementById('name' + idstr).innerHTML;
+    price = document.getElementById('price' + idstr).innerHTML;
+
+    aerial[idstr] = [qty, name, parseInt(price)];
+
+
+}
+updateCart(aerial);
+
+
+});
+
+
+
+function clearCart(){
+  aerial = JSON.parse(localStorage.getItem('aerial'));
+  for (var item in aerial) {
+    document.getElementById('div' + item).innerHTML = '<button  id="'+ item +'" class="btn btn-danger btn-sm aerial">Add to Cart</button>'
+  }
+  localStorage.clear();
+  aerial = {};
+  updateCart(aerial);
+
+}
+
+updatePopover(aerial);
+function updatePopover(aerial) {
+
+
+
+
+
+  
+  
+
+  popstrs = popstrs + "<div><h5 id='styling'> Your Products </h5></div><hr><div class=''>";
+  var popstr = "";
+  var popstrs = "";
+  var popstrs1 = "";
+  var popstrs2 = "";
+  var popstrs3 = "";
+  var popstrwild = "";
+  var popstrink = "";
+  var popstrpastel = "";
+  var popstrshit = "";
+  
+
+  var i = 1;
+
+  for (var item in JSON.parse(localStorage.getItem("demn"))) {
+    popstr = popstr + "<strong>" + i + "</strong>. " ;
+    popstr = popstr + JSON.parse(localStorage.getItem("demn"))[item][1] + "<span style='float: right;'>Rs.  " + JSON.parse(localStorage.getItem("demn"))[item][2] + "</span><br>" + "Qty: " + JSON.parse(localStorage.getItem("demn"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in aerial ) {
+
+    popstrs = popstrs + "<strong>" + i + "</strong>. " ;
+    popstrs = popstrs + document.getElementById('name' + item ).innerHTML + "<span style='float: right;'>Rs. " + aerial[item][2] + "</span><br>" + "Qty: "+ aerial[item][0]+ "<hr>";
+    i = i + 1;
+
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("showstr"))) {
+    popstrs1 = popstrs1 + "<strong>" + i + "</strong>. " ;
+    popstrs1 = popstrs1 + JSON.parse(localStorage.getItem("showstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("showstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("showstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+   for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+    popstrs3 = popstrs3 + "<strong>" + i + "</strong>. " ;
+    popstrs3 = popstrs3 + JSON.parse(localStorage.getItem("floatingstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("floatingstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("floatingstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+  for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+    popstrs2 = popstrs2 + "<strong>" + i + "</strong>. " ;
+    popstrs2 = popstrs2 +JSON.parse(localStorage.getItem("deepstr"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("deepstr"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("deepstr"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+   for (var item in JSON.parse(localStorage.getItem("wild"))) {
+    popstrwild = popstrwild + "<strong>" + i + "</strong>. " ;
+    popstrwild = popstrwild +JSON.parse(localStorage.getItem("wild"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("wild"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("wild"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("ink"))) {
+    popstrink = popstrink + "<strong>" + i + "</strong>. " ;
+    popstrink = popstrink +JSON.parse(localStorage.getItem("ink"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("ink"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("ink"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+    popstrshit = popstrshit + "<strong>" + i + "</strong>. " ;
+    popstrshit = popstrshit +JSON.parse(localStorage.getItem("shit"))[item][1] + "<span style='float: right;'>Rs. "+ JSON.parse(localStorage.getItem("shit"))[item][2] +"</span><br>" +  "Qty: " + JSON.parse(localStorage.getItem("shit"))[item][0] + "<hr>";
+    i = i + 1;
+  }
+
+
+
+
+
+   mellow =popstr + popstrs + popstrs1 + popstrs2 + popstrs3 + popstrpastel  + popstrink + popstrwild + popstrshit + "</div> <a href='/add_to_cart/add_to_cart'> <button class='gradbt' id='checkout'><span>Checkout</span></button></a>  <button class='gradbt' onclick='clearCart()' id='clearCart'><span class='lnr lnr-trash'></span></button></a>  "
+
+  document.getElementById('popcart').setAttribute('data-content', mellow);
+
+   $('#popcart').popover('toggle');
+
+}
+
+
+
+function updateCart(aerial) {
+
+  var sum = 0;
+
+  for (var item in aerial) {
+    sum = sum + aerial[item][0];
+    document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-danger btn-sm minus' > - </button>  <span id='val" + item + "''>" + aerial[item][0] + " </span> <button id='plus" + item + "' class='btn btn-danger btn-sm  plus'> + </button>";
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("demn"))) {
+    sum = sum + JSON.parse(localStorage.getItem("demn"))[item][0];
+    
+  }
+
+   for (var item in JSON.parse(localStorage.getItem("wild"))) {
+    sum = sum + JSON.parse(localStorage.getItem("wild"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("ink"))) {
+    sum = sum + JSON.parse(localStorage.getItem("ink"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("pastel"))) {
+    sum = sum + JSON.parse(localStorage.getItem("pastel"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
+    sum = sum + JSON.parse(localStorage.getItem("floatingstr"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
+    sum = sum + JSON.parse(localStorage.getItem("deepstr"))[item][0];
+    
+  }
+
+
+ for (var item in JSON.parse(localStorage.getItem("showstr"))) {
+    sum = sum + JSON.parse(localStorage.getItem("showstr"))[item][0];
+    
+  }
+
+  for (var item in JSON.parse(localStorage.getItem("shit"))) {
+    sum = sum + JSON.parse(localStorage.getItem("shit"))[item][0];
+    
+  }
+
+
+
+  localStorage.setItem('aerial', JSON.stringify(aerial));
+
+  document.getElementById('demn').innerHTML = sum;
+  
+  console.log(aerial);
+  updatePopover(aerial);
+
+}
+
+
+$(".divaerialphoto").on("click" ,"button.minus", function(){
+
+
+a = this.id.slice(16, );
+console.log(a);
+aerial["aerialphoto" + a][0] = aerial["aerialphoto" + a][0] - 1;
+aerial["aerialphoto" + a][0] = Math.max(0, aerial["aerialphoto" + a][0]);
+
+document.getElementById('valaerialphoto' + a).innerHTML = aerial['aerialphoto' + a][0];
+
+// if (aerial["aerialphoto" + a][0] == 0) {
+
+//     document.getElementById('divaerialphoto' + a).innerHTML = '<button id="aerialphoto' + '{{i.architecture_id}}' + '" class="btn btn-danger btn-sm">Add to Cart</button>'
+//     delete  aerial['aerialphoto' + a];
+
+//   }
+// else {
+//     document.getElementById('valarchitecture' + a).innerHTML = aerial['aerialphoto' + a][0];
+
+//   }
+  updateCart(aerial);
+
+
+
+});
+
+
+
+$('.divaerialphoto').on("click", "button.plus", function(){
+
+
+  a = this.id.slice(15, );
+
+  aerial["aerialphoto" + a][0] = aerial["aerialphoto" + a][0] + 1;
+  aerial["aerialphoto" + a][0] = Math.max(0, aerial["aerialphoto" + a][0]);
+  document.getElementById('valaerialphoto' + a).innerHTML = aerial['aerialphoto' + a][0];
+  updateCart(aerial);
+
+});
+
+
+</script>
+{% endblock %}
+
