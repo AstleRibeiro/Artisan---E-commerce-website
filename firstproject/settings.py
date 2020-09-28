@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'photographs',
     'frames',
     'add_to_cart',
+    'madhubani',
+    'contactus',
 ]
 
 

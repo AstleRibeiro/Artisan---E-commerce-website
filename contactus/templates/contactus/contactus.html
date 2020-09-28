@@ -38,6 +38,14 @@
   border: none;
   background-color: #f3f3f3;
 }
+#feedback-form input[type=email] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
 
 #feedback-form textarea {
   display: block;
@@ -244,10 +252,11 @@
         <div id="feedback-form">
         <h2 class="header">Tell us about your experience</h2>
         <div>
-          <form>
-            <input type="text" name="email" placeholder="Email"></input>
-            <input type="text" name="name" placeholder="Name"></input>
-            <textarea name="name" placeholder="Type in your query here..."></textarea>
+          <form action="/contactus/contactus/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <textarea name="message" placeholder="Type in your query here..."></textarea>
 
             <button type="submit">Submit</button>
            </form>

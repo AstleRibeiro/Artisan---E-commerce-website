@@ -526,9 +526,9 @@ body {
    <div>
       
         <div style="padding-left: 100px;" class="header-container"><img class="header__logo" id="logo"  src="{% static 'images/logo2.png' %}" alt="Logo de Feinkoch">
-          <h3 style="margin-right: 300px;"><a>To Check out out Madhubani collection, Click here.</a></h3></div>
+          <h3 style="margin-right: 300px;"><a href="{% url 'madhubani:madhubani' %}">To Check out out Madhubani collection, Click here.</a></h3></div>
     </div>
-        
+
 
     <!-- Flickity HTML init -->
 
@@ -762,8 +762,7 @@ body {
                 <p class="text-justify" style="font-family: 'Signika', sans-serif;">At ARTISAN we, Astle, Shania & Yvonne, aim to be inclusive at both onsite
                     and online- where diverse cultural, artistic, social, and political positions are welcome. We’re
                     committed to sharing the most thought-provoking modern and contemporary art, and hope you will join
-                    us in exploring the art, ideas, and issues of our time. Our Purpose & Beliefs are the foundations of
-                    our shared culture. It unites us and inspires Us.</p>
+                    us in exploring the art, ideas, and issues of our time. </p>
             </div>
             <div class="col-md-1">
 
@@ -782,7 +781,7 @@ body {
             <div class="col-xs-6 col-md-3">
                 <h6>Quick Links</h6>
                 <ul class="footer-links" style="font-family: 'Signika', sans-serif;">
-                    <li><a href="{% url 'firsthello:contactus' %}">Contact Us</a></li>
+                    <li><a href="{% url 'contactus:contactus' %}">Contact Us</a></li>
                     <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute/Feedback</a></li>
                     <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
                 </ul>
@@ -791,11 +790,7 @@ body {
         <hr>
 
         <div class="row">
-            <div class="col-md-9 col-sm-6 col-xs-12">
-                <p class="copyright-text" style="font-family: 'Quicksand', sans-serif;">Copyright &copy; 2020 All Rights Reserved by
-                    <a href="#">Artisian</a>.
-                </p>
-            </div>
+
             <center>
               <div class="col-md-12 col-sm-6 col-xs-12">
                             <ul class="social-icons">
@@ -806,6 +801,10 @@ body {
                                 <li><a class="dribbble" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a></li>
                                 <li><a class="linkedin" href="https://in.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
+                  <br>
+                  <p class="copyright-text" style="font-family: 'Quicksand', sans-serif;">Copyright &copy; 2020 All Rights Reserved by
+                    <a href="#">Artisian</a>.
+                </p>
               </div>
 
                       </center>
