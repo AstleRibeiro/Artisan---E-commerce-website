@@ -84,6 +84,8 @@ function carousel(root) {
 
 
 
+
+
 </script>
 <style>
 
@@ -305,7 +307,7 @@ body {
 
 .site-footer
 {
-   background-color:#0271ad;
+   background-color:#3e6bc7;
   padding:20px;
   font-size:15px;
   line-height:24px;
@@ -499,6 +501,8 @@ body {
 
 
 
+
+
 </style>
 
 
@@ -523,10 +527,13 @@ body {
 
 <div class="paddingpage">
 
-   <div>
-      
-        <div style="padding-left: 100px;" class="header-container"><img class="header__logo" id="logo"  src="{% static 'images/logo2.png' %}" alt="Logo de Feinkoch">
-          <h3 style="margin-right: 300px;"><a href="{% url 'madhubani:madhubani' %}">To Check out out Madhubani collection, Click here.</a></h3></div>
+    <div>
+
+        <div style="padding-left: 100px;" class="header-container"><img class="header__logo" id="logo"
+                                                                        src="{% static 'images/logo2.png' %}"
+                                                                        alt="Logo de Feinkoch">
+            <h3 style="margin-right: 300px;"><a href="{% url 'madhubani:madhubani' %}">To Check out out Madhubani
+                collection, Click here.</a></h3></div>
     </div>
 
 
@@ -544,43 +551,43 @@ body {
 
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
-<div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
-    <div class="carousel" data-flickity='{ "groupCells": true }'>
-        {% for i in abs_painting %}
-        <a href="/dyna/abstract_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
-            <div class="carousel-cell">
-                <div class='card'>
-                    <div class='card-content'>
-                        <div class='top-bar'><span>{{i.name}}</span></div>
-                        <div class='img'>
-                            <img src="/media/{{i.image}}">
+    <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
+        <div class="carousel" data-flickity='{ "groupCells": true }'>
+            {% for i in abs_painting %}
+            <a href="/dyna/abstract_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+                <div class="carousel-cell">
+                    <div class='card'>
+                        <div class='card-content'>
+                            <div class='top-bar'><span>{{i.name}}</span></div>
+                            <div class='img'>
+                                <img src="/media/{{i.image}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class='card-description'>
-                        <div class='title'>
-                            &#8377; {{i.price}}
-                        </div>
-                        <div class='cart'>
-                            <a href="#"><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                            <a href="#"><span class='lnr lnr-heart'></span></a>
-                        </div>
+                        <div class='card-description'>
+                            <div class='title'>
+                                &#8377; {{i.price}}
+                            </div>
+                            <div class='cart'>
+                                <a href="#"><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                                <a href="#"><span class='lnr lnr-heart'></span></a>
+                            </div>
 
+                        </div>
+                        <div class='title'>
+                            Artist: {{i.artist}}
+                        </div>
+                        <div class='title'>
+                            {{i.small_description}}
+                        </div>
                     </div>
-                     <div class='title'>
-                             Artist: {{i.artist}}
-                     </div>
-                     <div class='title'>
-                             {{i.small_description}}
-                     </div>
                 </div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
     <br>
     <br>
-      <br>
+    <br>
     <br>
 
     <div style="width: 50%; float: left; padding-left: 50px;">
@@ -596,38 +603,38 @@ body {
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
     <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
-    <div class="carousel" data-flickity='{ "groupCells": true }'>
-        {% for i in wild_painting %}
-        <a href="/dyna/wildlife_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
-            <div class="carousel-cell">
-                <div class='card'>
-                    <div class='card-content'>
-                        <div class='top-bar'><span>{{i.name}}</span></div>
-                        <div class='img'>
-                            <img src="/media/{{i.image}}">
+        <div class="carousel" data-flickity='{ "groupCells": true }'>
+            {% for i in wild_painting %}
+            <a href="/dyna/wildlife_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+                <div class="carousel-cell">
+                    <div class='card'>
+                        <div class='card-content'>
+                            <div class='top-bar'><span>{{i.name}}</span></div>
+                            <div class='img'>
+                                <img src="/media/{{i.image}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class='card-description'>
-                        <div class='title'>
-                            &#8377; {{i.price}}
-                        </div>
-                        <div class='cart'>
-                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                            <a href=""><span class='lnr lnr-heart'></span></a>
+                        <div class='card-description'>
+                            <div class='title'>
+                                &#8377; {{i.price}}
+                            </div>
+                            <div class='cart'>
+                                <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                                <a href=""><span class='lnr lnr-heart'></span></a>
 
+                            </div>
+                        </div>
+                        <div class='title'>
+                            Artist: {{i.artist}}
+                        </div>
+                        <div class='title'>
+                            {{i.small_description}}
                         </div>
                     </div>
-                        <div class='title'>
-                             Artist: {{i.artist}}
-                     </div>
-                     <div class='title'>
-                             {{i.small_description}}
-                     </div>
                 </div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 
     <br>
@@ -647,38 +654,38 @@ body {
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
     <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
-    <div class="carousel" data-flickity='{ "groupCells": true }'>
-        {% for i in show_poster %}
-        <a href="/corporate/show_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
-            <div class="carousel-cell">
-                <div class='card'>
-                    <div class='card-content'>
-                        <div class='top-bar'><span>{{i.name}}</span></div>
-                        <div class='img'>
-                            <img src="/media/{{i.image}}">
+        <div class="carousel" data-flickity='{ "groupCells": true }'>
+            {% for i in show_poster %}
+            <a href="/corporate/show_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+                <div class="carousel-cell">
+                    <div class='card'>
+                        <div class='card-content'>
+                            <div class='top-bar'><span>{{i.name}}</span></div>
+                            <div class='img'>
+                                <img src="/media/{{i.image}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class='card-description'>
-                        <div class='title'>
-                            &#8377; {{i.price}}
-                        </div>
-                        <div class='cart'>
-                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                            <a href=""><span class='lnr lnr-heart'></span></a>
+                        <div class='card-description'>
+                            <div class='title'>
+                                &#8377; {{i.price}}
+                            </div>
+                            <div class='cart'>
+                                <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                                <a href=""><span class='lnr lnr-heart'></span></a>
 
+                            </div>
+                        </div>
+                        <div class='title'>
+                            Artist: {{i.artist}}
+                        </div>
+                        <div class='title'>
+                            {{i.small_description}}
                         </div>
                     </div>
-                        <div class='title'>
-                             Artist: {{i.artist}}
-                     </div>
-                     <div class='title'>
-                             {{i.small_description}}
-                     </div>
                 </div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 
     <br>
@@ -699,38 +706,38 @@ body {
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
     <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
-    <div class="carousel" data-flickity='{ "groupCells": true }'>
-        {% for i in tableframe %}
-        <a href="/deepset/table_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
-            <div class="carousel-cell">
-                <div class='card'>
-                    <div class='card-content'>
-                        <div class='top-bar'><span>{{i.name}}</span></div>
-                        <div class='img'>
-                            <img src="/media/{{i.image}}">
+        <div class="carousel" data-flickity='{ "groupCells": true }'>
+            {% for i in tableframe %}
+            <a href="/deepset/table_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+                <div class="carousel-cell">
+                    <div class='card'>
+                        <div class='card-content'>
+                            <div class='top-bar'><span>{{i.name}}</span></div>
+                            <div class='img'>
+                                <img src="/media/{{i.image}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class='card-description'>
-                        <div class='title'>
-                            &#8377; {{i.price}}
-                        </div>
-                        <div class='cart'>
-                            <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                            <a href=""><span class='lnr lnr-heart'></span></a>
+                        <div class='card-description'>
+                            <div class='title'>
+                                &#8377; {{i.price}}
+                            </div>
+                            <div class='cart'>
+                                <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
+                                <a href=""><span class='lnr lnr-heart'></span></a>
 
+                            </div>
+                        </div>
+                        <div class='title'>
+                            Artist: {{i.artist}}
+                        </div>
+                        <div class='title'>
+                            {{i.small_description}}
                         </div>
                     </div>
-                        <div class='title'>
-                             Artist: {{i.artist}}
-                     </div>
-                     <div class='title'>
-                             {{i.small_description}}
-                     </div>
                 </div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 
     <br>
@@ -741,14 +748,26 @@ body {
         <p style="font-family: 'Merriweather Sans', sans-serif;  position: absolute; top: 10%; left: 23%; font-size: 2.3vw;">
             THE BEST OF ARTISAN DELIVERED TO YOUR INBOX</p>
         <p style="font-family: 'Merriweather Sans', sans-serif; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); font-size: 1vw;">
-            Sign up for more inspiring photos, stories, and special offers from The Artisan.</p>
-        <form class="forget_pwd" method="POST">
-          {% csrf_token %}
-            <input type="email" id="bar" placeholder="Enter your email address" style="color: black;">
-            <input class="submit" type="submit" name="Subscribe">
+
+
+        <form method="POST"
+              action="https://blogspot.us10.list-manage.com/subscribe/post?u=e523e7b2f7d50dac4ecdfc863&amp;id=88faf15713"
+              id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+              target="_blank" novalidate style="padding-top: 120px; color: black;">
+            {% csrf_token %}
+            <div id="mc_embed_signup_scroll">
+                <input type="email" id="bar" value="" name="EMAIL" class="email" placeholder="email address" required>
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    <input type="text" name="b_e523e7b2f7d50dac4ecdfc863_88faf15713" tabindex="-1" value=""
+                           style="color: black;">
+                </div>
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button submit">
+
+            </div>
         </form>
         <p style="font-family: 'Merriweather Sans', sans-serif; position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8vw;">
-            By signing up for this email, you are agreeing to receive news, offers, and information from Artisan Partners, LLC and our partners. Click here to visit our Privacy Policy. Easy unsubscribe links
+            By signing up for this email, you are agreeing to receive news, offers, and information from Artisan
+            Partners, LLC and our partners. Click here to visit our Privacy Policy. Easy unsubscribe links
             are provided in every email.</p>
     </div>
 
@@ -756,62 +775,62 @@ body {
 </div>
 
 <footer class="site-footer">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h6>About us</h6>
-                <p class="text-justify" style="font-family: 'Signika', sans-serif;">At ARTISAN we, Astle, Shania & Yvonne, aim to be inclusive at both onsite
-                    and online- where diverse cultural, artistic, social, and political positions are welcome. We’re
-                    committed to sharing the most thought-provoking modern and contemporary art, and hope you will join
-                    us in exploring the art, ideas, and issues of our time. </p>
-            </div>
-            <div class="col-md-1">
-
-            </div>
-
-            <div class="col-xs-6 col-md-2">
-                <h6>Categories</h6>
-                <ul class="footer-links" style="font-family: 'Signika', sans-serif;">
-                    <li><a href="">Abstract</a></li>
-                    <li><a href="">Wildlife</a></li>
-                    <li><a href="">Nature</a></li>
-                    <li><a href="">Movies</a></li>
-                </ul>
-            </div>
-
-            <div class="col-xs-6 col-md-3">
-                <h6>Quick Links</h6>
-                <ul class="footer-links" style="font-family: 'Signika', sans-serif;">
-                    <li><a href="{% url 'contactus:contactus' %}">Contact Us/ Feedback</a></li>
-                    <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                    <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                </ul>
-            </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <h6>About us</h6>
+            <p class="text-justify" style="font-family: 'Signika', sans-serif;">At ARTISAN we, Astle, Shania & Yvonne,
+                aim to be inclusive at both onsite
+                and online- where diverse cultural, artistic, social, and political positions are welcome. We’re
+                committed to sharing the most thought-provoking modern and contemporary art, and hope you will join
+                us in exploring the art, ideas, and issues of our time. </p>
         </div>
-        <hr>
+        <div class="col-md-1">
 
-        <div class="row">
+        </div>
 
-            <center>
-              <div class="col-md-12 col-sm-6 col-xs-12">
-                            <ul class="social-icons">
-                                <li><a class="facebook" href="https://www.facebook.com/beartofficial"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li><a class="twitter" href="https://twitter.com/MuseumModernArt/status/1307072923744731138"><i
-                                        class="fa fa-twitter"></i></a></li>
-                                <li><a class="dribbble" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a class="linkedin" href="https://in.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                  <br>
-                  <p class="copyright-text" style="font-family: 'Quicksand', sans-serif;">Copyright &copy; 2020 All Rights Reserved by
+        <div class="col-xs-6 col-md-2">
+            <h6>Categories</h6>
+            <ul class="footer-links" style="font-family: 'Signika', sans-serif;">
+                <li><a href="">Abstract</a></li>
+                <li><a href="">Wildlife</a></li>
+                <li><a href="">Nature</a></li>
+                <li><a href="">Movies</a></li>
+            </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links" style="font-family: 'Signika', sans-serif;">
+                <li><a href="{% url 'contactus:contactus' %}">Contact Us/ Feedback</a></li>
+                <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+
+        <center>
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="https://www.facebook.com/beartofficial"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a class="twitter" href="https://twitter.com/MuseumModernArt/status/1307072923744731138"><i
+                            class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="https://in.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+                <br>
+                <p class="copyright-text" style="font-family: 'Quicksand', sans-serif;">Copyright &copy; 2020 All Rights
+                    Reserved by
                     <a href="#">Artisian</a>.
                 </p>
-              </div>
+            </div>
 
-                      </center>
+        </center>
 
-        </div>
-
-
+    </div>
 
 
 </footer>

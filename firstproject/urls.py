@@ -30,9 +30,10 @@ urlpatterns = [
     path('deepset/', include('frames.urls')),
     path('contactus/', include('contactus.urls')),
     path('add_to_cart/', include('add_to_cart.urls', namespace='add_to_cart')),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('acount/', include('acount.urls', namespace='acount')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('thanks/', views.Thankspage.as_view(), name='thanks'),
+    path('accounts/', include('allauth.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
