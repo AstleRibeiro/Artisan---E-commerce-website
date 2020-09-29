@@ -167,13 +167,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">Hello,  {{ request.user }}</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Edit Profile</a></li>
-                        <li role="separator" class="divider"></li>
                         <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span>  Saved Cards</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Wallet</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{% url 'accounts:logout' %}"><span class="glyphicon glyphicon-off"></span>  Logout</a></li>
                     </ul>

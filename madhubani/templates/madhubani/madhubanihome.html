@@ -401,13 +401,16 @@ font-family: 'Korpus-B', sans-serif;
         <br>
           <h2 class="recipe__title" style="font-family: Canela, Times, serif;">Featured Folk Art</h2>
 
-          <div class="recipe-list">
+          <div class="recipe-list" style="padding: 10px;">
             <div class="recipe-scroll">
               {% for i in madhubani%}
+
               <article class="recipe-item">
-                <div class="recipe-item__bg"><img class="recipe-item__img" src="/media/{{i.image}}" alt="Foto de receta"></div><span class="recipe-item__name">{{i.name}}</span>
+                  <a href="/madhubani/madhubani_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+                <div class="recipe-item__bg"><img class="recipe-item__img" src="/media/{{i.image}}" alt="Foto de receta"></div><span class="recipe-item__name">{{i.name}}</span><span style="float:right;">Rs. {{i.price}}</span>
                 <div class="palette"><span class="palette__color" style="background-color:#e5d7ac"></span><span class="palette__color" style="background-color:#e7c291"></span><span class="palette__color" style="background-color:#aed9b7"></span></div>
               </article>
+                </a>
              {% endfor%}
             </div>
           </div>
