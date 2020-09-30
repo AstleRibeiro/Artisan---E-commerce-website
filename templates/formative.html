@@ -199,7 +199,7 @@
 {% endblock %}
 {% block js %}
 
-    
+
 <script type="text/javascript">
 
 
@@ -215,10 +215,35 @@ else {
 }
 
 
+
+
+if(localStorage.getItem('shit') == null) {
+  var shit = {};
+
+}
+else {
+  shit = JSON.parse(localStorage.getItem('shit'));
+
+
+
+}
+
+
+
+
+
+
 console.log(demn);
+console.log(shit);
 sum = 0;
 totalPrice = 0;
 if ($.isEmptyObject(demn)) {
+  mystr = `<h4> Your cart is empty </h4>`
+  $('#items').append(mystr);
+
+}
+
+if ($.isEmptyObject(shit)) {
   mystr = `<h4> Your cart is empty </h4>`
   $('#items').append(mystr);
 
@@ -233,16 +258,34 @@ for (item in demn) {
   let itemPrice = demn[item][2];
   sum = sum + qty;
   totalPrice = totalPrice + qty * itemPrice;
+  totalPricelast = totalPrice + 55
   mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
-      ${name}
+      ${name} ${itemPrice}
       <span class="badge badge-primary badge-pill">${qty}</span>
-
   </li>`
   $('#items').append(mystr);
 
 }
 
-}  
+
+
+for (item in shit) {
+
+  let name = shit[item][1];
+  let qty = shit[item][0];
+  let itemPrice = shit[item][2];
+  sum = sum + qty;
+  totalPrice = totalPrice + qty * itemPrice;
+  totalPricelast = totalPrice + 55
+  mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
+      ${name}  ${itemPrice}
+      <span class="badge badge-primary badge-pill">${qty}</span>
+  </li>`
+  $('#items').append(mystr);
+
+}
+
+}
 
 
  document.getElementById('demn').innerHTML = sum;
