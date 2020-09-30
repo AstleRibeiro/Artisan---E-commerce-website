@@ -11,8 +11,11 @@ def index(request):
     return render(request, 'splash.html')
 
 
-def contact(request):
-    return render(request, 'contactus.html')
+def about(request):
+    return render(request, 'aboutus.html')
+
+def auction(request):
+    return render(request, 'auction.html')
 
 
 def home(request):

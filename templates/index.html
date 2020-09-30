@@ -86,6 +86,7 @@ function carousel(root) {
 
 
 
+
 </script>
 <style>
 
@@ -503,6 +504,7 @@ body {
 
 
 
+
 </style>
 
 
@@ -569,7 +571,6 @@ body {
                             </div>
                             <div class='cart'>
                                 <a href="#"><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                                <a href="#"><span class='lnr lnr-heart'></span></a>
                             </div>
 
                         </div>
@@ -620,8 +621,6 @@ body {
                             </div>
                             <div class='cart'>
                                 <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                                <a href=""><span class='lnr lnr-heart'></span></a>
-
                             </div>
                         </div>
                         <div class='title'>
@@ -671,8 +670,6 @@ body {
                             </div>
                             <div class='cart'>
                                 <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                                <a href=""><span class='lnr lnr-heart'></span></a>
-
                             </div>
                         </div>
                         <div class='title'>
@@ -689,6 +686,29 @@ body {
     </div>
 
     <br>
+    <br>
+    <br>
+
+    <div style="background-color: #cdedfd; background-image: linear-gradient(319deg, #cdedfd 0%, #ffec82 37%, #ffcfd2 100%); padding: 10px;">
+        <div class="row">
+            <div class="col-md-7" >
+                <p style="font-size: 60px; text-align: center;">The Artisan Auction</p>
+                <p style="font-size:24px; text-align: center;">The Saturday evening black-tie gala featuring our grand
+                    live auction.</p>
+                <p style="font-size:16px; text-align: center;">All you have to do is bid your price based on the current
+                    price in the auction and we will let you know via email if you got that painting.</p>
+                <p style=" font-size:16px; text-align: center;"><u><a href="{% url 'firsthello:auction' %}"
+                                                                      style=" text-decoration: none; color: black;">Click
+                    here to see the painting of the day</a></u></p>
+            </div>
+            <div class="col-md-5">
+                <img src="/static/images/auction4.png" alt="" width="70%">
+
+            </div>
+        </div>
+
+    </div>
+
     <br>
     <br>
 
@@ -723,8 +743,6 @@ body {
                             </div>
                             <div class='cart'>
                                 <a href=""><span class='lnr lnr-cart' style="padding-right:20px;"></span></a>
-                                <a href=""><span class='lnr lnr-heart'></span></a>
-
                             </div>
                         </div>
                         <div class='title'>
@@ -761,7 +779,8 @@ body {
                     <input type="text" name="b_e523e7b2f7d50dac4ecdfc863_88faf15713" tabindex="-1" value=""
                            style="color: black;">
                 </div>
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button submit">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                       class="button submit">
 
             </div>
         </form>
@@ -804,6 +823,7 @@ body {
                 <li><a href="{% url 'contactus:contactus' %}">Contact Us/ Feedback</a></li>
                 <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
                 <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="{% url 'firsthello:aboutus' %}">About Us</a></li>
             </ul>
         </div>
     </div>

@@ -5,7 +5,8 @@ app_name='firsthello'
 
 urlpatterns = [
     path('home/', views.home, name='home'),
-    path('contactus/', views.contact, name='contactus'),
+    path('aboutus/', views.about, name='aboutus'),
+    path('auction/', views.auction, name='auction'),
     path('', views.index),
 
 

@@ -1,0 +1,344 @@
+{% extends "formative.html" %}
+{% load static %}
+{% block body_block %}
+<style>
+     @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    margin: 0;
+    padding: 0;
+
+
+
+}
+
+#home{
+    width:100%;
+    height:100vh;
+    background-color: white;
+    /background:url(example.jpg)/
+    background-size:100% 100%;
+
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#heading-style{
+    font-size: 5vw;
+    margin-bottom:10vh;
+}
+#time{
+    display: flex;
+    color: rgb(155, 143, 143);
+    font-size: 4vh;
+    width:33vw;
+    margin-top: -25px;
+    margin-left:-2px;
+    margin-bottom: -30px;
+    justify-content: space-around;
+
+}
+#clock{
+    display: flex;
+    color:black;
+    font-size:4vw;
+    margin-top: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    height:20vh;
+    justify-content: space-around;
+    line-height:21vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* animation below */
+.move{
+    animation: move ease-in-out 1s infinite;
+}
+@keyframes move{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-25vh);
+    }
+}
+/*card*/
+.card {
+    position: relative;
+    margin: 8vh auto;
+    margin-top: -4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    background: #000;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    backface-visibility: hidden;
+}
+.card:hover {
+    transform: scale(0.9);
+}
+.card:hover .ul {
+    transform: translate(0);
+    opacity: 1;
+}
+.card:hover .con-text p {
+    margin-bottom: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.card img {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+.card .con-text {
+    position: absolute;
+    z-index: 30;
+    bottom: 0;
+    color: #fff;
+    padding: 20px;
+    padding-bottom: 30px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+}
+.card .con-text p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.8rem;
+    opacity: 0;
+    margin-bottom: -150px;
+    transition: all 0.5s ease;
+}
+.card .con-text p button {
+    padding: 7px 17px;
+    border-radius: 12px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    margin-top: 10px;
+    margin-left: auto;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    font-family: poppins;
+    font-size: 0.75rem;
+    outline: none;
+}
+.card .con-text p button:hover {
+    background: #fff;
+    color: #000;
+}
+.ul {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 40;
+    border-radius: 14px;
+    padding-left: 0;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    top: 0;
+    opacity: 0;
+    transform: translate(100%);
+    transition: all 0.5s ease;
+}
+/*title*/
+body {
+    background-color: lightgrey;
+}
+
+.title {
+    font-family: "Montserrat";
+    text-align: center;
+    margin-top: -4em;
+    color: #FFF;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    height: 50vh;
+    letter-spacing: 1px;
+}
+
+h1 {
+    background-image: url(https://media.tenor.com/images/608824238b859247209a0738852291d6/tenor.gif);
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-size: 50px;
+    line-height: .75;
+    margin-top: 50px;
+
+}
+/* styling my button */
+
+.white-mode {
+    text-decoration: none;
+    padding: 7px 10px;
+    background-color: #122;
+    border-radius: 3px;
+    color: #FFF;
+    -webkit-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-family: "Montserrat";
+}
+
+.white-mode:hover {
+    background-color: #FFF;
+    color: #122;
+}
+
+
+</style>
+
+<script>
+     var countDownDate = new Date(
+  "Oct 3, 2020 15:37:25"
+).getTime(); /* event started date and time  */
+var last = "00:00:00:00";
+
+var x = setInterval(function () {
+  var now = new Date().getTime(); /* now date and time */
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  var nowon =
+    ("0" + days).slice(-2) +
+    ":" +
+    ("0" + hours).slice(-2) +
+    ":" +
+    ("0" + minutes).slice(-2) +
+    ":" +
+    ("0" + seconds).slice(-2);
+
+  console.log(last + " " + nowon);
+  animatetime(last, nowon);
+  last = nowon;
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+function animatetime(last, nowon) {
+  for (var i = 0; i < nowon.length; i++) {
+    if (last[i] != nowon[i]) {
+      animate(i, nowon[i]);
+    }
+  }
+}
+function animate(index, number) {
+  var element = document.getElementsByClassName("number")[index];
+  var second = element.lastElementChild.cloneNode(true);
+  second.innerHTML = number;
+  element.appendChild(second);
+  element.classList.add("move");
+  setTimeout(function () {
+    element.classList.remove("move");
+  }, 500);
+  setTimeout(function () {
+    element.removeChild(element.firstElementChild);
+  }, 500);
+}
+
+
+</script>
+
+
+
+
+<div id="home" style="background: url('/static/images/1.gif');background-size: cover;">
+    <div class="title">
+        <h1>ART AUCTION</h1>
+
+    </div>
+    <div class="card">
+
+        <img src="/static/images/ev2.png" alt="Paris">
+        <div class="con-text">
+
+            <h2 style="margin-top: 2px">Athena</h2>
+            <p>
+                Athena was known for her ferocity in battle but unlike Ares, she never displayed hotheadedness and
+                always believed in fighting for justice and righteousness. She only took part in wars that were fought
+                in self-defense. She was the divine personification of reasoning, wisdom, and knowledge. No wonder she
+                was Zeus’ favorite child and was even allowed to use his powerful thunderbolt whenever the need arose.
+                The sheer scale of influence she had over the mortal world is evident from the fact that the city of
+                Athens took its name after her.
+            </p>
+        </div>
+    </div>
+    <div id="time">
+        <div class="frame">Days</div>
+        <div class="frame">Hours</div>
+        <div class="frame">Mins</div>
+        <div class="frame">Sec</div>
+    </div>
+    <div id="clock">
+        <div class="number">
+            <div>0</div>
+        </div>
+        <div class="number">
+            <div>0</div>
+        </div>
+        <div class="number">
+            <div>:</div>
+        </div>
+        <div class="number">
+            <div>0</div>
+        </div>
+        <div class="number">
+            <div>0</div>
+        </div>
+        <div class="number">
+            <div>:</div>
+        </div>
+        <div class="number">
+            <div>0</div>
+        </div>
+        <div class="number">
+            <div>0</div>
+        </div>
+        <div class="number">
+            <div>:</div>
+        </div>
+        <div class="number">
+            <div>0</div>
+        </div>
+        <div class="number">
+            <div>0</div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
