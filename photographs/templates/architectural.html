@@ -389,8 +389,8 @@ function updatePopover(shit) {
 
 
 
-  
-  
+
+
 
   popstrs = popstrs + "<div><h5 id='styling'> Your Products </h5></div><hr><div class=''>";
   var popstr = "";
@@ -401,7 +401,7 @@ function updatePopover(shit) {
   var popstrwild = "";
   var popstrink = "";
   var popstrpastel = "";
-  
+
 
   var i = 1;
 
@@ -483,42 +483,42 @@ function updateCart(shit) {
 
   for (var item in JSON.parse(localStorage.getItem("demn"))) {
     sum = sum + JSON.parse(localStorage.getItem("demn"))[item][0];
-    
+
   }
 
    for (var item in JSON.parse(localStorage.getItem("wild"))) {
     sum = sum + JSON.parse(localStorage.getItem("wild"))[item][0];
-    
+
   }
 
 
  for (var item in JSON.parse(localStorage.getItem("ink"))) {
     sum = sum + JSON.parse(localStorage.getItem("ink"))[item][0];
-    
+
   }
 
 
  for (var item in JSON.parse(localStorage.getItem("pastel"))) {
     sum = sum + JSON.parse(localStorage.getItem("pastel"))[item][0];
-    
+
   }
 
 
  for (var item in JSON.parse(localStorage.getItem("floatingstr"))) {
     sum = sum + JSON.parse(localStorage.getItem("floatingstr"))[item][0];
-    
+
   }
 
 
  for (var item in JSON.parse(localStorage.getItem("deepstr"))) {
     sum = sum + JSON.parse(localStorage.getItem("deepstr"))[item][0];
-    
+
   }
 
 
  for (var item in JSON.parse(localStorage.getItem("showstr"))) {
     sum = sum + JSON.parse(localStorage.getItem("showstr"))[item][0];
-    
+
   }
 
 
@@ -526,7 +526,7 @@ function updateCart(shit) {
   localStorage.setItem('shit', JSON.stringify(shit));
 
   document.getElementById('demn').innerHTML = sum;
-  
+
   console.log(shit);
   updatePopover(shit);
 
@@ -543,16 +543,6 @@ shit["architecture" + a][0] = Math.max(0, shit["architecture" + a][0]);
 
 document.getElementById('valarchitecture' + a).innerHTML = shit['architecture' + a][0];
 
-// if (shit["architecture" + a][0] == 0) {
-
-//     document.getElementById('divarchitecture' + a).innerHTML = '<button id="architecture' + '{{i.architecture_id}}' + '" class="btn btn-danger btn-sm">Add to Cart</button>'
-//     delete  shit['architecture' + a];
-
-//   }
-// else {
-//     document.getElementById('valarchitecture' + a).innerHTML = shit['architecture' + a][0];
-
-//   }
   updateCart(shit);
 
 
