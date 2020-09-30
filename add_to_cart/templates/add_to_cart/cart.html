@@ -63,7 +63,7 @@
   margin-top: 60px;
   margin-left: 50px;
   background-color: #fcfcfc;
-  
+
   box-shadow: 1px 4px 10px 1px #aaa;
   font-family: sans-serif;
 }
@@ -151,7 +151,7 @@
   padding-bottom: 20px;
   margin-left: 140px;
   background-color: #fcfcfc;
- 
+
   box-shadow: 1px 4px 10px 1px #aaa;
   font-family: sans-serif;
 }
@@ -219,7 +219,7 @@
   font-weight: bold;
   font-size: 1em;
 }
-  
+
 
 form ul li {
   float: left;
@@ -342,7 +342,7 @@ form ul input[type="submit"] {
          <input class="form-control" type="tel" id="phone" name="phone" />
       </li>
 
-      
+
             <button type="submit" class="btn btn-primary">Place Order</button>
            </form>
         </div>
@@ -362,54 +362,48 @@ form ul input[type="submit"] {
         <h2 class="sectionHead">Receipt</h2>
         <div class="row" style="margin: 10px;">
         <div class="col-md-12">
-          <p>Item Name <span style="float: right;">35.00</span></p>      
-          <hr>
-        </div>    
+        <ul class="list-group" id="items">
+
+  </ul>
       </div>
-       <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
-          <p>Item Name <span style="float: right;">35.00</span></p>      
-          <hr>
-        </div>    
-      </div>
-       <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
-          <p>Item Name <span style="float: right;">35.00</span></p>      
-          <hr>
-        </div>    
-      </div>
-       <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
-          <p>Item Name <span style="float: right;">35.00</span></p>      
-          <hr>
-        </div>    
-      </div>
+
 
 
       <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+  <li >Subtotal<b> Rs. <span id="totalPrice"> </span></b> </li>
 
-          <li style="padding-left: 20px; font-size: 16px;">Subtotal <span style="float: right;" id="totalPrice"></span></li>
-        </div>      
+
+</ol>
+</nav>
+       <nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+  <li >Delivery Charges <b> Rs.<span style="float: right;">55</span></b></li>
+
+
+</ol>
+</nav>
+
+
+
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+  <li >Total <b> Rs.<span id="totalPricelast" style="float: right;"></span></b></li>
+
+
+</ol>
+</nav>
       </div>
 
-      <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
-          <p style="padding-left: 20px; font-size: 16px;">Delivery Charges <span style="float: right;">55.00</span></p>
-        </div>      
-      </div>
 
-      <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
-          <p style="padding-left: 20px; font-size: 16px;">Total <span style="float: right;">55.00</span></p>
-        </div>      
-      </div>      
-    
+
+
       </div>
 
 
     </div>
-  
+
 </div>
 
 
@@ -471,10 +465,35 @@ else {
 }
 
 
+
+
+if(localStorage.getItem('shit') == null) {
+  var shit = {};
+
+}
+else {
+  shit = JSON.parse(localStorage.getItem('shit'));
+
+
+
+}
+
+
+
+
+
+
 console.log(demn);
+console.log(shit);
 sum = 0;
 totalPrice = 0;
 if ($.isEmptyObject(demn)) {
+  mystr = `<h4> Your cart is empty </h4>`
+  $('#items').append(mystr);
+
+}
+
+if ($.isEmptyObject(shit)) {
   mystr = `<h4> Your cart is empty </h4>`
   $('#items').append(mystr);
 
@@ -489,20 +508,41 @@ for (item in demn) {
   let itemPrice = demn[item][2];
   sum = sum + qty;
   totalPrice = totalPrice + qty * itemPrice;
+  totalPricelast = totalPrice + 55
   mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
-      ${name}
+      ${name} ${itemPrice}
       <span class="badge badge-primary badge-pill">${qty}</span>
   </li>`
   $('#items').append(mystr);
 
 }
 
-}  
+
+
+for (item in shit) {
+
+  let name = shit[item][1];
+  let qty = shit[item][0];
+  let itemPrice = shit[item][2];
+  sum = sum + qty;
+  totalPrice = totalPrice + qty * itemPrice;
+  totalPricelast = totalPrice + 55
+  mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
+      ${name}   ${itemPrice}
+      <span class="badge badge-primary badge-pill">${qty}</span>
+  </li>`
+  $('#items').append(mystr);
+
+}
+
+}
 
 
  document.getElementById('demn').innerHTML = sum;
+
  document.getElementById('totalPrice').innerHTML = totalPrice;
- $('#itemsJson').val(JSON.stringify(demn));
+ document.getElementById('totalPricelast').innerHTML = totalPricelast;
+ $('#itemsJson').val(JSON.stringify(demn), JSON.stringify(shit));
  {% if thank %}
  alert('Wohooo! Your order has been placed. Your order is {{id}}. Use it to track your order')
  localStorage.clear();
@@ -511,7 +551,7 @@ for (item in demn) {
 
  {% endif %}
 
- $('#amount').val($('#totalPrice').html())
+ $('#amount').val($('#totalPricelast').html())
 
 </script>
 
