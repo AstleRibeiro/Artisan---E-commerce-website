@@ -1,0 +1,72 @@
+{% extends "architectural.html" %}
+
+
+{% load static %}
+
+
+{% block body_block %}
+
+<div class="sidenav" style="margin-top:50px;">
+    <a href="{% url 'photographs:Aerial' %}">Aerial</a>
+    <a href="{% url 'photographs:Architectural' %}">Architectural</a>
+    <a href="{% url 'photographs:Fashion' %}">Fashion</a>
+    <a href="{% url 'photographs:Fineart' %}">Fine Arts</a>
+    <a href="{% url 'photographs:Portraits' %}">Portraits</a>
+    <a href="{% url 'photographs:Sports' %}">Sports</a>
+</div>
+
+
+<div class="" style="padding-top:50px;  padding-left: 200px;  padding-right: 20px; ">
+    {% block content %}
+    <p style="font-family: 'Noto Serif', serif; font-size: 3vw; text-align: center;  ">Sports</p>
+    <hr style="width: 90%">
+    {% endblock %}
+    <div class="row">
+        {% for i in sports %}
+        <div class="col-md-3">
+            <div class="container" style="background-image:url(/media/{{i.image}}); width: 250px; ">
+                <a href="/architectural/aerial_description/{{i.painting_id}}" style="text-decoration:none; color: white;">
+                    <div class="overlay">
+                        <div class="items"></div>
+                        <div class="items head">
+                            <p><b>{{i.name}}</b></p>
+                            <h5>{{i.artist}} </h5>
+                            <h6 style="padding: 5px;">{{i.small_description}}</h6>
+                            <div class="items price">
+                                <p class="old">Rs. {{i.cancelled_price}}</p>
+                                <p class="new">Rs. {{i.price}}</p>
+                            </div>
+                            </a>
+                            <hr>
+                        </div>
+
+                        <div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="items cart">
+
+                                            <button class="btn btn-danger btn-sm">Add to Cart</button>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="items cart">
+
+                                            <button class="btn btn-danger btn-sm">Buy Now</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

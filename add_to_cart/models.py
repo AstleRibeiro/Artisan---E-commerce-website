@@ -22,4 +22,4 @@ class OrderUpdate(models.Model):
     timestamp = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.order_id
+        return str(self.order_id)

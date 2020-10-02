@@ -428,9 +428,27 @@
         }
 
 
+#lens{
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
 
-
+}
     </style>
+
+    <script>
+      function imageZoom(imgID){
+        let img = document.getElementById(imgID)
+        let lens = document.getElementById('lens')
+
+        lens.style.backgroundImage = 'url( $(img.src) )'
+
+
+      }
+
+      imgZoom('featured')
+      
+    </script>
 
 
 </head>
@@ -451,7 +469,10 @@
   <div id="feedback-form">
   <div class="row">
   <div class="col-md-5 col-md-5" >
-    <img src="/media/{{pastelpainting.image}}" height="500px" width="350px">
+    <div id="imgcontains">
+      <div id="lens"></div>
+      <img src="/media/{{pastelpainting.image}}" height="500px" width="350px" id="featured">
+    </div>
   </div>
   <div class="col-md-7 col-xs-7">
     <div class="row">

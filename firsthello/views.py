@@ -17,6 +17,10 @@ def about(request):
 def auction(request):
     return render(request, 'auction.html')
 
+def privacy(request):
+    return render(request, 'privacy.html')
+
+
 
 def home(request):
     abs_painting = AbstractPainting.objects.all()
