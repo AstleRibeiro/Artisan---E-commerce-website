@@ -178,7 +178,7 @@ body {
     letter-spacing: 1px;
 }
 
-h1 {
+h3 {
     background-image: url(https://media.tenor.com/images/608824238b859247209a0738852291d6/tenor.gif);
     background-size: cover;
     color: transparent;
@@ -187,7 +187,7 @@ h1 {
     text-transform: uppercase;
     font-size: 50px;
     line-height: .75;
-    margin-top: 50px;
+    margin-top: 80px;
 
 }
 /* styling my button */
@@ -212,6 +212,15 @@ h1 {
 }
 
 
+#bar{
+  opacity:1;
+  width:65%;
+  height:43px;
+  border:0;
+  box-shadow:inset 0 0 2px 1px blackr;
+  font-size:$form-font-size;
+  padding-left:20px;
+}
 
 
 
@@ -224,12 +233,13 @@ h1 {
 </style>
 
 
-
 <div id="home" style="background: url('/static/images/1.gif');background-size: cover;">
     <div class="title">
-        <h1>ART AUCTION</h1>
+        <h3>ART AUCTION</h3>
 
     </div>
+    <br>
+    
     <div class="card">
 
         <img src="/static/images/ev2.png" alt="Paris">
@@ -286,32 +296,30 @@ h1 {
         <div class="number">
             <div>0</div>
         </div>
+
     </div>
 
 
     <form method="post">
         {% csrf_token%}
-         <div>
-        <h3>Value Rs. <span id="ogval">12000</span></h3>
-    </div>
-        <input type="hidden" name="username" id="username"  value="{{ request.user }}">
-        <input type="text" class="bid" placeholder="Enter your bidding value..." name="bid" id="bid" required >
-
-        <br>
-    <button type="submit" class="btn btn-warning" onclick="bidchecker()">Bid</button>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Value Rs.  <input type="text" name="ogval" value="12000" id="ogval bar"></p>               
+            </div>
+            <div class="col-md-4">
+                <input type="hidden" name="username" id="username" value="{{ request.user }}">
+                <input type="text" id="bid" placeholder="Enter your bidding value..." name="bid" required>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-warning" onclick="bidchecker()">Bid</button>
+            </div>
+        </div>
 
 
     </form>
 
 
-
-    <br>
-    <br>
-    <br>
-
 </div>
-
-
 
 
 {% endblock %}
@@ -374,22 +382,25 @@ function animate(index, number) {
 
 
 function bidchecker() {
+    var value1;
+    var value2;
 
-  let ogval = document.getElementById("ogval").textContent
-  console.log(ogval)
-  let bid =  document.getElementsByClassName("bid").textContent
-    console.log(bid)
+  value1 = document.getElementById("ogval").value;
+  
+  value2 =  document.getElementById("bid").value;
 
-  if (ogval < bid) {
+  value1 = parseFloat(value1);
+  value2 = parseFloat(value2);
+
+    console.log(value2)
+    console.log(value1)
 
 
-
-    alert("Thankyou")
-
-    }
-    else {
-      alert("Please enter appropriate bidding value")
-    }
+  if (value1 < value2) { 
+   alert("Thankyou"); 
+} else {  
+    alert("Please enter appropriate bidding value");
+      }
 
 
 
@@ -400,8 +411,8 @@ function bidchecker() {
 
 
 
-</script>
 
+</script>
 
 
 {% endblock %}

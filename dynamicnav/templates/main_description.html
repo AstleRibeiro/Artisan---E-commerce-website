@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <style>
 
@@ -422,24 +422,29 @@
             outline:none;
         }
 
-#lens{
-  height: 100px;
-  width: 100px;
-  border: 1px solid black;
+
+#magnify {
+   width: 200px;
+   s
 
 }
 
-#featured{
-  max-width: 350px;
-  max-height: 500px;
+/*Lets create the magnifying glass*/
+#large {
+   width: 100px;
+   height: 100px;
+   position: absolute;
 
-  cursor: pointer;
-  border: 2px solid black;
+   /*Lets load up the large image first*/
+   background: url("/media/{{painting.image}}") no-repeat;
+
+   /*hide the glass by default*/
+   display: none;
 }
-   
-#imgcontains{
-   max-width: 350px;
-   max-height: 500px;
+
+/*To solve overlap bug at the edges during magnification*/
+#small {
+   display: block;
 }
 
     </style>
@@ -460,118 +465,127 @@
 </div>
 
 
-  <div id="feedback-form">
-  <div class="row">
-  <div class="col-md-5 col-md-5" >
-    <div id="imgcontains">
-      <div id="lens"></div>
-       <img src="/media/{{painting.image}}" height="500px" width="350px" id="featured">
-    </div>
-  </div>
-  <div class="col-md-7 col-xs-7">
+<div id="feedback-form">
     <div class="row">
-      <div class="col-md-6 col-xs-6">
-        <h2><span id="nameabsdescription{{i.painting_id}}">{{painting.name}}</span></h2>
-        <h4>{{painting.artist}}</h4>
-          <hr style="background-color: grey; width: 96%; height:0.5px;">
-          <h4><span style='color:#cc5048;text-decoration:line-through'><span style='color:black'> MRP: &#8377;{{painting.cancelled_price}}</span></span></h4>
-        <h4>Our Price:  &#8377;<span  id="priceabsdescription">{{painting.price}}</span></h4>
-          <p><span style="background-color:#0271ad; padding: 4px; color: white;">(Inclusive of all taxes)</span></p>
-                            
-            
+        <div class="col-md-5 col-md-5">
+            <div id="magnify">
+                <div id="large"></div>
+                <img src="/media/{{painting.image}}" height="500px" width="350px" id="small" >
+            </div>
+        </div>
+        <div class="col-md-7 col-xs-7">
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <h2><span id="nameabsdescription{{i.painting_id}}">{{painting.name}}</span></h2>
+                    <h4>{{painting.artist}}</h4>
+                    <hr style="background-color: grey; width: 96%; height:0.5px;">
+                    <h4><span style='color:#cc5048;text-decoration:line-through'><span style='color:black'> MRP: &#8377;{{painting.cancelled_price}}</span></span>
+                    </h4>
+                    <h4>Our Price: &#8377;<span id="priceabsdescription">{{painting.price}}</span></h4>
+                    <p><span
+                            style="background-color:#0271ad; padding: 4px; color: white;">(Inclusive of all taxes)</span>
+                    </p>
 
-                                           <span id="divabsdescription{{i.painting_id}}" class="divabsdescription">
-                        <button  id="absdescription{{i.painting_id}}" class="btn btn-warning abs_desc">Add to Cart</button>
+
+                    <span id="divabsdescription{{i.painting_id}}" class="divabsdescription">
+                        <button id="absdescription{{i.painting_id}}"
+                                class="btn btn-warning abs_desc">Add to Cart</button>
                         </span>
 
-                                           <button class="btn btn-primary">Buy Now</button>
-                             
-
-          <h6>Delivery expected by: 06-06-2020</h6>
-          <div class="row">
-              <div class="col-md-1">
-                  <span class="material-icons">local_shipping</span>
-              </div>
-              <div class="col-md-9">
-                  <p style="margin-top: 0px;">Fastest delivery: <b>Tomorrow</b></p>
-              </div>
-          </div>
+                    <button class="btn btn-primary">Buy Now</button>
 
 
-      </div>
-      <div class="col-md-6 col-xs-6">
-        <div class="row">
-          <div class="col-md-12 col-xs-12 bg-color">
-              <div class="row">
-                  <div class="col-md-9">
-                      <h4>Save extra with offers</h4>
-                  </div>
-                  <div class="col-md-3" style="margin-left: -45px; margin-top:5px;">
-                      <span class="material-icons">local_activity</span>
-                  </div>
-              </div>
+                    <h6>Delivery expected by: 06-06-2020</h6>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span class="material-icons">local_shipping</span>
+                        </div>
+                        <div class="col-md-9">
+                            <p style="margin-top: 0px;">Fastest delivery: <b>Tomorrow</b></p>
+                        </div>
+                    </div>
 
-        <h6>Get 5% up to Rs. 1500 Instant Discount on Bank of Baroda Credit EMI transactions</h6>
-        <h6>Get 10% up to Rs. 1500 Instant Discount on ICICI Bank Debit Card EMI transactions</h6>
-        <h6>5% Instant discount with HSBC Cashback card</h6>
-        <h6>Get 5% up to Rs. 1500 Instant Discount on Bank of Baroda Credit EMI transactions</h6>
-        <h6>Get 10% up to Rs. 1500 Instant Discount on ICICI Bank Debit Card EMI transactions</h6>
-        <h6>5% Instant discount with HSBC Cashback card</h6>
-        <h6>Get 5% up to Rs. 1500 Instant Discount on Bank of Baroda Credit EMI transactions</h6>
 
-          </div>
-        </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 bg-color">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h4>Save extra with offers</h4>
+                                </div>
+                                <div class="col-md-3" style="margin-left: -45px; margin-top:5px;">
+                                    <span class="material-icons">local_activity</span>
+                                </div>
+                            </div>
 
-      </div>
+                            <h6>Get 5% up to Rs. 1500 Instant Discount on Bank of Baroda Credit EMI transactions</h6>
+                            <h6>Get 10% up to Rs. 1500 Instant Discount on ICICI Bank Debit Card EMI transactions</h6>
+                            <h6>5% Instant discount with HSBC Cashback card</h6>
+                            <h6>Get 5% up to Rs. 1500 Instant Discount on Bank of Baroda Credit EMI transactions</h6>
+                            <h6>Get 10% up to Rs. 1500 Instant Discount on ICICI Bank Debit Card EMI transactions</h6>
+                            <h6>5% Instant discount with HSBC Cashback card</h6>
+                            <h6>Get 5% up to Rs. 1500 Instant Discount on Bank of Baroda Credit EMI transactions</h6>
 
-    </div>
+                        </div>
+                    </div>
 
-      <div class="tabs">
+                </div>
 
-  <input type="radio" id="tab1" name="tab-control" checked>
-  <input type="radio" id="tab2" name="tab-control">
-  <input type="radio" id="tab3" name="tab-control">
-  <input type="radio" id="tab4" name="tab-control">
-  <ul>
-    <li title="Features"><label for="tab1" role="button"><span class="material-icons">description
+            </div>
+
+            <div class="tabs">
+
+                <input type="radio" id="tab1" name="tab-control" checked>
+                <input type="radio" id="tab2" name="tab-control">
+                <input type="radio" id="tab3" name="tab-control">
+                <input type="radio" id="tab4" name="tab-control">
+                <ul>
+                    <li title="Features"><label for="tab1" role="button"><span class="material-icons">description
         </span><br><span>Description</span></label></li>
-    <li title="Delivery Contents"><label for="tab2" role="button"><svg viewBox="0 0 24 24">
-          <path d="M2,10.96C1.5,10.68 1.35,10.07 1.63,9.59L3.13,7C3.24,6.8 3.41,6.66 3.6,6.58L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.66,6.72 20.82,6.88 20.91,7.08L22.36,9.6C22.64,10.08 22.47,10.69 22,10.96L21,11.54V16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V10.96C2.7,11.13 2.32,11.14 2,10.96M12,4.15V4.15L12,10.85V10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V12.69L14,15.59C13.67,15.77 13.3,15.76 13,15.6V19.29L19,15.91M13.85,13.36L20.13,9.73L19.55,8.72L13.27,12.35L13.85,13.36Z" />
-        </svg><br><span>Specifics</span></label></li>
-    <li title="Shipping"><label for="tab3" role="button"><span class="material-icons">contact_page
+                    <li title="Delivery Contents"><label for="tab2" role="button">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2,10.96C1.5,10.68 1.35,10.07 1.63,9.59L3.13,7C3.24,6.8 3.41,6.66 3.6,6.58L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.66,6.72 20.82,6.88 20.91,7.08L22.36,9.6C22.64,10.08 22.47,10.69 22,10.96L21,11.54V16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V10.96C2.7,11.13 2.32,11.14 2,10.96M12,4.15V4.15L12,10.85V10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V12.69L14,15.59C13.67,15.77 13.3,15.76 13,15.6V19.29L19,15.91M13.85,13.36L20.13,9.73L19.55,8.72L13.27,12.35L13.85,13.36Z"/>
+                        </svg>
+                        <br><span>Specifics</span></label></li>
+                    <li title="Shipping"><label for="tab3" role="button"><span class="material-icons">contact_page
         </span><br><span>Artist</span></label></li>
-    <li title="Returns"><label for="tab4" role="button"><svg viewBox="0 0 24 24">
-          <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-        </svg><br><span>Know more</span></label></li>
-  </ul>
+                    <li title="Returns"><label for="tab4" role="button">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
+                        </svg>
+                        <br><span>Know more</span></label></li>
+                </ul>
 
-  <div class="slider">
-    <div class="indicator"></div>
-  </div>
-  <div class="content">
-    <section>
-      <h2>Description</h2>{{painting.description}}
-    </section>
-    <section>
-      <h2>Specifications</h2>{{painting.specifications}}
-    </section>
-    <section>
-      <h2>Artist Details</h2>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nemo ducimus eius, magnam error quisquam sunt voluptate labore, excepturi numquam! Alias libero optio sed harum debitis! Veniam, quia in eum.
-    </section>
-    <section>
-      <h2>One more</h2>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum? Eaque repudiandae architecto libero reprehenderit aliquam magnam ratione quidem? Nobis doloribus molestiae enim deserunt necessitatibus eaque quidem incidunt.
-    </section>
-  </div>
-</div>
+                <div class="slider">
+                    <div class="indicator"></div>
+                </div>
+                <div class="content">
+                    <section>
+                        <h2>Description</h2>{{painting.description}}
+                    </section>
+                    <section>
+                        <h2>Specifications</h2>{{painting.specifications}}
+                    </section>
+                    <section>
+                        <h2>Artist Details</h2>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nemo ducimus eius, magnam error
+                        quisquam sunt voluptate labore, excepturi numquam! Alias libero optio sed harum debitis! Veniam,
+                        quia in eum.
+                    </section>
+                    <section>
+                        <h2>One more</h2>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum? Eaque
+                        repudiandae architecto libero reprehenderit aliquam magnam ratione quidem? Nobis doloribus
+                        molestiae enim deserunt necessitatibus eaque quidem incidunt.
+                    </section>
+                </div>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>
-    {% endblock %}
-
-
+{% endblock %}
 
 
 {% block js %}
@@ -882,33 +896,62 @@ $('.divabsdescription').on("click", "button.plus", function(){
 });
 
 
-function imageZoom(imgID){
-        let img = document.getElementById(imgID)
-        let lens = document.getElementById('lens')
+	$(document).ready(function () {
+   var native_width = 0;
+   var native_height = 0;
 
-        lens.style.backgroundImage = 'url( ${img.src})';
+   $("#magnify").mousemove(function (e) {
 
-        let ratio = 3
+      if (!native_width && !native_height) {
 
-        lens.style.backgroundSize = (img.width * ratio) + 'px' + (img.height * ratio) + 'px';
+         var image_object = new Image();
+         image_object.src = $("#small").attr("src");
 
-        img.addEventListener("mousemove", moveLens)
-        lens.addEventListener("mousemove", moveLens)
-        img.addEventListener("touchmove", moveLens)
 
-        function moveLens(){
-          let pos = getCursor()
-          console.log('pos', pos)
-        }
+         native_width = image_object.width;
+         native_height = image_object.height;
+      } else {
 
-        function getCursor(){
-          let y =0
-          let x=0
-          return {'x':x, 'y':y}
-        }
+         var magnify_offset = $(this).offset();
+
+         var mx = e.pageX - magnify_offset.left;
+         var my = e.pageY - magnify_offset.top;
+
+
+         if (
+            mx < $(this).width() &&
+            my < $(this).height() &&
+            mx > 0 &&
+            my > 0
+         ) {
+            $("#large").fadeIn(100);
+         } else {
+            $("#large").fadeOut(100);
+         }
+         if ($("#large").is(":visible")) {
+
+            var rx =
+               Math.round(
+                  (mx / $("#small").width()) * native_width -
+                     $("#large").width() / 2
+               ) * -1;
+            var ry =
+               Math.round(
+                  (my / $("#small").height()) * native_height -
+                     $("#large").height() / 2
+               ) * -1;
+            var bgp = rx + "px " + ry + "px";
+
+
+            var px = mx - $("#large").width() / 2;
+            var py = my - $("#large").height() / 2;
+
+            $("#large").css({ left: px, top: py, backgroundPosition: bgp });
+         }
       }
+   });
+});
 
-      imageZoom('featured')
 
 </script>
 {% endblock %}

@@ -90,11 +90,6 @@ function carousel(root) {
 </script>
 <style>
 
-
-body {
-  background: red;
-}
-
 .forget_pwd{
   display:inline-block;
   width:100%;
@@ -133,13 +128,7 @@ body {
     height: 260px;
 }
 
-html,
-body {
-  font-family: "Kanit", sans-serif;
-  min-height: 100vh;
-  min-width: 100vw;
-  background: #fcfcfc;
-}
+
 
 .header {
   z-index: 99999;
@@ -162,11 +151,6 @@ body {
   letter-spacing: 0.3em;
 }
 
-.body {
-  height: 100vh;
-  width: 100%;
-  padding-top: 120px;
-}
 
 .container {
   padding-top: 20px;
@@ -193,7 +177,10 @@ body {
 @media screen and (max-width: 720px) {
   .container {
     grid-template-columns: 1fr;
-    margin: 50px 30px;
+    margin: 50px 10px;
+  }
+  .carousel-cell {
+    width: 50%
   }
 }
 
@@ -489,10 +476,12 @@ body {
 }
 .header__logo {
   
-  width: 190px;
+  width: 450px;
   opacity: 1;
   transition: 0.3s ease 0.15s;
 }
+
+
 @media (min-width: 770px) {
   .header__logo {
     width: 400px;
@@ -500,6 +489,21 @@ body {
   }
 }
 
+
+
+#space {
+  margin-right: 300px;
+}
+
+@media (max-width: 770px){
+  #space {
+  margin-right: 0px;
+  text-decoration: none;
+  color: red;
+  font-size: 3vw;
+}
+
+}
 
 
 
@@ -531,11 +535,9 @@ body {
 
     <div>
 
-        <div style="padding-left: 100px;" class="header-container"><img class="header__logo" id="logo"
-                                                                        src="{% static 'images/logo2.png' %}"
-                                                                        alt="Logo de Feinkoch">
-            <h3 style="margin-right: 300px;"><a href="{% url 'madhubani:madhubani' %}">To Check out out Madhubani
-                collection, Click here.</a></h3></div>
+        <div style="padding-left: 100px;" class="header-container">
+          <img class="header__logo" id="logo" src="{% static 'images/logo2.png' %}">
+          <h3 id="space"><a href="{% url 'madhubani:madhubani' %}">To Check out out Madhubani collection, Click here.</a></h3></div>
     </div>
 
 
@@ -591,15 +593,27 @@ body {
     <br>
     <br>
 
-    <div style="width: 50%; float: left; padding-left: 50px;">
+    <div class="row">
+      <div class="col-sm-6 col-xs-6 col-sm-6">
+        <div style="width: 50%; float: left; padding-left: 50px;">
         <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Photographs</p>
     </div>
-
-    <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
+        
+      </div>
+      <div class="col-md-6 col-xs-6 col-sm-6">
+        <div style="width: 50%; float: right;  padding-left: 490px; padding-bottom: 10px;">
         <a href="{% url 'photographs:Architectural' %}" class="gradbt">
             <span>View All</span>
         </a>
     </div>
+        
+      </div>
+
+    </div>
+
+    
+
+    
 
     <hr style="background-color: grey; width: 96%; height:1px;">
     <!-- Flickity HTML init -->
