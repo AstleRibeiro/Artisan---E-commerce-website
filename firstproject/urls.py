@@ -34,6 +34,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('thanks/', views.Thankspage.as_view(), name='thanks'),
     path('accounts/', include('allauth.urls')),
+    path('auction/', include('auction.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

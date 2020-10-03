@@ -14,8 +14,7 @@ def index(request):
 def about(request):
     return render(request, 'aboutus.html')
 
-def auction(request):
-    return render(request, 'auction.html')
+
 
 def privacy(request):
     return render(request, 'privacy.html')

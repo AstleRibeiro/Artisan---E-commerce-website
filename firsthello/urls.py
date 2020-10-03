@@ -6,7 +6,7 @@ app_name='firsthello'
 urlpatterns = [
     path('home/', views.home, name='home'),
     path('aboutus/', views.about, name='aboutus'),
-    path('auction/', views.auction, name='auction'),
+   
     path('privacy/', views.privacy, name='privacy'),
     path('', views.index),
 
