@@ -184,7 +184,11 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">Hello,  {{ request.user }}</a></li>
                         <li role="separator" class="divider"></li>
+                        <li><a href="{% url 'accounts:account' %}">Your Account</a></li>
+                        <li role="separator" class="divider"></li>
                         <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
+
+
                         <li role="separator" class="divider"></li>
                         <li><a href="{% url 'acount:logout' %}"><span class="glyphicon glyphicon-off"></span>  Logout</a></li>
                     </ul>
@@ -193,8 +197,8 @@
 
             {% else %}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'acount:login' %}" style="text-decoration: none; color: white;"> Login</a></li>
-                <li><a href="{% url 'acount:signup' %}" style="text-decoration: none; color: white;"> Sign Up</a></li>
+                <li><a href="{% url 'accounts:login' %}" style="text-decoration: none; color: white;"> Login</a></li>
+                <li><a href="{% url 'accounts:register' %}" style="text-decoration: none; color: white;"> Sign Up</a></li>
             </ul>
             {% endif %}
         </div><!-- /.navbar-collapse -->
