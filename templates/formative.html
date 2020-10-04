@@ -5,6 +5,7 @@
     {% block head %}
     <meta charset="UTF-8">
     <title>Main</title>
+    <link rel="icon" href="/static/images/icon.ico" type = "image/x-icon">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -58,6 +59,14 @@
   margin: 0;
   padding: 0;
         }
+
+        @media all and (max-width: 968px) {
+  .navbar{background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%); color: black;}
+  .navbar .nav-item .dropdown-menu{ display: none; }
+  .navbar .nav-item .dropdown-menu{ margin-top:0 }
+}
+
+
 
         #popcart{
             margin-top: 9px;
@@ -156,7 +165,7 @@
 
             </ul>
 
-            <form class="navbar-form navbar-left" style="padding-left: 230px;">
+            <form class="navbar-form navbar-left" style="padding-left: 130px;">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
