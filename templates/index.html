@@ -488,7 +488,7 @@ body {
   }
 }
 .header__logo {
-  
+
   width: 190px;
   opacity: 1;
   transition: 0.3s ease 0.15s;
@@ -591,6 +591,31 @@ body {
     <br>
     <br>
 
+
+        <div class="jumbotron">
+            <center>
+                  <h1>Choose your price range</h1>
+                <br>
+                <br>
+
+<!--                <div class="row">-->
+<!--  <div class="col-md-3">  <button  type="button" class="btn btn-info"><select data-model-name="min-price" >400</select>- <select data-model-name="max-price">1000</select></button></div>-->
+<!--  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">1000</select>- <select data-model-name="max-price">5000</select></button></div>-->
+<!--  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">5000</select> -<select data-model-name="max-price">10000</select></button></div>-->
+<!--  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">10000</select>- <select data-model-name="max-price">20000</select></button></div>-->
+<!--</div>-->
+                <form action="" method="post">
+                    {% csrf_token %}
+                <input type="text" name="min_price" maxlength="10" size="10" >
+to <input type="text" name="max_price" maxlength="10" size="10">
+<button type="submit"></button>
+                    </form>
+
+            </center>
+
+
+    </div>
+
     <div style="width: 50%; float: left; padding-left: 50px;">
         <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Photographs</p>
     </div>
@@ -602,6 +627,8 @@ body {
     </div>
 
     <hr style="background-color: grey; width: 96%; height:1px;">
+
+
     <!-- Flickity HTML init -->
     <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
         <div class="carousel" data-flickity='{ "groupCells": true }'>

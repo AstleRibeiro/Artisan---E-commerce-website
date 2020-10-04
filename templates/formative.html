@@ -175,9 +175,11 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">Hello,  {{ request.user }}</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
+                        <li><a href="{% url 'accounts:account' %}">Your Account</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'acount:password_change' %}">Change Password</a></li>
+                        <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
+
+
                         <li role="separator" class="divider"></li>
                         <li><a href="{% url 'acount:logout' %}"><span class="glyphicon glyphicon-off"></span>  Logout</a></li>
                     </ul>

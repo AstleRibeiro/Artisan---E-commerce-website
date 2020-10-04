@@ -25,6 +25,7 @@
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.urls import reverse_lazy
 
 from acount.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 
@@ -40,6 +41,7 @@ def registration_view(request):
 
             account = authenticate(email=email, password=raw_password)
             login(request, account)
+            success_url = reverse_lazy('login')
 
 
 
@@ -50,12 +52,13 @@ def registration_view(request):
     else:
         form = RegistrationForm()
         context['registration_form'] = form
+
     return render(request, 'accounts/register.html', context)
 
 
 def logout_view(request):
     logout(request)
-    return redirect('/')
+    return redirect('/home')
 
 
 def login_view(request):
@@ -63,8 +66,7 @@ def login_view(request):
 
     user = request.user
     if user.is_authenticated:
-        pass
-
+        return redirect('/home')
 
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
@@ -115,8 +117,4 @@ def account_view(request):
 
 
 def must_authenticate_view(request):
-    return render(request, 'accounts/must_authenticate.html', {})
-
-
-
-
+    return render(request, 'accounts/must_authenticate.html')

@@ -4,6 +4,7 @@ from django.urls import path
 app_name = 'acount'
 
 from acount.views import (
+
     registration_view,
     logout_view,
     login_view,
