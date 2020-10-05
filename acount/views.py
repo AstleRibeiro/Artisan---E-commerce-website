@@ -1,120 +1,62 @@
-# from django.shortcuts import render
-# from django.urls import reverse_lazy
-# from django.views.generic import CreateView
-# from . import forms
+from django.shortcuts import render
+from django.shortcuts import HttpResponse
+from django.contrib.auth import authenticate, login
+from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
+from django.contrib.auth.decorators import login_required
+from .models import Profile
+from django.contrib import messages
+
 #
-#
-# # Create your views here.
-# class SignUP(CreateView):
-#     form_class = forms.UserCreationForm
-#     success_url = reverse_lazy('login')
-#     template_name = 'accounts/register.html'
-
-# from .forms import UserCreationForm
-# from django.urls import reverse_lazy
-# from django.views import generic
-# from django.contrib.auth import authenticate, login
-# from .forms import UserCreationForm
-#
-#
-# class SignUp(generic.CreateView):
-#     form_class = UserCreationForm
-#     success_url = reverse_lazy('login')
-#     template_name = 'accounts/register.html'
+# def dashboard(request):
+#     return render(request, 'acount/dashboard.html', {'section': 'dashboard'})
 
 
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, logout
-from django.urls import reverse_lazy
-
-from acount.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
-
-
-def registration_view(request):
-    context = {}
-    if request.POST:
-        form = RegistrationForm(request.POST)
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
         if form.is_valid():
-            form.save()
-            email = form.cleaned_data.get('email')
-            raw_password = form.cleaned_data.get('password1')
+            cd = form.cleaned_data
+            user = authenticate(request, username=cd['username'],
+                                password=cd['password'])
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponse('Authenticated'' Successfully')
+                else:
+                    return HttpResponse('Disabled Account')
+            else:
+                return HttpResponse("Invalid login")
+    else:
+        form = LoginForm()
+    return render(request, 'acount/login.html', {'form': form})
 
-            account = authenticate(email=email, password=raw_password)
-            login(request, account)
-            success_url = reverse_lazy('login')
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
+            Profile.objects.create(user=new_user)
+            return render(request, 'acount/register_done.html', {'new_user': new_user})
+    else:
+        user_form = UserRegistrationForm()
+    return render(request, 'acount/register.html', {'user_form': user_form})
 
 
-
-
+def edit(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile,
+                                       data=request.POST, files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Profile Updated Successfully')
         else:
-            context['registration_form'] = form
-
+            messages.error(request, 'Error in Updating your Profile.')
     else:
-        form = RegistrationForm()
-        context['registration_form'] = form
-
-    return render(request, 'accounts/register.html', context)
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('/home')
-
-
-def login_view(request):
-    context = {}
-
-    user = request.user
-    if user.is_authenticated:
-        return redirect('/home')
-
-    if request.POST:
-        form = AccountAuthenticationForm(request.POST)
-        if form.is_valid():
-            email = request.POST['email']
-            password = request.POST['password']
-            user = authenticate(email=email, password=password)
-
-            if user:
-                login(request, user)
-
-
-    else:
-        form = AccountAuthenticationForm()
-
-    context['login_form'] = form
-
-    # print(form)
-    return render(request, "accounts/login.html", context)
-
-
-def account_view(request):
-    if not request.user.is_authenticated:
-        return redirect("login")
-
-    context = {}
-    if request.POST:
-        form = AccountUpdateForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.initial = {
-                "email": request.POST['email'],
-                "username": request.POST['username'],
-            }
-            form.save()
-            context['success_message'] = "Updated"
-    else:
-        form = AccountUpdateForm(
-
-            initial={
-                "email": request.user.email,
-                "username": request.user.username,
-            }
-        )
-
-    context['account_form'] = form
-
-    return render(request, "accounts/account.html", context)
-
-
-def must_authenticate_view(request):
-    return render(request, 'accounts/must_authenticate.html')
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user.profile)
+    return render(request, 'acount/edit.html', {'user_form': user_form, 'profile_form': profile_form})

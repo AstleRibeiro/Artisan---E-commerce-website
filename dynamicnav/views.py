@@ -41,20 +41,3 @@ def pastel_description(request, id):
     pastelpainting = PastelPainting.objects.filter(painting_id=id).first()
     return render(request, "pastel_description.html", {"pastelpainting": pastelpainting})
 
-
-@csrf_protect
-def welcome_user(request):
-    if 'min_price' in request.GET:
-        filter_price1 = request.GET.get('min_price')
-        val = 100
-        print(val)
-
-        filter_price2 = request.GET.get('max_price')
-        # if filter_price1 == '':
-        #     filter_price1 = 0
-        # if filter_price2 == '':
-        #     filter_price2 = 20000
-        my_paintings = AbstractPainting.objects.filter(price__range=(filter_price1, filter_price2))
-        print(my_paintings)
-    return render(request, "index.html", {"products": my_paintings})
-

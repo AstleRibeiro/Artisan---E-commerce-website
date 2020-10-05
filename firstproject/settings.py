@@ -14,7 +14,9 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
@@ -32,12 +34,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'acount.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'social_django',
     'firsthello',
     'bootstrap3',
     'auction',
@@ -48,23 +53,16 @@ INSTALLED_APPS = [
     'add_to_cart',
     'madhubani',
     'contactus',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'acount',
+    # 'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
+    # 'acount',
+
+
 ]
 
-# AUTHENTICATION_BACKENDS = [
-#     # Needed to login by username in Django admin, regardless of `allauth`
-#     'django.contrib.auth.backends.ModelBackend',
-#
-#
-#
-# ]
-
-AUTH_USER_MODEL = 'acount.Account'
 
 SITE_ID = 1
 
@@ -79,6 +77,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'firstproject.urls'
+
+ALLOWED_HOSTS = ['netsetos.org', 'localhost', '127.0.0.1']
 
 TEMPLATES = [
     {
@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'firstproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -163,13 +163,28 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'astleribeiro1912@gmail.com'
+EMAIL_HOST_PASSWORD = 'astle@wifey'
+EMAIL_USE_TLS = True
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
+                           'acount.authentication.EmailAuthBackend',
+                           'social_core.backends.facebook.FacebookOAuth2',
+                           'social_core.backends.google.GoogleOAuth2',
+                           ]
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '349467982893410'
+SOCIAL_AUTH_FACEBOOK_SECRET = '*******************************'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '538129904******************175nob0ijj7tlvbftaom6cglh.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '****************************'
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/home'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'astleribeiro1912@gmail.com'
-# EMAIL_HOST_PASSWORD = 'astle@wifey'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

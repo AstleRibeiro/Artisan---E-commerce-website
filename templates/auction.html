@@ -3,79 +3,51 @@
 {% block body_block %}
 <style>
      @import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+  box-sizing: border-box;
+}
 
-body {
-    margin: 0;
-    padding: 0;
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 1em;
+  
+}
 
 
+.number{
+    margin-left: 2px;
 
 }
 
-#home{
-    width:100%;
-    height:100vh;
-    background-color: white;
-    /background:url(example.jpg)/
-    background-size:100% 100%;
-
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-#heading-style{
-    font-size: 5vw;
-    margin-bottom:10vh;
-}
-#time{
-    display: flex;
-    color: rgb(155, 143, 143);
-    font-size: 4vh;
-    width:33vw;
-    margin-top: -25px;
-    margin-left:-2px;
-    margin-bottom: -30px;
-    justify-content: space-around;
-
-}
-#clock{
-    display: flex;
-    color:black;
-    font-size:4vw;
-    margin-top: 2px;
-    font-family: 'Courier New', Courier, monospace;
-    height:20vh;
-    justify-content: space-around;
-    line-height:21vh;
-    overflow: hidden;
-    position: relative;
+.row{
+    margin-left: 6em;
 }
 
-/* animation below */
-.move{
-    animation: move ease-in-out 1s infinite;
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-@keyframes move{
-    from{
-        transform: translateY(0);
-    }
-    to{
-        transform: translateY(-25vh);
-    }
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
 /*card*/
 .card {
     position: relative;
-    margin: 8vh auto;
-    margin-top: -4em;
+    margin-left: 8em;
+    margin-top: 2em;
     display: flex;
-    align-items: center;
+   
     justify-content: center;
     width: 500px;
-    height: 500px;
+    height: 300px;
     background: #000;
     border-radius: 30px;
     overflow: hidden;
@@ -138,92 +110,178 @@ body {
     background: #fff;
     color: #000;
 }
-.ul {
-    position: absolute;
-    right: 10px;
+/*time*/
+#time{
     display: flex;
-    align-items: center;
+    color: rgb(155, 143, 143);
+    font-size: 4vh;
+    
+    width:25vw;
+    margin-top: 25px;
+    margin-left: 7em;
+    margin-bottom: -30px;
+    justify-content: space-around;
+
+}
+#clock{
+    display: flex;
+    color:black;
+    font-size: 6vh;
+    size:3vw;
+    width:20vw;
+    
+    margin-top: 2px;
+    margin-left: 5.5em;
+    font-family: 'Courier New', Courier, monospace;
+    height:20vh;
+    justify-content: space-around;
+    line-height:21vh;
+    overflow: hidden;
+    position: relative;
+}
+/* animation below */
+.move{
+    animation: move ease-in-out 1s infinite;
+}
+@keyframes move{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-25vh);
+    }
+}
+/*forms stuff*/
+header {
+    font-size: 1.25rem;
+    min-height: 20vh;
+    margin-top: 10vh;
+
+}
+
+
+
+
+form {
+    display: flex;
     justify-content: center;
-    flex-direction: column;
-    z-index: 40;
-    border-radius: 14px;
-    padding-left: 0;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    top: 0;
-    opacity: 0;
-    transform: translate(100%);
-    transition: all 0.5s ease;
-}
-/*title*/
-body {
-    background-color: lightgrey;
+    align-items: center;
+
 }
 
-.title {
-    font-family: "Montserrat";
+form input,
+form button {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border: none;
+    background: white;
     text-align: center;
-    margin-top: -4em;
-    color: #FFF;
-    display: -webkit-box;
+}
+
+form button {
+    color: #ffffff;
+    background: #715d8f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: .5rem 2rem;
+    border: 4px solid;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+form button:hover {
+    background: #ffb833;
+    color: white;
+}
+
+.description {
+    margin: auto;
+    width: 85%;
+    padding: 1em;
+    font-size: 1.1em;
+}
+
+.input-list {
+    list-style: none;
+    padding-top: 1em;
+    color: black;
+}
+
+.input-list li {
+    padding: 10px;
+}
+
+.stat-container {
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-    -webkit-box-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-            justify-content: center;
-    height: 50vh;
-    letter-spacing: 1px;
+    
+    align-items: center;
+    background: pink;
+    border-radius: 1em;
+    margin: auto;
+    width: max-content;
+    max-width: 95%;
+    padding: 0em 3em;
+    margin-top: 10em;
+    animation-name: bg-fade;
+    animation-duration: 2s;
 }
 
-h3 {
-    background-image: url(https://media.tenor.com/images/608824238b859247209a0738852291d6/tenor.gif);
-    background-size: cover;
-    color: transparent;
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    text-transform: uppercase;
-    font-size: 50px;
-    line-height: .75;
-    margin-top: 80px;
+.stat-list {
 
 }
-/* styling my button */
 
-.white-mode {
-    text-decoration: none;
-    padding: 7px 10px;
-    background-color: #122;
-    border-radius: 3px;
-    color: #FFF;
-    -webkit-transition: .35s ease-in-out;
-    transition: .35s ease-in-out;
-    position: absolute;
-    left: 15px;
-    bottom: 15px;
-    font-family: "Montserrat";
+.stat {
+    margin: 5rem .5rem;
+    float: left;
+    font-size: 1.5rem;
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    border: 6px solid #16a085;
+    border-radius: 15px;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+@keyframes fade-in {
+    from {opacity:0;}
+    to {opacity:1;}
+  }
+
+  @keyframes bg-fade {
+    from {background:transparent;}
+    to {background:white;}
+  }
+
+.stat h2 {
+    color: #16a085;
+    text-align: center;
+    padding: 1.25rem 1rem 0 1rem;
+    margin: .5rem 1rem 0 1rem;
+    font-size: 3em;
+    overflow-wrap: break-word;
 }
 
-.white-mode:hover {
-    background-color: #FFF;
-    color: #122;
+h2:nth-of-type(even) {
+    color: red;
 }
 
+.stat p {
+    color: #3e4c5a;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 1rem;
+    line-height: 1.2em;
 
-#bar{
-  opacity:1;
-  width:65%;
-  height:43px;
-  border:0;
-  box-shadow:inset 0 0 2px 1px blackr;
-  font-size:$form-font-size;
-  padding-left:20px;
 }
 
+.stat-item {}
 
-
+.stats-input{
+    color: blue;
+}
 
 
 
@@ -233,99 +291,94 @@ h3 {
 </style>
 
 
-<div id="home" style="background: url('/static/images/1.gif');background-size: cover;">
-    <div class="title">
-        <h3>ART AUCTION</h3>
 
-    </div>
-    <br>
+<div style="background: url('/static/images/1.gif');background-size: cover;">
     
-    <div class="card">
-
-        <img src="/static/images/ev2.png" alt="Paris">
-        <div class="con-text">
-
-            <h2 style="margin-top: 2px">Athena</h2>
-            <p>
-                Athena was known for her ferocity in battle but unlike Ares, she never displayed hotheadedness and
-                always believed in fighting for justice and righteousness. She only took part in wars that were fought
-                in self-defense. She was the divine personification of reasoning, wisdom, and knowledge. No wonder she
-                was Zeus’ favorite child and was even allowed to use his powerful thunderbolt whenever the need arose.
-                The sheer scale of influence she had over the mortal world is evident from the fact that the city of
-                Athens took its name after her.
-            </p>
-        </div>
-    </div>
-    <div id="time">
-        <div class="frame">Days</div>
-        <div class="frame">Hours</div>
-        <div class="frame">Mins</div>
-        <div class="frame">Sec</div>
-    </div>
-    <div id="clock">
-        <div class="number">
-            <div>0</div>
-        </div>
-        <div class="number">
-            <div>0</div>
-        </div>
-        <div class="number">
-            <div>:</div>
-        </div>
-        <div class="number">
-            <div>0</div>
-        </div>
-        <div class="number">
-            <div>0</div>
-        </div>
-        <div class="number">
-            <div>:</div>
-        </div>
-        <div class="number">
-            <div>0</div>
-        </div>
-        <div class="number">
-            <div>0</div>
-        </div>
-        <div class="number">
-            <div>:</div>
-        </div>
-        <div class="number">
-            <div>0</div>
-        </div>
-        <div class="number">
-            <div>0</div>
-        </div>
-
-    </div>
-
-
-    <form method="post">
-        {% csrf_token%}
         <div class="row">
-            <div class="col-md-4">
-                <p>Value Rs.  <input type="text" name="ogval" value="12000" id="ogval bar"></p>               
+            <div class="column">
+                <br><br>
+                <h1 style="margin-left: 5em; font-family: 'Poppins', sans-serif;">AUCTION </h1>
+                <br>
+                <div class="card" >
+                    <img src="/static/images/ev2.png" alt="Paris" class="pic">
+                    <div class="con-text">
+                        <h2 style="margin-top: 2px ">Athena</h2>
+                        <p style="font-family: 'Poppins', sans-serif;">
+                            Athena was known for her ferocity in battle but unlike Ares, she never displayed hotheadedness and always believed in fighting for justice and righteousness. She only took part in wars that were fought in self-defense. She was the divine personification of reasoning, wisdom, and knowledge. No wonder she was Zeus’ favorite child and was even allowed to use his powerful thunderbolt whenever the need arose. The sheer scale of influence she had over the mortal world is evident from the fact that the city of Athens took its name after her.
+                        </p>
+                    </div>
+               </div>
+               <div id="time" class="row">
+                    <div class="frame">Days</div>
+                    <div class="frame">Hours</div>
+                    <div class="frame">Mins</div>
+                    <div class="frame">Sec</div>
+                </div>   
+                <br>
+                <div id="clock" class="row">
+                    <div class="number"><div>0</div></div>
+                    <div class="number"><div>0</div></div>
+                    <div class="number"><div>:</div></div>
+                    <div class="number"><div>0</div></div>
+                    <div class="number"><div>0</div></div>
+                    <div class="number"><div>:</div></div>
+                    <div class="number"><div>0</div></div>
+                    <div class="number"><div>0</div></div>
+                    <div class="number"><div>:</div></div>
+                    <div class="number"><div>0</div></div>
+                    <div class="number"><div>0</div></div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <input type="hidden" name="username" id="username" value="{{ request.user }}">
-                <input type="text" id="bid" placeholder="Enter your bidding value..." name="bid" required>
-            </div>
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-warning" onclick="bidchecker()">Bid</button>
+            
+            <div class="column" style="text-align: center;">
+                
+                    <header>
+                        <h1 style="font-family: 'Poppins', sans-serif; margin-left: 1em;">Bidding Policy</h1>
+                        <br><br>
+                        <p class="description" style="font-family: 'Poppins', sans-serif; margin-left: 3em; font-weight: bold; font-size: 18px;">The last bid will be displayed on the 1st box <br>Enter the new amount in the second box <br>Click Place bif after making your offer. </p>
+                    </header>
+                    <form  method="post">
+                         {% csrf_token%}
+                        <ul class="input-list">
+                            <li><input type="text" name="ogval" value="12000" id="ogval" class="stat-input" style="color: #FFFFFF; font-family: Verdana; font-size: 20px; background-color: #f2d9ff;" size="10" maxlength="30"></li>
+                            <li><input type="hidden" name="username" id="username" value="{{ request.user }}"></li>
+                            <li><input type="hidden" name="email" id="email" value="{{ request.user.email }}"></li>
+                            <li><span  id="slit"> <input type="text" class="stat-input2" value="{{ cbid }}" style="color: #FFFFFF; font-family: Verdana; font-size: 20px; background-color: #f2d9ff;" size="10" maxlength="30"></span></li>
+                            <li><input type="text"  id="bid" placeholder="Enter your bidding value..." name="bid" required class="stat-input" style="color: #FFFFFF; font-family: Verdana; font-size: 20px; background-color: #f2d9ff;" size="10" maxlength="30"></li>
+                            <li>
+                                <button  type="submit" class="stat-button" onclick="bidchecker()">PLACE BID<!--<i class="fas fa-plus"></i>-->
+                                </button>
+                            </li>
+                        </ul>
+                    </form>
+
+                <div class="stat-container">
+                <div class="stat-list">
+                </div>
+                </div>
             </div>
         </div>
-
-
-    </form>
-
-
+    </div>
+            
 </div>
+
+
+
+
 
 
 {% endblock %}
 {% block js %}
 
 <script>
+let beech = document.getElementById("slit").textContent
+let re = beech.match(/\d+/g)
+let set = re[0]
+document.getElementById("slit").innerHTML = re[0];
+
+
+
+
      var countDownDate = new Date(
   "Oct 5, 2020 15:37:25"
 ).getTime(); /* event started date and time  */
@@ -381,12 +434,13 @@ function animate(index, number) {
 }
 
 
+
 function bidchecker() {
     var value1;
     var value2;
 
   value1 = document.getElementById("ogval").value;
-  
+
   value2 =  document.getElementById("bid").value;
 
   value1 = parseFloat(value1);
@@ -396,9 +450,9 @@ function bidchecker() {
     console.log(value1)
 
 
-  if (value1 < value2) { 
-   alert("Thankyou"); 
-} else {  
+  if (value1 < value2) {
+   alert("Thankyou");
+} else {
     alert("Please enter appropriate bidding value");
       }
 
@@ -406,9 +460,6 @@ function bidchecker() {
 
 
 }
-
-
-
 
 
 

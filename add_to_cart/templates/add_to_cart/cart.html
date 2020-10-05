@@ -488,17 +488,12 @@ console.log(demn);
 console.log(shit);
 sum = 0;
 totalPrice = 0;
-if ($.isEmptyObject(demn)) {
-  mystr = `<h4> Your cart is empty </h4>`
+if ($.isEmptyObject(demn || shit)) {
+  mystr = `<h4 id="so"> Your cart is empty </h4>`
   $('#items').append(mystr);
 
 }
 
-if ($.isEmptyObject(shit)) {
-  mystr = `<h4> Your cart is empty </h4>`
-  $('#items').append(mystr);
-
-}
 else {
 
 

@@ -1,5 +1,8 @@
+from django.core.mail.backends import console
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views.decorators.csrf import csrf_protect
+
 from dynamicnav.models import AbstractPainting, WildlifePainting
 from forposters.models import ShowPosters
 from frames.models import TableTop
@@ -15,10 +18,8 @@ def about(request):
     return render(request, 'aboutus.html')
 
 
-
 def privacy(request):
     return render(request, 'privacy.html')
-
 
 
 def home(request):
@@ -36,3 +37,17 @@ def home(request):
     return render(request, 'index.html', dict)
 
 
+# @csrf_protect
+def check(request):
+    if request.method == "POST":
+        filter_price1 = request.POST.get("min_price", "")
+        filter_price2 = request.POST.get("max_price", "")
+        print(filter_price1)
+        print(filter_price2)
+
+        # if filter_price1 == '':
+        #     filter_price1 = 0
+        # if filter_price2 == '':
+        #     filter_price2 = 20000
+        # my_paintings = AbstractPainting.objects.filter(price__range=(filter_price1, filter_price2))
+    return render(request, "index.html")

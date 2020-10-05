@@ -91,10 +91,6 @@ function carousel(root) {
 <style>
 
 
-body {
-  background: red;
-}
-
 .forget_pwd{
   display:inline-block;
   width:100%;
@@ -166,6 +162,7 @@ body {
   height: 100vh;
   width: 100%;
   padding-top: 120px;
+  margin-top: 30px;
 }
 
 .container {
@@ -468,9 +465,6 @@ body {
 }
 
 
-
-
-
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -508,7 +502,7 @@ body {
 </style>
 
 
-<div class="carousel1" data-gap="20" style=" padding-top: 80px; padding-bottom: 20px; background-color: white;">
+  <div class="carousel1" data-gap="20" style=" margin-top: 80px; padding-bottom: 20px; background-color: white; " >
     <figure>
         <img src="{% static 'images/10.jfif' %}" alt="" height="400">
         <img src="{% static 'images/2.jfif' %}" alt="" height="400">
@@ -588,33 +582,42 @@ body {
     </div>
     <br>
     <br>
-    <br>
-    <br>
 
 
-        <div class="jumbotron">
-            <center>
-                  <h1>Choose your price range</h1>
-                <br>
-                <br>
+<!--        <div class="jumbotron">-->
+<!--            <center>-->
+<!--                  <h1>Choose your price range</h1>-->
+<!--                <br>-->
+<!--                <br>-->
 
-<!--                <div class="row">-->
-<!--  <div class="col-md-3">  <button  type="button" class="btn btn-info"><select data-model-name="min-price" >400</select>- <select data-model-name="max-price">1000</select></button></div>-->
-<!--  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">1000</select>- <select data-model-name="max-price">5000</select></button></div>-->
-<!--  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">5000</select> -<select data-model-name="max-price">10000</select></button></div>-->
-<!--  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">10000</select>- <select data-model-name="max-price">20000</select></button></div>-->
-<!--</div>-->
-                <form action="" method="post">
-                    {% csrf_token %}
-                <input type="text" name="min_price" maxlength="10" size="10" >
-to <input type="text" name="max_price" maxlength="10" size="10">
-<button type="submit"></button>
-                    </form>
-
-            </center>
+<!--&lt;!&ndash;                <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="col-md-3">  <button  type="button" class="btn btn-info"><select data-model-name="min-price" >400</select>- <select data-model-name="max-price">1000</select></button></div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">1000</select>- <select data-model-name="max-price">5000</select></button></div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">5000</select> -<select data-model-name="max-price">10000</select></button></div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="col-md-3">  <button type="button" class="btn btn-info"><select data-model-name="min-price">10000</select>- <select data-model-name="max-price">20000</select></button></div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<form action="" method="POST">-->
+<!--  {% csrf_token %}-->
+<!--  -->
 
 
-    </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md-4">-->
+<!--                <p>min range: <input type="text" name="min_price"  id="min_price"></p>-->
+<!--            </div>-->
+<!--            <div class="col-md-4">-->
+<!--                <input type="text" name="max_price"  id="max_price" required>-->
+<!--            </div>-->
+<!--            <div class="col-md-4">-->
+<!--                <button type="submit" class="btn btn-warning" onclick="ranger()">check</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--  -->
+<!--</form>-->
+<!--            </center>-->
+
+
+<!--    </div>-->
 
     <div style="width: 50%; float: left; padding-left: 50px;">
         <p style="font-family: 'Noto Serif', serif; font-size: 28px;">Photographs</p>
@@ -881,4 +884,27 @@ to <input type="text" name="max_price" maxlength="10" size="10">
 
 
 </footer>
+  
+
+
+{% endblock %}
+{% block js %}
+
+<script>
+
+function ranger() {
+    var value1;
+    var value2;
+
+  value1 = document.getElementById("min_price").value;
+
+  value2 =  document.getElementById("max_price").value;
+
+  value1 = parseFloat(value1);
+  value2 = parseFloat(value2);
+
+    console.log(value2)
+    console.log(value1)
+}
+</script>
 {% endblock %}

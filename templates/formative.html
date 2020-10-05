@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+{% block head %}
 <head>
-    {% block head %}
+
     <meta charset="UTF-8">
     <title>Main</title>
-    <link rel="icon" href="/static/images/icon.ico" type = "image/x-icon">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" href="/static/images/icon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{% static 'master.css' %}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+   
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@2/dist/flickity.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
@@ -32,39 +29,34 @@
 
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kanit:200,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 
     <style>
+    	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+    body{
+    font-family:"Poppins", sans-serif !important;
+    }
 
     #mc_embed_signup{
     background:#fff;
     font:14px Helvetica,Arial,sans-serif;
     width:100%;
     }
-
-        .navbar{
-         box-shadow: 0 0 1px #333;
-  border-style: none;
-  background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%);
-  color: white;
-  opacity: 0.95;
-  height: 40px;
-  margin: 0;
-  padding: 0;
-        }
-
-        @media all and (max-width: 968px) {
-  .navbar{background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%); color: black;}
-  .navbar .nav-item .dropdown-menu{ display: none; }
-  .navbar .nav-item .dropdown-menu{ margin-top:0 }
-}
 
 
 
@@ -81,132 +73,98 @@
         }
 
 
-
     </style>
-
+  
 </head>
 {% endblock %}
 <body style="background-color:#fafafa">
-<nav class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'firsthello:home' %}"><p style="padding-right: 20px; font-family: 'Pacifico', cursive; color: white;">The Artisan</p></a>
-        </div>
 
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="{% url 'firsthello:home' %}"><p style="color: white;">Home <span class="sr-only">(current)</span></p></a></li>
-
-                <li class="nav-item dropdown">
-                    <p style="color: white; padding-top:15px; padding-right: 15px;">Paintings <span class="caret"></span></p>
-                    <ul class="dropdown-menu">
-                        <li style="text-color: white;"><a href="{% url 'dynamicnav:dyna' %}">Abstract</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'dynamicnav:wildlifepaintings' %}">Wildlife</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'dynamicnav:pastelpaintings' %}">Pastel</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'dynamicnav:inkpaintings' %}">Ink</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <p style="color: white; padding-top:15px; padding-right: 15px;">Photographs <span class="caret"></span></p>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'photographs:Architectural' %}">Architectural</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'photographs:Aerial' %}">Aerial</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'photographs:Fashion' %}">Fashion</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'photographs:Fineart' %}">Fine Art</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'photographs:Portraits' %}">Portraits</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <p style="color: white; padding-top:15px; padding-right: 15px;">Posters<span class="caret"></span></p>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'forposters:corporatePosters' %}">Corporate</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'forposters:campaignPosters' %}">Campaign</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'forposters:politicalPosters' %}">Political</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'forposters:showPosters' %}">Show</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <p style="color: white; padding-top:15px; padding-right: 15px;">Frames<span class="caret"></span></p>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'frames:DeepSet1' %}">Deep Set</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'frames:Floating1' %}">Floating</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'frames:Gallery1' %}">Gallery</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'frames:Modern1' %}">Modern</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'frames:TableTop1' %}">TableTop</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-
-            <form class="navbar-form navbar-left" style="padding-left: 130px;">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
-            {% if user.is_authenticated %}
-            <ul class="nav navbar-nav navbar-right">
-
-
-                <li><button id="popcart" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="">
-  <span class="glyphicon glyphicon-shopping-cart"></span> Cart (<span id="demn">0</span>)</button></li>
-
-
-                <li class="nav-item dropdown">
-                    <p style="color: white; padding-top:15px; padding-right: 15px;"><span class="glyphicon glyphicon-user"></span> Profile<span class="caret"></span></p>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Hello,  {{ request.user }}</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'accounts:account' %}">Your Account</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
-
-
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'acount:logout' %}"><span class="glyphicon glyphicon-off"></span>  Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            {% else %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'accounts:login' %}" style="text-decoration: none; color: white;"> Login</a></li>
-                <li><a href="{% url 'accounts:register' %}" style="text-decoration: none; color: white;"> Sign Up</a></li>
-            </ul>
-            {% endif %}
-        </div><!-- /.navbar-collapse -->
+<nav class="navbar navbar-inverse  navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'firsthello:home' %}">The Artisan</a>
     </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'firsthello:home' %}">Home</a>
+        
+      </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Painting <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'dynamicnav:dyna' %}">Abstract</a></li>
+          <li><a href="{% url 'dynamicnav:wildlifepaintings' %}">Wildlife</a></li>
+          <li><a href="{% url 'dynamicnav:pastelpaintings' %}">Pastel</a></li>
+          <li><a href="{% url 'dynamicnav:inkpaintings' %}">Ink</a></li>
+        </ul>
+      </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Photograph <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'photographs:Architectural' %}">Abstract</a></li>
+          <li><a href="{% url 'photographs:Aerial' %}">Aerial</a></li>
+          <li><a href="{% url 'photographs:Fashion' %}">Fashion</a></li>
+          <li><a href="{% url 'photographs:Fineart' %}">Fineart</a></li>
+          <li><a href="{% url 'photographs:Portraits' %}">Portraits</a></li>
+        </ul>
+      </li>
+
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Posters <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'forposters:corporatePosters' %}">Corporate</a></li>
+          <li><a href="{% url 'forposters:campaignPosters' %}">Campaign</a></li>
+          <li><a href="{% url 'forposters:politicalPosters' %}">Political</a></li>
+          <li><a href="{% url 'forposters:showPosters' %}">Show</a></li>
+        </ul>
+      </li>
+
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Frames <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'frames:DeepSet1' %}">Deep Set</a></li>
+          <li><a href="{% url 'frames:Floating1' %}">Floating1</a></li>
+          <li><a href="{% url 'frames:Gallery1' %}">Gallery1</a></li>
+          <li><a href="{% url 'frames:Modern1' %}">Modern1</a></li>
+        </ul>
+      </li>
+
+       <form class="navbar-form navbar-left" >
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+                {% if user.is_authenticated %}
+
+                <li style="padding-left: 150px;">
+                    <button id="popcart" type="button" class="btn btn-default" data-container="body"
+                            data-toggle="popover" data-placement="bottom" data-html="true" data-content="">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Cart (<span id="demn">0</span>)
+                    </button>
+                </li>
+
+
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Profile<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Hello, {{ request.user }}</a></li>
+          <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
+          <li><a href="{% url 'edit' %}">Edit Profile</a></li>
+          <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+        </ul>
+      </li>
+
+              
+
+                {% else %}
+                <li style="padding-left: 390px;">
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+
+                {% endif %}
+
+
+
+      
+    </ul>
+  </div>
 </nav>
-
-
-
+  
 
 {% block body_block %}
 {% endblock %}
@@ -302,6 +260,7 @@ for (item in shit) {
 
 
  document.getElementById('demn').innerHTML = sum;
+
 
 </script>
 

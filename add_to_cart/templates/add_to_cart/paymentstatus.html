@@ -330,10 +330,8 @@ p.error {
 					<th style="background-color: #928989; color; white;">Price</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="items">
 
-
-		            	<tr ng-repeat-end="" id="items"></tr>
 
 
 			</tbody>
@@ -426,19 +424,6 @@ console.log(demn);
 console.log(shit);
 sum = 0;
 totalPrice = 0;
-if ($.isEmptyObject(demn||shit)) {
-  mystr = `<h4> Your cart is empty </h4>`
-  $('#items').append(mystr);
-
-}
-
-<!--if ($.isEmptyObject(shit)) {-->
-<!--  mystr = `<h4> Your cart is empty </h4>`-->
-<!--  $('#items').append(mystr);-->
-
-<!--}-->
-else {
-
 
 for (item in demn) {
 
@@ -448,9 +433,9 @@ for (item in demn) {
   sum = sum + qty;
   totalPrice = totalPrice + qty * itemPrice;
   totalPricelast = totalPrice + 55
-  mystr = `<td>
-      ${name}</td> <td> ${itemPrice}</td>
-     <td> ${qty}</td>`
+  mystr = `<tr ng-repeat-end="" ><td>
+      ${name}</td> <td> ${qty}</td>
+     <td> ${totalPrice}</td></tr>`
   $('#items').append(mystr);
 
 }
@@ -472,9 +457,8 @@ for (item in shit) {
 
 }
 
-}
-
-
+let x = document.querySelector("h4").innerHTML;
+console.log(x)
 
 </script>
 
