@@ -87,6 +87,20 @@
 </head>
 {% endblock %}
 <body style="background-color:#fafafa">
+
+
+ <div id="header">
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li class="{{ message.tags }}">
+              {{ message|safe }}
+              <a href="#" class="close">x</a>
+          </li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -171,7 +185,7 @@
                 </div>
                 <button type="submit" class="btn btn-default">Search</button>
             </form>
-            {% if user.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <ul class="nav navbar-nav navbar-right">
 
 
@@ -182,24 +196,22 @@
                 <li class="nav-item dropdown">
                     <p style="color: white; padding-top:15px; padding-right: 15px;"><span class="glyphicon glyphicon-user"></span> Profile<span class="caret"></span></p>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Hello,  {{ request.user }}</a></li>
+                        Hello {{ request.user.first_name }}
+                         <a href="{% url "logout" %}">Logout</a>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'accounts:account' %}">Your Account</a></li>
+
                         <li role="separator" class="divider"></li>
                         <li><a href="{% url 'add_to_cart:yourorders' %}">Your Orders</a></li>
 
 
                         <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'acount:logout' %}"><span class="glyphicon glyphicon-off"></span>  Logout</a></li>
+                        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span>  Logout</a></li>
                     </ul>
                 </li>
             </ul>
 
             {% else %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'accounts:login' %}" style="text-decoration: none; color: white;"> Login</a></li>
-                <li><a href="{% url 'accounts:register' %}" style="text-decoration: none; color: white;"> Sign Up</a></li>
-            </ul>
+                <a href="{% url 'login' %}">Log-In</a>
             {% endif %}
         </div><!-- /.navbar-collapse -->
     </div>

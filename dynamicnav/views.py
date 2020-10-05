@@ -6,7 +6,7 @@ from .models import AbstractPainting, WildlifePainting, PastelPainting, InkPaint
 
 def dyna(request):
     painting = AbstractPainting.objects.all()
-    return render(request, "base.html", {"painting": painting})
+    return render(request, "basic.html", {"painting": painting})
 
 
 def wildlifepaintings(request):

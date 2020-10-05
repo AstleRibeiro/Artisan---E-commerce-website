@@ -34,7 +34,7 @@ MERCHANT_KEY = 'AE#KdScA6nKrrthk'
 #
 #         AbstractPainting.objects.filter(painting_id=i_id).first()
 #         painting = AbstractPainting.objects.all()
-#         return render(request, "base.html", {'painting': painting})
+#         return render(request, "basic.html", {'painting': painting})
 #
 #     pl = AddToCart.objects.filter(user=request.user)
 #     ids = []

@@ -29,11 +29,12 @@ urlpatterns = [
     path('deepset/', include('frames.urls')),
     path('contactus/', include('contactus.urls')),
     path('add_to_cart/', include('add_to_cart.urls', namespace='add_to_cart')),
-    path('accounts/', include('acount.urls', namespace='accounts')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('acount/', include('acount.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
     # path('thanks/', views.Thankspage.as_view(), name='thanks'),
-    path('accounts/', include('allauth.urls')),
+    # path('accounts/', include('allauth.urls')),
     path('auction/', include('auction.urls')),
+    path('social-auth/', include('social_django.urls',namespace='social')),
 
     # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     path('password_change/done/',
