@@ -8,12 +8,12 @@ from django.views.decorators.csrf import csrf_exempt
 from PayTm import Checksum
 from dynamicnav.models import AbstractPainting
 from django.db.models import Case, When
-from .models import Orders, OrderUpdate
+from .models import Order, OrderUpdate
 import json
+import razorpay
 
 
-MERCHANT_KEY = 'AE#KdScA6nKrrthk'
-
+# MERCHANT_KEY = 'AE#KdScA6nKrrthk'
 
 
 #
@@ -48,72 +48,74 @@ MERCHANT_KEY = 'AE#KdScA6nKrrthk'
 
 def cart(request):
     if request.method == 'POST':
-        items_json = request.POST.get('itemsJson', '')
-        first_name = request.POST.get('first_name', '')
-        amount = request.POST.get('amount', '')
-        last_name = request.POST.get('last_name', '')
-        email = request.POST.get('email', '')
-        address = request.POST.get('address', '')
-        city = request.POST.get('city', '')
-        state = request.POST.get('state', '')
-        zip_code = request.POST.get('zip_code', '')
-        phone = request.POST.get('phone', '')
+        items_json = request.POST.get('itemsJson')
+        first_name = request.POST.get('first_name')
+        print(items_json)
+        amount = 400
+        print(amount)
 
-        order = Orders(items_json=items_json, first_name=first_name, last_name=last_name, email=email, address=address,
-                       city=city, state=state, zip_code=zip_code, phone=phone, amount=amount)
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        address = request.POST.get('address')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        zip_code = request.POST.get('zip_code')
+        print(zip_code)
+        phone = request.POST.get('phone')
+        print(first_name)
+        client = razorpay.Client(auth=("rzp_test_fbGFKVWvWz5khu", "GDQzJNZt3jq126oRSKTS7Jgf"))
+        payment = client.order.create({'amount': amount, 'currency': 'INR',
+                                       'payment_capture': '1'})
+
+        order = Order(items_json=items_json, first_name=first_name, last_name=last_name, email=email, address=address,
+                      city=city, state=state, zip_code=zip_code, phone=phone, amount=amount, order_id=payment['id'])
         order.save()
 
-        thank = True
-        update = OrderUpdate(order_id=order.order_id, update_desc="The order has been placed")
-        update.save()
-        id = order.order_id
-        # return render(request, "add_to_cart/cart.html", {'thank': thank, 'id': id})
-
-        param_dict = {
-            'MID': 'VtzYZw77873399463256',
-            'ORDER_ID': str(order.order_id),
-            'TXN_AMOUNT': str(amount),
-            'CUST_ID': email,
-            'INDUSTRY_TYPE_ID': 'Retail',
-            'WEBSITE': 'WEBSTAGING',
-            'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL': 'http://127.0.0.1:8000/add_to_cart/handlerequest/',
-        }
-        param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
-
-        return render(request, 'add_to_cart/paytm.html', {'param_dict': param_dict})
+        return render(request, 'add_to_cart/cart.html', )
 
     return render(request, "add_to_cart/cart.html")
 
 
 @csrf_exempt
 def handlerequest(request):
-    # # paytm will send you post request here
+    if request.method == "POST":
+        a = (request.POST)
+        order_id = ""
+        for key, val in a.items():
+            if key == "razorpay_order_id":
+                order_id = val
+                break
+
+        # user = Order.objects.filter(order_id=order_id).first()
+        # user.paid = True
+        # user.save()
+
+    # # # paytm will send you post request here
     form = request.POST
     response_dict = {}
     for i in form.keys():
         response_dict[i] = form[i]
-        if i == 'CHECKSUMHASH':
-            checksum = form[i]
 
-    verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
-    if verify:
-        if response_dict['RESPCODE'] == '01':
-            print('order successful')
-        else:
-            print('order was not successful because' + response_dict['RESPMSG'])
+    #
+    # verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
+    # if verify:
+    #     if response_dict['RESPCODE'] == '01':
+    #         print('order successful')
+    #     else:
+    #         print('order was not successful because' + response_dict['RESPMSG'])
 
     return render(request, "add_to_cart/paymentstatus.html", {'response': response_dict})
 
 
-
+#
+#
 def yourorders(request):
     if request.method == 'POST':
         orderId = request.POST.get('orderId', '')
         email = request.POST.get('email', '')
 
         try:
-            order = Orders.objects.filter(order_id=orderId, email=email)
+            order = Order.objects.filter(order_id=orderId, email=email)
             if len(order) > 0:
                 update = OrderUpdate.objects.filter(order_id=orderId)
                 updates = []
