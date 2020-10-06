@@ -7,10 +7,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+ <title>The Artisan</title>
+    <link rel="icon" href="/static/images/icon.ico" type="image/x-icon">
+
+
 <style>
      @import url(http://fonts.googleapis.com/css?family=Muli);
 
-
+   .navbar{
+         box-shadow: 0 0 1px #333;
+  border-style: none;
+  background: linear-gradient(180deg, #4B48ED 0%,#0078a8 100%);
+  color: white;
+  opacity: 0.95;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+        }
 
 
 h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
@@ -57,7 +70,6 @@ input[type=submit], a.button {
     font-weight:bold;
     background:#12c064;
     color:#fff;
-    padding:10px 20px;
     font-size:14px;
     text-transform:uppercase;
 }
@@ -80,12 +92,7 @@ input[type=submit], a.button {
 .social li.twitter { background:#00cffa; }
 .social li.google { background:#de1710; }
 
-.helptext {
-    margin:0 0 20px 0;
-    color:#aaa;
-    clear:both;
-    font-size:13px;
-}
+
 
 </style>
 {% endblock %}
@@ -93,6 +100,9 @@ input[type=submit], a.button {
 
 {% block body_block %}
 <center>
+     <br>
+  <br>
+  <br>
     <h1>Create an account</h1>
 <p>Please, Sign Up Using the following Form:</p>
 <form method="post">

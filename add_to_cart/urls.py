@@ -8,7 +8,8 @@ app_name = 'add_to_cart'
 urlpatterns = [
     path('add_to_cart/', views.cart, name='add_to_cart'),
     path('yourorders/', views.yourorders, name='yourorders'),
-    path('handlerequest/', views.handlerequest, name='HandleRequest'),
+    path('paymentstatus/', views.handlerequest, name='paymentstatus'),
+
 
 
 ]

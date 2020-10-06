@@ -192,6 +192,11 @@ body {
     grid-template-columns: 1fr;
     margin: 50px 30px;
   }
+
+  .carousel-cell {
+    width: 50%;
+
+  }
 }
 
 .card {
@@ -528,7 +533,7 @@ body {
         <div style="padding-left: 100px;" class="header-container"><img class="header__logo" id="logo"
                                                                         src="{% static 'images/logo2.png' %}"
                                                                         alt="Logo de Feinkoch">
-            <h3 style="margin-right: 300px;"><a href="{% url 'madhubani:madhubani' %}">To Check out out Madhubani
+            <h3 style="margin-right: 200px;"><a href="{% url 'madhubani:madhubani' %}">To Check out out Madhubani
                 collection, Click here.</a></h3></div>
     </div>
 
@@ -635,8 +640,8 @@ body {
     <!-- Flickity HTML init -->
     <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
         <div class="carousel" data-flickity='{ "groupCells": true }'>
-            {% for i in wild_painting %}
-            <a href="/dyna/wildlife_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
+            {% for i in archi %}
+            <a href="/architectural/architectural_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
                 <div class="carousel-cell">
                     <div class='card'>
                         <div class='card-content'>
@@ -757,7 +762,7 @@ body {
     <!-- Flickity HTML init -->
     <div style="background-color:#f2f2f2; margin-top: -20px; padding-top: 20px; padding-bottom: 60px; width: 96%; margin-left:27px; padding-left:0; padding-right:0;">
         <div class="carousel" data-flickity='{ "groupCells": true }'>
-            {% for i in tableframe %}
+            {% for i in floatingframe %}
             <a href="/deepset/table_description/{{i.painting_id}}" style="text-decoration:none; color: black;">
                 <div class="carousel-cell">
                     <div class='card'>

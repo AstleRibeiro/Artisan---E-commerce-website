@@ -32,17 +32,11 @@ def Sports(request):
     return render(request, "sports.html", {"sports": sports})
 
 
-
 def aerial_description(request, id):
     aerialphoto = AerialPhoto.objects.filter(painting_id=id).first()
+    return render(request, "aerial_description.html", {"aerialphoto": aerialphoto})
+
+
+def architectural_description(request, id):
     architecturalphoto = ArchitecturalPhoto.objects.filter(painting_id=id).first()
-
-    dict = {
-        "aerialphoto": aerialphoto,
-        "architecturalphoto": architecturalphoto,
-    }
-    return render(request, "aerial_description.html", dict)
-
-
-
-
+    return render(request, "architectural_description.html", {"architecturalphoto": architecturalphoto})

@@ -280,13 +280,14 @@ form ul input[type="submit"] {
 
 {% block body_block %}
 
-<div class="row">
-  <div class="col-md-6">
-      <div id="right">
+{% if not payment %}
+
+
+
 
         <div id="feedback-form">
         <h3 class="sectionHead">Shipping Information</h3>
-        <div>
+
           <form  method="post" action="/add_to_cart/add_to_cart/">
             {% csrf_token %}
       <input type="hidden" name="itemsJson" id="itemsJson">
@@ -343,16 +344,38 @@ form ul input[type="submit"] {
       </li>
              </ul>
 
-
-            <button type="submit" class="btn btn-primary">Place Order</button>
+<!--            <button type="submit" class="btn btn-primary">Place Order</button>-->
            </form>
+
+
+
+             <div class="container mx-auto text-center mt-4" v-if="first_name && amount">
+
+            <form action="/add_to_cart/paymentstatus/" method="POST">
+                <script
+                    src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key="rzp_test_fbGFKVWvWz5khu"
+                    data-currency="INR"
+                    data-order_id="{{ payment.id }}"
+                    data-buttontext="Pay Now"
+                    data-name="Artisan"
+                    data-description="Thankyou for buying."
+                    data-image="https://example.com/your_logo.jpg"
+                    data-prefill.name="Astle"
+
+                    data-theme.color="#F37254"
+                ></script>
+                <input type="hidden" custom="Hidden Element" name="hidden">
+                </form>
+            </div>
+
+
+
+
+
         </div>
-      </div>
-
-      </div>
 
 
-    </div>
 
 
 
@@ -401,49 +424,18 @@ form ul input[type="submit"] {
 
 
       </div>
-
-
-    </div>
-
-</div>
-
+      </div>
+      </div>
+      </div>
 
 
 
 
-<!-- <div >
-{% if painting|length < 1 %}
-    <h4 class="jumbotron" style="margin-top:50px; text-align: center; " > ○ You have not added any product into your cart</h4>
-{% else %}
-        <h4 class="jumbotron" style="margin-top:50px; text-align: center; "> ○ Items that you have added to your cart</h4>
 {% endif %}
-</div>
- -->
-
-<!--
-{% for i in painting %}
-<div class="row">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-2">
-        <img src="/media/{{i.image}}" alt="The image cannot be displayed" width="150px" style="margin-left: 20px;">
-    </div>
-    <div class="col-md-6">
-        <h1><b>{{i.name}}</b></h1>
-        <h5><b>{{i.artist}}</b> </h5>
-        <button  class="btn btn-danger btn-sm" type="submit" >Remove</button>
-    </div>
-    <div class="col-md-2">
-        <h4 class="new" style="margin-top:20px;">Rs. {{i.price}}</h4>
-    </div>
-</div>
-   <hr> -->
-<!-- {% endfor %}
- -->
-
 
 
 {% endblock %}
+
 
 
 
@@ -489,7 +481,7 @@ console.log(shit);
 sum = 0;
 totalPrice = 0;
 if ($.isEmptyObject(demn || shit)) {
-  mystr = `<h4 id="so"> Your cart is empty </h4>`
+  mystr = ``
   $('#items').append(mystr);
 
 }
@@ -503,6 +495,14 @@ for (item in demn) {
   let qty = demn[item][0];
   let itemPrice = demn[item][2];
   sum = sum + qty;
+
+
+
+
+
+
+
+
   totalPrice = totalPrice + qty * itemPrice;
   totalPricelast = totalPrice + 55
   mystr = `<li  class="list-group-item d-flex justify-content-between align-items-center">
@@ -528,6 +528,8 @@ for (item in shit) {
       <span class="badge badge-primary badge-pill">${qty}</span>
   </li>`
   $('#items').append(mystr);
+  document.getElementById('amount').innerHTML = totalPricelast
+
 
 }
 
@@ -547,7 +549,7 @@ for (item in shit) {
 
  {% endif %}
 
- $('#amount').val($('#totalPricelast').html())
+
 
 </script>
 

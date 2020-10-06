@@ -180,8 +180,10 @@ AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
 SOCIAL_AUTH_FACEBOOK_KEY = '349467982893410'
 SOCIAL_AUTH_FACEBOOK_SECRET = '*******************************'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '538129904******************175nob0ijj7tlvbftaom6cglh.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '****************************'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '741744562505-4ajed3ktrfcjprr9cko28to33or2p324.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '0T9e-s5lFBedvUyaJPdtRLA4'
+
+
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/home'
 LOGIN_URL = 'login'

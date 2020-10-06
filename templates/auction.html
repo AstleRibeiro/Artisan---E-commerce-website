@@ -334,21 +334,21 @@ h2:nth-of-type(even) {
                 
                     <header>
                         <h1 style="font-family: 'Poppins', sans-serif; margin-left: 1em;">Bidding Policy</h1>
-                        <br><br>
-                        <p class="description" style="font-family: 'Poppins', sans-serif; margin-left: 3em; font-weight: bold; font-size: 18px;">The last bid will be displayed on the 1st box <br>Enter the new amount in the second box <br>Click Place bif after making your offer. </p>
+
                     </header>
                     <form  method="post">
                          {% csrf_token%}
                         <ul class="input-list">
-                            <li><input type="text" name="ogval" value="12000" id="ogval" class="stat-input" style="color: #FFFFFF; font-family: Verdana; font-size: 20px; background-color: #f2d9ff;" size="10" maxlength="30"></li>
-                            <li><input type="hidden" name="username" id="username" value="{{ request.user }}"></li>
-                            <li><input type="hidden" name="email" id="email" value="{{ request.user.email }}"></li>
-                            <li><span  id="slit"> <input type="text" class="stat-input2" value="{{ cbid }}" style="color: #FFFFFF; font-family: Verdana; font-size: 20px; background-color: #f2d9ff;" size="10" maxlength="30"></span></li>
-                            <li><input type="text"  id="bid" placeholder="Enter your bidding value..." name="bid" required class="stat-input" style="color: #FFFFFF; font-family: Verdana; font-size: 20px; background-color: #f2d9ff;" size="10" maxlength="30"></li>
+                            <li>Starting Bid: Rs.<span id="ogval"> 12000</span></li>
+                            <input type="hidden" name="username" id="username" value="{{ request.user }}">
+                            <input type="hidden" name="email" id="email" value="{{ request.user.email }}">
+                            <li>Current value: Rs.<span id="slit">{{ cbid }}</span></li>
+                            <li><input type="text"  id="bid" placeholder="Enter your bidding value..." name="bid" required class="stat-input" style="color: #FFFFFF; font-family: Verdana; font-size: 14px; background-color: #f2d9ff;" size="10" maxlength="30"></li>
                             <li>
                                 <button  type="submit" class="stat-button" onclick="bidchecker()">PLACE BID<!--<i class="fas fa-plus"></i>-->
                                 </button>
                             </li>
+                            <li class="description" style="font-family: 'Poppins', sans-serif; margin-left: 3em; font-weight: bold; font-size: 14px;">A email regarding the confirmation of the bid will be sent to the registered Email-ID. </li>
                         </ul>
                     </form>
 
@@ -380,7 +380,7 @@ document.getElementById("slit").innerHTML = re[0];
 
 
      var countDownDate = new Date(
-  "Oct 5, 2020 15:37:25"
+  "Oct 6, 2020 15:37:25"
 ).getTime(); /* event started date and time  */
 var last = "00:00:00:00";
 
@@ -439,7 +439,7 @@ function bidchecker() {
     var value1;
     var value2;
 
-  value1 = document.getElementById("ogval").value;
+  value1 = 12000;
 
   value2 =  document.getElementById("bid").value;
 

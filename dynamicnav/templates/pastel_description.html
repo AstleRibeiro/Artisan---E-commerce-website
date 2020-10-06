@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "basic.html" %}
 {% load static %}
 
 {% block head %}
@@ -436,20 +436,6 @@
 }
     </style>
 
-    <script>
-      function imageZoom(imgID){
-        let img = document.getElementById(imgID)
-        let lens = document.getElementById('lens')
-
-        lens.style.backgroundImage = 'url( $(img.src) )'
-
-
-      }
-
-      imgZoom('featured')
-      
-    </script>
-
 
 </head>
 
@@ -469,10 +455,7 @@
   <div id="feedback-form">
   <div class="row">
   <div class="col-md-5 col-md-5" >
-    <div id="imgcontains">
-      <div id="lens"></div>
       <img src="/media/{{pastelpainting.image}}" height="500px" width="350px" id="featured">
-    </div>
   </div>
   <div class="col-md-7 col-xs-7">
     <div class="row">

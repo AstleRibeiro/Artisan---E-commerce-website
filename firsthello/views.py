@@ -5,7 +5,8 @@ from django.views.decorators.csrf import csrf_protect
 
 from dynamicnav.models import AbstractPainting, WildlifePainting
 from forposters.models import ShowPosters
-from frames.models import TableTop
+from frames.models import TableTop, Floating
+from photographs.models import ArchitecturalPhoto
 
 from . import forms
 
@@ -27,12 +28,16 @@ def home(request):
     wild_painting = WildlifePainting.objects.all()
     show_poster = ShowPosters.objects.all()
     tableframe = TableTop.objects.all()
+    floatingframe = Floating.objects.all()
+    archi = ArchitecturalPhoto.objects.all()
 
     dict = {
         "abs_painting": abs_painting,
         "wild_painting": wild_painting,
         "show_poster": show_poster,
         "tableframe": tableframe,
+        "floatingframe": floatingframe,
+        "archi":archi,
     }
     return render(request, 'index.html', dict)
 

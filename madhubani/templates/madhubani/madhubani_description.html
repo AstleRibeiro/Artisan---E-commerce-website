@@ -1,4 +1,4 @@
-{% extends "madhubanihome.html" %}
+{% extends "madhubani/madhubanihome.html" %}
 {% load static %}
 
 {% block head %}
@@ -39,6 +39,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <meta charset="UTF-8">
+
+     <title>The Artisan</title>
+    <link rel="icon" href="/static/images/icon.ico" type="image/x-icon">
+
     <style>
 
     body{
@@ -53,7 +57,7 @@
   height: 550px;
   margin: 0 auto;
   margin-top: 60px;
-  margin-right: 40px;
+  margin-right: 120px;
   background-color: #fcfcfc;
   padding: 20px 50px 40px;
   box-shadow: 1px 4px 10px 1px #aaa;
@@ -399,6 +403,17 @@
             outline:none;
         }
 
+  .navbar{
+         box-shadow: 0 0 1px #333;
+  border-style: none;
+  background: linear-gradient(to right, #CB356B 0%, #BD3F32  100%);
+  color: white;
+  opacity: 0.95;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+        }
+
 
 
 
@@ -414,7 +429,7 @@
   <div id="feedback-form">
   <div class="row">
   <div class="col-md-5 col-md-5" >
-    <img src="/media/{{madhubani.image}}" height="500px" width="350px">
+    <img src="/media/{{madhubanipainting.image}}" height="500px" width="350px">
   </div>
   <div class="col-md-7 col-xs-7">
     <div class="row">
