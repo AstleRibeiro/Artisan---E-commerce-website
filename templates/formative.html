@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>The Artisan</title>
+    <title>Shopping Zone</title>
     <link rel="icon" href="/static/images/icon.ico" type="image/x-icon">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -94,47 +94,39 @@
 <nav class="navbar navbar-inverse  navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'firsthello:home' %}" style="color: white;">The Artisan</a>
+      <a class="navbar-brand" href="{% url 'firsthello:home' %}" style="color: white;">Shopping Zone</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="{% url 'firsthello:home' %}" style="color: white;">Home</a>
         
       </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Painting <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Mens <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="{% url 'dynamicnav:dyna' %}">Abstract</a></li>
-          <li><a href="{% url 'dynamicnav:wildlifepaintings' %}">Wildlife</a></li>
-          <li><a href="{% url 'dynamicnav:pastelpaintings' %}">Pastel</a></li>
-          <li><a href="{% url 'dynamicnav:inkpaintings' %}">Ink</a></li>
+          <li><a href="{% url 'dynamicnav:dyna' %}">Hoodies</a></li>
+          <li><a href="{% url 'dynamicnav:wildlifepaintings' %}">Sweatshirts</a></li>
+          <li><a href="{% url 'dynamicnav:pastelpaintings' %}">Jackets</a></li>
+          <li><a href="{% url 'dynamicnav:inkpaintings' %}">Trackpants</a></li>
         </ul>
       </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Photograph <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Womens <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="{% url 'photographs:Architectural' %}">Architectural</a></li>
-          <li><a href="{% url 'photographs:Aerial' %}">Aerial</a></li>
-          <li><a href="{% url 'photographs:Fashion' %}">Fashion</a></li>
-          <li><a href="{% url 'photographs:Fineart' %}">Fineart</a></li>
-          <li><a href="{% url 'photographs:Portraits' %}">Portraits</a></li>
-        </ul>
-      </li>
-
-       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Posters <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="{% url 'forposters:corporatePosters' %}">Corporate</a></li>
-          <li><a href="{% url 'forposters:campaignPosters' %}">Campaign</a></li>
-          <li><a href="{% url 'forposters:politicalPosters' %}">Political</a></li>
-          <li><a href="{% url 'forposters:showPosters' %}">Show</a></li>
+          <li><a href="{% url 'photographs:Architectural' %}">Hoodies</a></li>
+          <li><a href="{% url 'photographs:Aerial' %}">Sweatshirts</a></li>
+          <li><a href="{% url 'photographs:Fashion' %}">Jackets</a></li>
+          <li><a href="{% url 'photographs:Fineart' %}">Trackpants</a></li>
         </ul>
       </li>
 
-       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Frames <span class="caret"></span></a>
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Kids <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="{% url 'frames:DeepSet1' %}">Deep Set</a></li>
-          <li><a href="{% url 'frames:Floating1' %}">Floating1</a></li>
-          <li><a href="{% url 'frames:Gallery1' %}">Gallery1</a></li>
-          <li><a href="{% url 'frames:Modern1' %}">Modern1</a></li>
-          <li><a href="{% url 'frames:TableTop1' %}">TableTop</a></li>
+          <li><a href="{% url 'forposters:corporatePosters' %}">Hoodies</a></li>
+          <li><a href="{% url 'forposters:campaignPosters' %}">Sweatshirts</a></li>
+          <li><a href="{% url 'forposters:politicalPosters' %}">Jackets</a></li>
+          <li><a href="{% url 'forposters:showPosters' %}">Trackpants</a></li>
         </ul>
+      </li>
+
+       <li ><a  href="{% url 'frames:DeepSet1' %}" style="color: white;">Shoes </a>
       </li>
 
        <form class="navbar-form navbar-left" >

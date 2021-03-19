@@ -14,6 +14,6 @@ urlpatterns = [
     path('wildlife_description/<int:id>', views.wildlife_description, name='wildlife_description'),
     path('ink_description/<int:id>', views.ink_description, name='ink_description'),
     path('pastel_description/<int:id>', views.pastel_description, name='pastel_description'),
-
+    path('search/', views.search, name='Search'),
 
 ]
