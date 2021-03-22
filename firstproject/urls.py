@@ -25,7 +25,7 @@ urlpatterns = [
     path('dyna/', include('dynamicnav.urls', namespace='dyna')),
     path('madhubani/', include('madhubani.urls', namespace='madhubani')),
     path('corporate/', include('forposters.urls')),
-    path('architectural/', include('photographs.urls')),
+    path('architectural/', include('photographs.urls', namespace='architectural')),
     path('deepset/', include('frames.urls')),
     path('contactus/', include('contactus.urls')),
     path('add_to_cart/', include('add_to_cart.urls', namespace='add_to_cart')),

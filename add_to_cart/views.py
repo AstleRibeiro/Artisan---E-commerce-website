@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from PayTm import Checksum
 from dynamicnav.models import AbstractPainting
 from django.db.models import Case, When
-from .models import Order, OrderUpdate
+from .models import Orders, OrderUpdate
 import json
 import razorpay
 
